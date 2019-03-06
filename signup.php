@@ -1,9 +1,8 @@
 <?php
-// 57.28
-
 // included files
 include("includes/header.php");
 include("includes/config.php");
+include("includes/functions.php");
 
 // instantiate error strings
 $first_name_status='';
@@ -30,18 +29,15 @@ $c_password='';
 
 // get strings from input fields
 if(isset($_POST['submit'])) {
-    $firstname=$_POST['fname'];
-    $lastname=$_POST['lname'];
-    $email=$_POST['mail'];
-    $address=$_POST['address'];
-    $city=$_POST['city'];
-    $state=$_POST['state'];
-    $zipcode=$_POST['zcode'];
+    $firstname=mysql_real_escape_string($_POST['fname']);
+    $lastname=mysql_real_escape_string($_POST['lname']);
+    $email=mysql_real_escape_string($_POST['mail']);
+    $address=mysql_real_escape_string($_POST['address']);
+    $city=mysql_real_escape_string($_POST['city']);
+    $state=mysql_real_escape_string($_POST['state']);
+    $zipcode=mysql_real_escape_string($_POST['zcode']);
     $password=$_POST['pass'];
     $c_password=$_POST['cpass'];
-    // echo $firstname."</br>".$lastname."</br>".$email."</br>"
-    // .$address."</br>".$city."</br>".$state."</br>".$zipcode."</br>"
-    // .$password."</br>".$c_password;
 
     // if first name field is empty
     if(empty($firstname)) {
@@ -66,6 +62,10 @@ if(isset($_POST['submit'])) {
     // if email provided is not valid
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_status="<div class='error'>Email provided is invalid.</div>";
+    }
+    // if account with email provided already exists
+    else if(email_exists($email, $con)) {
+        $email_status="<div class='error'>An account already exists with the email provided.</div>";
     }
     // if address field is empty
     else if(empty($address)) {
@@ -101,13 +101,15 @@ if(isset($_POST['submit'])) {
     }
     // if all fields are filled appropriately, insert into database
     else {
+        // encrypt the password using md5 encryption
+        $password=md5($password);
         mysqli_query($con, "INSERT INTO users
             (first_name, last_name, email, address, city, state, zip_code, password) 
             VALUES ('$firstname', '$lastname', '$email', '$address', '$city', '$state', '$zipcode', '$password')");
         $database_status="<div class='success'><center>You are successfully registered!</center></div>";
     }
 }
-?>
+ ?>
 
 <title>Registration Form</title>
 </head>
@@ -133,7 +135,7 @@ if(isset($_POST['submit'])) {
             <div class='login-form col-md-5 offset-md-4'>
                 <div class='jumbotron' style='margin-top:20px;padding-top:20px'>
                     <h3 align='center'>Registration Form</h3></br>
-                    <?php echo $successful_insertion_message; ?>
+                    <?php echo $database_status; ?>
                     <form method='post' enctype="multipart/form-data">
                     <div class='form-row'>
                         <div class='col'>
