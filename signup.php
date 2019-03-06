@@ -39,67 +39,67 @@ if(isset($_POST['submit'])) {
     $password=$_POST['pass'];
     $c_password=$_POST['cpass'];
 
-    // if first name field is empty
+    // if first name field is empty, throws error
     if(empty($firstname)) {
         $first_name_status="<div class='error'>First name field is empty.</div>";
     }
-    // if first name does not contain at least 3 characters
+    // if first name does not contain at least 3 characters, throws error
     else if(strlen($firstname)<3) {
         $first_name_status="<div class='error'>First name must contain at least 3 characters.</div>";
     }
-    // if last name field is empty
+    // if last name field is empty, throws error 
     else if(empty($lastname)) {
         $last_name_status="<div class='error'>Last name field is empty.</div>";
     }
-    // if last name does not contain at least 3 characters
+    // if last name does not contain at least 3 characters, throws error
     else if(strlen($lastname)<3) {
         $last_name_status="<div class='error'>Last name must contain at least 3 characters.</div>";
     }
-    // if email field is empty
+    // if email field is empty, throws error
     else if(empty($email)) {
         $email_status="<div class='error'>Email field is empty.</div>";
     }
-    // if email provided is not valid
+    // if email provided is not valid, throws error
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email_status="<div class='error'>Email provided is invalid.</div>";
     }
-    // if account with email provided already exists
+    // if account with email provided already exists, throws error
     else if(email_exists($email, $con)) {
         $email_status="<div class='error'>An account already exists with the email provided.</div>";
     }
-    // if address field is empty
+    // if address field is empty, throws error
     else if(empty($address)) {
         $address_status="<div class='error'>Address field is empty.</div>";
     }
-    // if city field is empty
+    // if city field is empty, throws error
     else if(empty($city)) {
         $city_status="<div class='error'>City field is empty.</div>";
     }
-    // if state field is empty
+    // if state field is empty, throws error
     else if(empty($state)) {
         $state_status="<div class='error'>State field is empty.</div>";
     }
-    // if zip code field is empty
+    // if zip code field is empty, throws error
     else if(empty($zipcode)) {
         $zip_code_status="<div class='error'>Zip code field is empty.</div>";
     }
-    // if password field is empty
+    // if password field is empty, throws error
     else if(empty($password)) {
         $password_status="<div class='error'>Password field is empty.</div>";
     }
-    // if password does not contain at least 8 characters 
+    // if password does not contain at least 8 characters, throws error
     else if(strlen($password)<8) {
         $password_status="<div class='error'>Password must contain at least 8 characters.</div>";
     }
-    // if confirm password field is empty
+    // if confirm password field is empty, throws error
     else if(empty($c_password)) {
         $c_password_status="<div class='error'>Confirm password field is empty.</div>";
     }
-    // if confirmed password does not match password
+    // if confirmed password does not match password, throws error
     else if($password!==$c_password) {
         $c_password_status="<div class='error'>Password provided does not match.</div>";
     }
-    // if all fields are filled appropriately, insert into database
+    // if all fields are filled appropriately, insert data into database
     else {
         // encrypt the password using md5 encryption
         $password=md5($password);
@@ -107,6 +107,8 @@ if(isset($_POST['submit'])) {
             (first_name, last_name, email, address, city, state, zip_code, password) 
             VALUES ('$firstname', '$lastname', '$email', '$address', '$city', '$state', '$zipcode', '$password')");
         $database_status="<div class='success'><center>You are successfully registered!</center></div>";
+
+        header("location:login.php");
     }
 }
  ?>
@@ -114,7 +116,7 @@ if(isset($_POST['submit'])) {
 <title>Registration Form</title>
 </head>
 
-<!-- style sheet for login page -->
+<!-- style sheet for signup page -->
 <style type='text/css'>
 #body-bg
 {
@@ -133,7 +135,7 @@ if(isset($_POST['submit'])) {
     <body id='body-bg'>
         <div class='container'>
             <div class='login-form col-md-5 offset-md-4'>
-                <div class='jumbotron' style='margin-top:20px;padding-top:20px'>
+                <div class='jumbotron' style='margin-top:20px;padding-top:20px;padding-bottom:20px;'>
                     <h3 align='center'>Registration Form</h3></br>
                     <?php echo $database_status; ?>
                     <form method='post' enctype="multipart/form-data">
@@ -186,7 +188,8 @@ if(isset($_POST['submit'])) {
                         <input type='password' name='cpass' placeholder="Confirm Password" class='form-control' value='<?php echo $c_password; ?>'>
                         <?php echo $c_password_status; ?>
                     </div>
-                    <center><input type='submit' value='Submit' name='submit' class='btn btn-success'/></center>
+                    <center><input type='submit' value='Submit' name='submit' class='btn btn-success'/></center></br>
+                    <center><a href='login.php'>Already Have An Account?</a></center>
                     </form>
                 </div>
             </div>
