@@ -82,7 +82,7 @@ if(isset($_POST['submit'])) {
                         </div></br>
                         <div class='form-group'>
                             <center><input type='submit' name='submit' value='Login' class='btn btn-success'/></center></br>
-                            <center><a href='signup.php'>Need An Account?</a></center>
+                            <center><a href='signup.php'>Need An Account? Register Here</a></center>
                         </div>
                     </div>
                 </div>

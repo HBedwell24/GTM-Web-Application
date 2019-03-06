@@ -35,6 +35,9 @@
 							<li class="nav-item">
 							  	<a class="nav-link" href="#contact">CONTACT US</a>
 							</li>
+							<li>
+								<a href="login.php" class="btn btn-info" role="button">Login</a>
+							</li>							
 						</ul>
 					</div>
 			</nav>

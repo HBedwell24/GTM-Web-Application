@@ -255,7 +255,7 @@ select option[disabled]:first-child {
                         <?php echo $c_password_status; ?>
                     </div>
                     <center><input type='submit' value='Submit' name='submit' class='btn btn-success'/></center></br>
-                    <center><a href='login.php'>Already Have An Account?</a></center>
+                    <center><a href='login.php'>Already Have An Account? Login Here</a></center>
                     </form>
                 </div>
             </div>
