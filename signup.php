@@ -29,13 +29,13 @@ $c_password='';
 
 // get strings from input fields
 if(isset($_POST['submit'])) {
-    $firstname=mysql_real_escape_string($_POST['fname']);
-    $lastname=mysql_real_escape_string($_POST['lname']);
-    $email=mysql_real_escape_string($_POST['mail']);
-    $address=mysql_real_escape_string($_POST['address']);
-    $city=mysql_real_escape_string($_POST['city']);
-    $state=mysql_real_escape_string($_POST['state']);
-    $zipcode=mysql_real_escape_string($_POST['zcode']);
+    $firstname=mysqli_real_escape_string($con, $_POST['fname']);
+    $lastname=mysqli_real_escape_string($con, $_POST['lname']);
+    $email=mysqli_real_escape_string($con, $_POST['mail']);
+    $address=mysqli_real_escape_string($con, $_POST['address']);
+    $city=mysqli_real_escape_string($con, $_POST['city']);
+    $state=mysqli_real_escape_string($con, $_POST['state']);
+    $zipcode=mysqli_real_escape_string($con, $_POST['zcode']);
     $password=$_POST['pass'];
     $c_password=$_POST['cpass'];
 
@@ -181,7 +181,7 @@ select option[disabled]:first-child {
 	                        <label for="state" class="col-sm-2 control-label">State</label>
 	                        <div class="col-sm-10">
 		                        <select class="form-control" id="state" name="state">
-                                    <option value=""selected disabled>Please select</option>
+                                    <option value=""selected disabled>Your State</option>
                                     <option value="AK">Alaska</option>
                                     <option value="AL">Alabama</option>
                                     <option value="AR">Arkansas</option>
@@ -238,7 +238,7 @@ select option[disabled]:first-child {
                             </div>
                             <?php echo $state_status; ?>
                         </div>
-                        <div class='col'>
+                        <div class='col-md-auto'>
                             <label>Zip Code:</label>
                             <input type='text' name='zcode' placeholder="Your Zip Code" class='form-control' value='<?php echo $zipcode; ?>'>
                             <?php echo $zip_code_status; ?>
@@ -254,7 +254,7 @@ select option[disabled]:first-child {
                         <input type='password' name='cpass' placeholder="Confirm Password" class='form-control' value='<?php echo $c_password; ?>'>
                         <?php echo $c_password_status; ?>
                     </div>
-                    <center><input type='submit' value='Submit' name='submit' class='btn btn-success'/></center></br>
+                    <center><input type='submit' value='Submit' name='submit' class='btn btn-primary'/></center></br>
                     <center><a href='login.php'>Already Have An Account? Login Here</a></center>
                     </form>
                 </div>

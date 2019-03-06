@@ -58,7 +58,7 @@ if(isset($_POST['submit'])) {
 .error {
     color:red;
 }
- </style>
+</style>
     </head>
         <body id='body-bg'>
             <div class='container'>
@@ -68,12 +68,12 @@ if(isset($_POST['submit'])) {
                         <form method='post'>
                         <div class='form-group'>
                             <label>Email Address: </label>
-                            <input type='email' name='mail' class='form-control' value='<?php echo $email; ?>'/>
+                            <input type='email' name='mail' placeholder="Your Email" class='form-control' value='<?php echo $email; ?>'/>
                             <?php echo $email_status; ?>
                         </div>
                         <div class='form-group'>
                             <label>Password: </label>
-                            <input type='password' name='pass' class='form-control' value='<?php echo $password; ?>'/>
+                            <input type='password' name='pass' placeholder="Your Password" class='form-control' value='<?php echo $password; ?>'/>
                             <?php echo $password_status; ?>
                         </div>
                         <div class='form-group'>
@@ -81,7 +81,7 @@ if(isset($_POST['submit'])) {
                             &nbsp; Remember Me
                         </div></br>
                         <div class='form-group'>
-                            <center><input type='submit' name='submit' value='Login' class='btn btn-success'/></center></br>
+                            <center><input type='submit' name='submit' value='Login' class='btn btn-primary'/></center></br>
                             <center><a href='signup.php'>Need An Account? Register Here</a></center>
                         </div>
                     </div>

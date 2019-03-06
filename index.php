@@ -36,7 +36,7 @@
 							  	<a class="nav-link" href="#contact">CONTACT US</a>
 							</li>
 							<li>
-								<a href="login.php" class="btn btn-info" role="button">Login</a>
+								<a href="signup.php" class="btn btn-primary" role="button">Register</a>
 							</li>							
 						</ul>
 					</div>
