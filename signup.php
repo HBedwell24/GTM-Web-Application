@@ -108,35 +108,45 @@ if(isset($_POST['submit'])) {
             VALUES ('$firstname', '$lastname', '$email', '$address', '$city', '$state', '$zipcode', '$password')");
         $database_status="<div class='success'><center>You are successfully registered!</center></div>";
 
+        // redirect to login page
         header("location:login.php");
     }
 }
  ?>
 
-<title>Registration Form</title>
+<title>Account Registration</title>
 </head>
 
 <!-- style sheet for signup page -->
 <style type='text/css'>
-#body-bg
-{
+#body-bg {
     background: url("img/services.jpg") center no-repeat fixed;
 }
-.error
-{
+.error {
     color:red;
 }
-.success
-{
+.success {
     color:green;
     font-weight:bold;
+}
+.form-row {
+    padding-bottom:15px;
+}
+select option {
+	color:black;
+}
+select option:first-child {
+	color:grey;
+}
+select option[disabled]:first-child {
+	display:none;
 }
 </style>
     <body id='body-bg'>
         <div class='container'>
             <div class='login-form col-md-5 offset-md-4'>
                 <div class='jumbotron' style='margin-top:20px;padding-top:20px;padding-bottom:20px;'>
-                    <h3 align='center'>Registration Form</h3></br>
+                    <h3 align='center'>Account Registration</h3></br>
                     <?php echo $database_status; ?>
                     <form method='post' enctype="multipart/form-data">
                     <div class='form-row'>
@@ -167,9 +177,65 @@ if(isset($_POST['submit'])) {
                             <input type='text' name='city' placeholder="Your City" class='form-control' value='<?php echo $city; ?>'>
                             <?php echo $city_status; ?>
                         </div>
-                        <div class='col'>
-                            <label>State:</label>
-                            <input type='text' name='state' placeholder="Your State" class='form-control' value='<?php echo $state; ?>'>
+                        <div class="form-group">
+	                        <label for="state" class="col-sm-2 control-label">State</label>
+	                        <div class="col-sm-10">
+		                        <select class="form-control" id="state" name="state">
+                                    <option value=""selected disabled>Please select</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DC">District of Columbia</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NY">New York</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="PR">Puerto Rico</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WY">Wyoming</option>
+		                        </select>
+                            </div>
                             <?php echo $state_status; ?>
                         </div>
                         <div class='col'>

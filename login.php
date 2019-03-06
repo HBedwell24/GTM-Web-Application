@@ -48,16 +48,14 @@ if(isset($_POST['submit'])) {
     }
 }
  ?>
-<title>Login Form</title>
+<title>Account Login</title>
 
 <!-- style sheet for login page -->
 <style type="text/css">
-#body-bg
-{
+#body-bg {
     background: url("img/services.jpg") center no-repeat fixed;
 }
-.error
-{
+.error {
     color:red;
 }
  </style>
@@ -66,7 +64,7 @@ if(isset($_POST['submit'])) {
             <div class='container'>
                 <div class='login-form col-md-4 offset-md-4'>
                     <div class='jumbotron' style='margin-top:50px;padding-top:20px;padding-bottom:10px;'>
-                        <h2 align='center'>Login Form</h2></br>
+                        <h2 align='center'>Account Login</h2></br>
                         <form method='post'>
                         <div class='form-group'>
                             <label>Email Address: </label>
