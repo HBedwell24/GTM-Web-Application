@@ -272,14 +272,14 @@ h1::after {
 }
 
 .follow {
-    background: #fff;
+    background: #4d4d4d;
     padding: 10px;
-    margin: 15px;
+    margin-bottom: 15px;
 }
 
 .contact-info .fa {
     margin: 10px;
-    color: #007bff;
+    color: #fff;
     font-weight: bold;
 }
 
@@ -296,4 +296,20 @@ h1::after {
 
 .col {
     padding-bottom: 15px;
+}
+
+#makeappointment {
+    display: inline-block;
+}
+
+.appointment-button {
+    text-align: center;
+} 
+
+.submit-button {
+    text-align: center;
+}
+
+#contact h4 {
+    text-align: center;
 }
