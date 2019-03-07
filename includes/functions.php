@@ -11,4 +11,13 @@ function email_exists($email,$con) {
         }
     }
 }
- ?>
+
+function logged_in() {
+    if(isset($_SESSION['mail']) || isset($_COOKIE['name'])) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+?>

@@ -256,7 +256,7 @@
 				<h4>OR</h4>
 				<h1>Schedule An Appointment</h1>
 				<div class="appointment-button">
-					<button id="makeappointment" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM%20Web%20Application/makeAppointment.php';">Schedule An Appointment</button>
+					<button id="makeappointment" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM-Web-Application-V2/makeAppointment.php';">Schedule An Appointment</button>
 				</div>
 			</div>
 		</section>
