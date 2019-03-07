@@ -81,8 +81,9 @@
 
 .carousel-caption a:hover {
     text-decoration: none;
-    color: #007bff;
-    border-color: #007bff;
+    color: #555;
+    background-color: #fff;
+    border-color: #fff;
 }
 
 #about {
