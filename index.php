@@ -224,8 +224,7 @@
 		<section id="contact">
 			<div class="container">
 				<h1>Contact Us</h1>
-				<div class="row">
-					<div class="col-md-6">
+					<div class="form-group">
 						<form class="contact-form" action="contactForm.php" method="POST">
 							<div class="form-row">
 								<div class="col">
@@ -237,23 +236,37 @@
 									<input type="text" name="lname" class="form-control" placeholder="Last Name" required>
 								</div>
 							</div>
-
 							<div class="form-group">
 								<label>Email</label>
 								<input type="email" name="mail" class="form-control" placeholder="Email" required>
 							</div>
-
 							<div class="form-group">
 								<label>Subject</label>
 								<input type="text" name="subject" class="form-control" placeholder="Subject" required>
-							</div>
-							
+							</div>		
 							<div class="form-group">
 								<label>Message</label>
 								<textarea class="form-control" name="message" rows="4" placeholder="Message"></textarea>
 							</div>
-							<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+							<div class="submit-button">
+								<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+							</div>
 						</form>
+					</div>
+				<h4>OR</h4>
+				<h1>Schedule An Appointment</h1>
+				<div class="appointment-button">
+					<button id="makeappointment" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM%20Web%20Application/makeAppointment.php';">Schedule An Appointment</button>
+				</div>
+			</div>
+		</section>
+		<section id="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 text-center">
+						<p>&copy; 2019 GTM Home Services</p>
+						<p>The GTM logo, and all other respective assets,<br /> are property of GTM Home Services.</p>
+						<img class="footer-image" src="img/icon.png">
 					</div>
 					<div class="col-md-6 contact-info">
 						<div class="follow"><b>Address:</b><i class="fa fa-map-marker"></i>XYZ Road, Bangalore, IN</div>
@@ -266,13 +279,6 @@
 						</div>	
 					</div>
 				</div>
-			</div>
-		</section>
-		<section id="footer">
-			<div class="container text-center">
-				<p>&copy; 2019 GTM Home Services</p>
-				<p>The GTM logo, and all other respective assets,<br /> are property of GTM Home Services.</p>
-				<img class="footer-image" src="img/icon.png">
 			</div>
 		</section>
 		<script src="js/smooth-scroll.js"></script>
