@@ -232,7 +232,7 @@ body, html {
                                 </div>
                                 <div class="col-xs-4 col-sm-4 col-md-4">
                                     <div class="form-group input-group mb-2">
-                                        <select class="form-control input_state" id="state">
+                                        <select class="form-control input_state" name="state" id="state">
                                             <option value=""selected disabled>State</option>
                                             <option value="AK">Alaska</option>
                                             <option value="AL">Alabama</option>
