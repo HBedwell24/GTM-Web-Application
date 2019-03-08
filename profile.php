@@ -200,20 +200,29 @@ else {
     }
 
     .header {
-        position:absolute;
+        position: absolute;
         height: 44px;
         width:100%;
-        background-color: #999;
+        background-color: #4FA7E7;
         z-index: 4;
     }
 
     .side-nav {
         position: absolute;
         width: 100%;
-        background-color: #666;
+        background-color: #4B71BA;
         height: 100vh;
         z-index: 3;
         padding-top: 44px;
+        display: inline-block;
+    }
+
+    .side-nav .fa {
+        padding-left: 10px;
+    }
+
+    .side-nav .vertical-tab {
+        padding-left: 15px;
     }
 
     .side-nav ul {
@@ -233,11 +242,19 @@ else {
     }
 
     .side-nav ul li i {
-        color: #333;
+        color: #4FA7E7;
+    }
+
+    .container {
+        padding-top: 44px;
+        background-color: #efefef;
+        display: inline-block;
+        width: 100%;
     }
 
     .main-content {
-        padding-top: 44px;
+        background-color: #fff;
+        width: 100%;
     }
     
     @media screen and (min-width: 600px) {
@@ -281,43 +298,45 @@ else {
     </head>
     <body>
     <div class="header">
-        <a href="#" class="nav-trigger"><span></span></a>
+        <a href="index.php" class="nav-trigger"><span>GTM Home Services</span></a>
     </div>
 
     <div class="side-nav">
         <nav>
             <ul>
                 <li class="active">
-                    <a href="#">
+                    <a href="profile.php">
                         <span><i class="fa fa-user"></i></span>
-                        <span>Home</span>
+                        <span class="vertical-tab">Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="schedule.php">
                         <span><i class="fa fa-envelope"></i></span>
-                        <span>Schedule</span>
+                        <span class="vertical-tab">Schedule</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <span><i class="fa fa-bar-chart"></i></span>
-                        <span>Analytics</span>
+                        <span class="vertical-tab">Analytics</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <span><i class="fa fa-credit-card-alt"></i></span>
-                        <span>Payments</span>
+                        <span class="vertical-tab">Payments</span>
                     </a>
                 </li>
             </ul>
         </nav>
     </div>
 
-    <div class="main-content">
-        <h2 align='center'>Welcome <?php echo ucfirst($firstname)." ".ucfirst($lastname) ?>!</h2>
-        <a href='logout.php'><button class='btn btn-outline-success' style='float: right; margin-top: 20px;'>Logout</button></a>
+    <div class="container">
+        <div class="main-content">
+            <h2>Welcome <?php echo ucfirst($firstname)." ".ucfirst($lastname) ?>!</h2>
+            <a href='logout.php'><button class='btn btn-outline-success' style='float: right; margin-top: 20px;'>Logout</button></a>
+        </div>
     </div>
     </body>
     </html>
