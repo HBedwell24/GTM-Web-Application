@@ -183,7 +183,7 @@ body, html {
                     </div>
                     <div class="d-flex justify-content-center form_container">
                         <form method='post'>
-                            <center><h2>Register</h2></center>
+                            <center><h2 style="color:#555555;">Register</h2></center>
                             <center><?php echo $error_status; ?></center></br>
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">

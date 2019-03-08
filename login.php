@@ -149,7 +149,7 @@ body, html {
                     </div>
                     <div class="d-flex justify-content-center form_container">
                         <form method='post'>
-                            <center><h2>Login</h2></center>
+                            <center><h2 style="color:#555555;">Login</h2></center>
                             <center><?php echo $error_status; ?></center></br>                            
                             <div class="input-group mb-3">
                                 <div class="input-group-append">
