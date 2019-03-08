@@ -175,191 +175,17 @@ else {
     $lastname=$retrieve['last_name'];
     ?>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<style type="text/css">
-/*Main CSS*/
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <style type="text/css">
 
-
-/*Login Signup Page*/
-a:focus,a:hover,a{
-    outline:none;
-    text-decoration: none;
-}
-li,ul{
+li,ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
-.header-top i {
-    font-size: 18px;
-}
-.bg-image {
-    background: url(../images/background-login.jpg) no-repeat 0 0 / cover;
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: table;
-}
-
-.login-header {
-    display: inline-block;
-    width: 100%;
-    background: #0e1a35;
-}
-
-.login-signup {
-    display: table-cell;
-    vertical-align: middle;
-    width: 100%;
-}
-
-.login-logo img {
-    cursor: pointer;
-    max-width: 171px;
-    padding: 23px 15px 22px;
-    width: 100%;
-}
-
-.login-header .navbar-right {
-    margin-right: 0px;
-}
-
-.login-header .nav-tabs > li.active > a,
-.login-header .nav-tabs > li.active > a:focus,
-.login-header .nav-tabs > li.active > a:hover {
-    background-color: transparent;
-    border: none;
-    color: #fff;
-}
-
-.login-header .nav-tabs > li > a {
-    border: medium none;
-    border-radius: 0;
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 48px;
-    padding: 15px 30px;
-    color: #fff;
-}
-
-.login-header .nav-tabs {
-    border-bottom: none;
-}
-
-.login-header .nav-tabs > li {
-    margin-bottom: 0px;
-}
-
-.login-header .nav > li > a:focus,
-.login-header .nav > li > a:hover {
-    background: none;
-    text-decoration: none;
-}
-
-.login-header .nav-tabs > li.active {
-    border-bottom: 6px solid #5584ff;
-}
-
-.login-inner h1 {
-    color: #8492af;
-    font-size: 48px;
-    font-weight: 300;
-    text-align: center;
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.login-inner h1 span {
-    color: #5584ff;
-}
-
-.login-form {
-    text-align: center;
-}
-
-.login-form input {
-    -moz-border-bottom-colors: none;
-    -moz-border-left-colors: none;
-    -moz-border-right-colors: none;
-    -moz-border-top-colors: none;
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border-color: -moz-use-text-color -moz-use-text-color #d4d9e3;
-    border-image: none;
-    border-style: none none solid;
-    border-width: medium medium 1px;
-    font-size: 13px;
-    font-weight: 300;
-    width: 100%;
-    color: #8492af;
-    padding: 15px 50px;
-    font-size: 17px;
-    max-width: 550px;
-}
-
-.login-form label {
-    margin-bottom: 30px;
-    width: 100%;
-}
-
-.user input {
-    background: rgba(0, 0, 0, 0) url("../images/user.png") no-repeat scroll 7px 12px;
-}
-
-.pass input {
-    background: rgba(0, 0, 0, 0) url("../images/password.png") no-repeat scroll 7px 12px;
-}
-
-.mail input {
-    background: rgba(0, 0, 0, 0) url("../images/mail.png") no-repeat scroll 4px 12px;
-}
-
-.login-signup .tab-content {
-    background: #ffffff none repeat scroll 0 0;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
-    display: inline-block;
-    margin-top: -8px;
-    width: 100%;
-}
-
-.form-btn {
-    background: #5584ff none repeat scroll 0 0;
-    border: medium none;
-    border-radius: 100px;
-    color: #ffffff;
-    font-weight: 400;
-    max-width: 250px;
-    padding: 10px 0;
-    position: relative;
-    width: 100%;
-    margin: 40px 0;
-    box-shadow: 0 2px 8px #d2d2d2;
-    -moz-box-shadow: 0 2px 8px #d2d2d2;
-    -webkit-box-shadow: 0 2px 8px #d2d2d2;
-}
-
-.form-btn::before {
-    content: "";
-    font-family: FontAwesome;
-    position: absolute;
-    right: 17px;
-    top: 9px;
-}
-
-.form-details {
-    padding: 35px 0;
-}
-
-.tab-content .tab-pane {
-    padding: 70px 0;
-}
-
-
-/*Login Signup Page*/
-
-
-/*Home Page*/
 
 .home {
     background: #f6f7fa;
@@ -395,7 +221,7 @@ li,ul{
     vertical-align: top;
 }
 .logo img {
-    max-width: 180px;
+    max-width: 50px;
     padding: 16px 0 17px;
     width: 100%;
 }
@@ -546,18 +372,18 @@ header {
 
 .navi i {
     margin-right: 15px;
-    color: #5584ff;
+    color: #4b7aba;
 }
 
 .navi .active a {
     background: #122143;
-    border-left: 5px solid #5584ff;
+    border-left: 5px solid #4b7aba;
     padding-left: 15px;
 }
 
 .navi a:hover {
     background: #122143 none repeat scroll 0 0;
-    border-left: 5px solid #5584ff;
+    border-left: 5px solid #4b7aba;
     display: block;
     padding-left: 15px;
 }
@@ -739,12 +565,7 @@ header {
 .modal-header.login-header {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-/*Main CSS*/
-
-
-
-
-
+}
 
 @media only screen and (max-device-width: 767px) {
     .login-logo img {
@@ -812,11 +633,8 @@ header {
         padding: 0;
         top: 12px;
     }
-    button,
-        html [type="button"],
-        [type="reset"],
-        [type="submit"] {
-            outline: medium none;
+    button,html [type="button"],[type="reset"],[type="submit"] {
+        outline: medium none;
     }
     .user-dashboard .sales h2 {
         color: #8492af;
@@ -825,61 +643,61 @@ header {
         font-weight: 600;
         margin: 0;
         padding: 13px 0 0;
-}
+    }
     .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle > span {
         font-size: 11px;
-}
+    }
     .user-dashboard .sales button {
         font-size: 11px;
         padding-right: 23px;
-}  
+    }  
     .user-dashboard .sales h2 {
-    font-size: 12px;
-}
-.gutter{
-    padding: 0;
-}
+        font-size: 12px;
+    }
+    .gutter{
+        padding: 0;
+    }
 }
 
 @media only screen and (max-device-width: 992px) {
     header .header-top li {
         padding-left: 20px !important;
         padding-right: 0;
-}
+    }
     header .logo img {
         max-width: 125px !important;
-}
-
+    }
 }
 
 @media only screen and (min-device-width: 767px) and (max-device-width: 998px){
-      .user-dashboard .header-top {
+    .user-dashboard .header-top {
         padding-top: 5px;
-}
+    }
     .user-dashboard .header-rightside {
         display: inline-block;
         float: left;
         width: 100%;
-}
+    }
     .user-dashboard .header-rightside .header-top img {
         max-width: 41px !important;
-} 
+    } 
     .user-dashboard .sales button {
     font-size: 10px;
-}
+    }
     .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle > span {
     font-size: 12px;
-}
+    }
     .user-dashboard .sales h2 {
     font-size: 15px;
+    }
 }
-}
+
 @media only screen and (min-device-width:998px) and (max-device-width: 1350px){
-        #navigation .logo img {
-    max-width: 130px;
-    padding: 16px 0 17px;
-    width: 100%;
-}
+    #navigation .logo img {
+        max-width: 130px;
+        padding: 16px 0 17px;
+        width: 100%;
+    }
 }
 </style>
 
@@ -894,10 +712,10 @@ header {
                 </div>
                 <div class="navi">
                     <ul>
-                        <li class="active"><a href="#"><i class="fa fa-home" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-                        <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calendar</span></a></li>
-                        <li><a href="#"><i class="fa fa-bar-chart" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Jobs</span></a></li>
-                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
+                        <li class="active"><a href="profile.php"><i class="fa fa-tachometer" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
+                        <li><a href="calendar.php"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calendar</span></a></li>
+                        <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Jobs</span></a></li>
+                        <li><a href="#"><i class="fa fa-comments" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -923,55 +741,101 @@ header {
                         <div class="col-md-5">
                             <div class="header-rightside">
                                 <ul class="list-inline header-top pull-right">
-                                    <a href='logout.php'><button class='btn btn-outline-success' style='float: right; margin-top: 20px;'>Logout</button></a>
+                                    <a href='logout.php'><button class='btn btn-outline-success' style='float: right; background: #4B71BA !important; color: white !important;'>Logout</button></a>
                                 </ul>
                             </div>
                         </div>
                     </header>
                 </div>
                 <div class="user-dashboard">
+                    
+                    <div class="container-fluid">
                     <h1>Hello, <?php echo ucfirst($firstname)." ".ucfirst($lastname) ?>!</h1>
-                    <div class="row">
-                        <div class="col-md-5 col-sm-5 col-xs-12 gutter">
-                            <div class="sales">
-                                <h2>Your Summary For This Week</h2>
-                                
+                        <div class="row">
+                            <div class="col-md-6 col-sm-5 gutter">
+                                <div class="sales">
+                                    <h2>First Block</h2>
+                                    <br>
+                                    <br>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                    sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-5 gutter">
+                                <div class="sales">
+                                    <h2>Second Block</h2>
+                                    <br>
+                                    <br>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                    sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 gutter">
+                                <div class="sales">
+                                    <h2>Third block</h2>
+                                    <br>
+                                    <br>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                    sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
-
-
-    <!-- Modal -->
     <div id="add_project" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header login-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
                     <h4 class="modal-title">Add Project</h4>
                 </div>
                 <div class="modal-body">
-                            <input type="text" placeholder="Project Title" name="name">
-                            <input type="text" placeholder="Post of Post" name="mail">
-                            <input type="text" placeholder="Author" name="passsword">
-                            <textarea placeholder="Desicrption"></textarea>
-                    </div>
+                    <input type="text" placeholder="Project Title" name="name">
+                    <input type="text" placeholder="Post of Post" name="mail">
+                    <input type="text" placeholder="Author" name="passsword">
+                    <textarea placeholder="Desicrption"></textarea>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="cancel" data-dismiss="modal">Close</button>
                     <button type="button" class="add-project" data-dismiss="modal">Save</button>
                 </div>
             </div>
-
         </div>
     </div>
 </body>
-    <?php
+<?php
 }
 ?>
