@@ -96,7 +96,7 @@ body, html {
 	background-image: url("img/login_background.jpg") !important;
 }
 .user_card {
-	height: 600px;
+	height: 620px;
 	width: 500px;
 	margin-top: auto;
 	margin-bottom: auto;
@@ -131,8 +131,8 @@ body, html {
 }
 .form_container {
     margin-top: 100px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 .register_btn {
 	width: 50%;
@@ -183,6 +183,7 @@ body, html {
                     </div>
                     <div class="d-flex justify-content-center form_container">
                         <form method='post'>
+                            <center><h2>Register</h2></center>
                             <center><?php echo $error_status; ?></center></br>
                             <div class="row">
                                 <div class="col-xs-6 col-sm-6 col-md-6">

@@ -62,7 +62,7 @@ body, html {
 	background-image: url("img/login_background.jpg") !important;
 }
 .user_card {
-	height: 400px;
+	height: 440px;
 	width: 350px;
 	margin-top: auto;
 	margin-bottom: auto;
@@ -149,6 +149,7 @@ body, html {
                     </div>
                     <div class="d-flex justify-content-center form_container">
                         <form method='post'>
+                            <center><h2>Login</h2></center>
                             <center><?php echo $error_status; ?></center></br>                            
                             <div class="input-group mb-3">
                                 <div class="input-group-append">
