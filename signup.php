@@ -96,7 +96,7 @@ body, html {
 	background-image: url("img/login_background.jpg") !important;
 }
 .user_card {
-	height: 650px;
+	height: 600px;
 	width: 500px;
 	margin-top: auto;
 	margin-bottom: auto;
@@ -131,9 +131,11 @@ body, html {
 }
 .form_container {
     margin-top: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 .register_btn {
-	width: 100%;
+	width: 50%;
 	background: #4B71BA !important;
 	color: white !important;
 }
@@ -156,12 +158,6 @@ body, html {
 .input_pass, .input_cpass:focus {
 	box-shadow: none !important;
 	outline: 0px !important;
-}
-.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-	background-color: #4B71BA !important;
-}
-.custom-control {
-    padding-right: 20px;
 }
 </style>
 
@@ -310,12 +306,12 @@ body, html {
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-center mt-3 register_container">
+                            <div class="d-flex justify-content-center mt-1 register_container">
                                 <button type='submit' name='submit' class='btn register_btn'>Register</button>
                             </div>
                             <div class="mt-2">
                                 <div class="d-flex justify-content-center links">
-                                    <font size="2">Already have an account?</font><a href="login.php" class="ml-2"><font size="2">Login here</font></a>
+                                    <font size="2">Already have an account?</font><a href="login.php" class="ml-1"><font size="2">Login here</font></a>
                                 </div>                       
                             </div>
                         </form>

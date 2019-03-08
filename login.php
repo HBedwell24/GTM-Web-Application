@@ -116,7 +116,7 @@ body, html {
 	border: 0 !important;
 	border-radius: 0.25rem 0 0 0.25rem !important;
 }
-.input_email, .input_pass:focus {
+.input_email, .input_pass, .input_pass:focus {
 	box-shadow: none !important;
 	outline: 0px !important;
 }
@@ -149,7 +149,7 @@ body, html {
                     </div>
                     <div class="d-flex justify-content-center form_container">
                         <form method='post'>
-                            <center><?php echo $error_status; ?></center></br>
+                            <center><?php echo $error_status; ?></center></br>                            
                             <div class="input-group mb-3">
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -176,7 +176,7 @@ body, html {
                             </div>
                             <div class="mt-2">
                                 <div class="d-flex justify-content-center links">
-                                    <font size="2">Don't have an account?</font><a href="signup.php" class="ml-2"><font size="2">Register here</font></a>
+                                    <font size="2">Don't have an account?</font><a href="signup.php" class="ml-1"><font size="2">Register here</font></a>
                                 </div>                       
                             </div>
                         </form>
