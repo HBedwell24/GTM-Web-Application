@@ -148,11 +148,11 @@ body, html {
                                 <div class="input-group-append">
                                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                 </div>
-                                <input type="email" name="mail" placeholder="Email" class="form-control input_email" value='<?php echo $email; ?>'/>
+                                <input type="email" name="mail" placeholder="Email Address" class="form-control input_email" value='<?php echo $email; ?>'/>
                             </div>
                             <div class="input-group mb-2">
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
                                 </div>
                                 <input type="password" name="pass" placeholder="Password" class="form-control input_pass" value='<?php echo $password; ?>'/>
                             </div>
@@ -168,13 +168,14 @@ body, html {
                             <div class="d-flex justify-content-center mt-3 login_container">
                                 <button type='submit' name='submit' class='btn login_btn'>Login</button>
                             </div>
+                            <div class="mt-2">
+                                <div class="d-flex justify-content-center links">
+                                    <font size="2">Don't have an account?</font><a href="signup.php" class="ml-2"><font size="2">Register here</font></a>
+                                </div>                       
+                            </div>
                         </form>
                     </div>                   
-                    <div class="mt-2">
-                        <div class="d-flex justify-content-center links">
-                            <font size="2">Don't have an account?</font><a href="signup.php" class="ml-2"><font size="2">Register here</font></a>
-                        </div>                       
-                    </div>
+                    
                 </div>
             </div>
         </div>
