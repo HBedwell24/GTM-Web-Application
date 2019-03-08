@@ -4,6 +4,7 @@
 include("includes/header.php");
 include("includes/config.php");
 include("includes/functions.php");
+session_start();
 
 // instantiate error strings
 $error_status='';
@@ -16,6 +17,7 @@ $password='';
 if(isset($_POST['submit'])) {
     $email=$_POST['mail'];
     $password=$_POST['pass'];
+    $checkbox=isset($_POST['check']);
 
     // if email or password field is empty, throws error
     if(empty($email) || empty($password)) {
@@ -34,6 +36,10 @@ if(isset($_POST['submit'])) {
         }
         // if password provided corresponds to email, redirects to profile
         else {
+            $_SESSION['mail']=$email;
+            if($checkbox=='on') {
+                setcookie('name',$email,time()+30);
+            }
             header("location:profile.php");
         }
     }

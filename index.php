@@ -36,6 +36,9 @@
 							  	<a class="nav-link" href="#contact">CONTACT US</a>
 							</li>
 							<li>
+								<a href="login.php" class="btn btn-primary" role="button">Log In</a>
+							</li>	
+							<li>
 								<a href="signup.php" class="btn btn-primary" role="button">Register</a>
 							</li>							
 						</ul>
@@ -256,7 +259,7 @@
 				<h4>OR</h4>
 				<h1>Schedule An Appointment</h1>
 				<div class="appointment-button">
-					<button id="makeappointment" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM%20Web%20Application/makeAppointment.php';">Schedule An Appointment</button>
+					<button id="makeappointment" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM-Web-Application-V2/makeAppointment.php';">Schedule An Appointment</button>
 				</div>
 			</div>
 		</section>
