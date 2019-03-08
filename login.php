@@ -33,6 +33,7 @@ if(isset($_POST['submit'])) {
         // if password provided does not correspond to email, throws error
         if($password !== $dpass) {
             $error_status='<div class="error">Incorrect password provided.</div>';
+            $password='';
         }
         // if password provided corresponds to email, redirects to profile
         else {
@@ -46,6 +47,7 @@ if(isset($_POST['submit'])) {
     // if email provided does not exist, throws error
     else {
         $error_status='<div class="error">Email does not exist.</div>';
+        $email='';
     }
 }
  ?>
@@ -53,7 +55,7 @@ if(isset($_POST['submit'])) {
 <!-- style sheet for login page -->
 <style type="text/css">
 .error {
-    color:red;
+    color: red;
 }
 body, html {
 	margin: 0;

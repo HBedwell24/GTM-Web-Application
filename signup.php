@@ -33,8 +33,8 @@ if(isset($_POST['submit'])) {
     $c_password=$_POST['cpass'];
 
     // if any of the login fields are empty, throws error
-    if(empty($first_name) || empty($last_name) || empty($email) || empty($address) 
-    || empty($city) || $state == '' || empty($zip_code) || empty($password) || empty($c_password)) {
+    if(empty($first_name) || empty($last_name) || empty($email) || empty($phone_number) || empty($address) 
+    || empty($city) || empty($state) || empty($zip_code) || empty($password) || empty($c_password)) {
         $error_status="<div class='error'>Please fill in all fields.</div>";
     }
     // if first name does not contain at least 3 characters, throws error
@@ -171,6 +171,8 @@ body, html {
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        <script src="js/bootstrap-formhelpers-phone.format.js"></script>
+        <script src="js/bootstrap-formhelpers-phone.js"></script>
     </head>
     <body>
         <div class="container h-100">
@@ -208,15 +210,15 @@ body, html {
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-home"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
                                 </div>
-                                <input type="text" name="address" placeholder="Home Address" class="form-control input_address" value='<?php echo $address; ?>'/>
+                                <input type="tel" name="phone" placeholder="Phone Number" class="form-control bfh-phone" data-format="(ddd) ddd-dddd" value='<?php echo $phone_number; ?>'/>
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                    <span class="input-group-text"><i class="fas fa-home"></i></span>
                                 </div>
-                                <input type="text" name="phone" placeholder="Phone Number" class="form-control input_phone_number" value='<?php echo $phone_number; ?>'/>
+                                <input type="text" name="address" placeholder="Home Address" class="form-control input_address" value='<?php echo $address; ?>'/>
                             </div>
                             <div class="row">
                                 <div class="col-xs-4 col-sm-4 col-md-4">
@@ -230,7 +232,7 @@ body, html {
                                 <div class="col-xs-4 col-sm-4 col-md-4">
                                     <div class="form-group input-group mb-2">
                                         <select class="form-control input_state" name="state" id="state">
-                                            <option value=""selected disabled>State</option>
+                                            <option value=""selected>State</option>
                                             <option value="AK">Alaska</option>
                                             <option value="AL">Alabama</option>
                                             <option value="AR">Arkansas</option>
