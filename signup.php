@@ -80,7 +80,8 @@ if(isset($_POST['submit'])) {
         $subject = "Activation code for gtmwebservices.com";
         $from = 'Christian.8edwell@gmail.com';
         $dir = 'localhost/GTM-Web-Application-V2/';
-        $body = 'Your activation code is '.$code.'. Please click on this link to activate your account: <a href="' .$dir. 'signup.php?id='.$db_id.'&code='.$code.'">link</a> to activate your account.';
+        $link = '<a href="'.$dir. 'signup.php?id=' .$db_id. '&code=' .$code.'"</a>';
+        $body = 'Your activation code is '.$code.'. Please click on this link to activate your account: '.$link.'.';
         $headers = "From:".$from;
         mail($to,$subject,$body,$headers);
     }
@@ -90,17 +91,24 @@ if(isset($_POST['submit'])) {
 if(isset($_GET['id']) && isset($_GET['code']))
 {
 	$id = $_GET['id'];
-	$code = $_GET['id'];
-	$select = mysqli_query($con, "SELECT email,password FROM verify WHERE id = '$id' and code = '$code'");
+	$code = $_GET['code'];
+	$select = mysqli_query($con, "SELECT first_name, last_name, email, phone, address, city, state, zip_code, password FROM verify WHERE id = '$id' and code = '$code'");
 	if(mysqli_num_rows($select) == 1)
 	{
 		while($row = mysqli_fetch_array($select))
 		{
-			$email = $row['email'];
+            $first_name = $row['first_name'];
+            $last_name = $row['last_name'];
+            $email = $row['email'];
+            $phone_number = $row['phone'];
+            $address = $row['address'];
+            $city = $row['city'];
+            $state = $row['state'];
+            $zip_code = $row['zip_code'];
 			$password = $row['password'];
         }
         // insert fields into users database
-		$insert_user = mysqli_query($con, "INSERT INTO users VALUES ('', '$first_name', '$last_name', '$email', '$phone', '$address', '$city', '$state', '$zip_code', '$password')");
+		$insert_user = mysqli_query($con, "INSERT INTO users VALUES ('$id', '$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', '$password')");
         
         // delete fields from verify database, since user is now verified
         $delete = mysqli_query($con, "DELETE FROM verify WHERE id = '$id' AND code = '$code'");

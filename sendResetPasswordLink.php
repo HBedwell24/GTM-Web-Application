@@ -51,7 +51,7 @@ if(isset($_POST['submit'])) {
             $mail->AddAddress('reciever_email_id', 'reciever_name');
             $mail->Subject  =  'Reset Password';
             $mail->IsHTML(true);
-            $mail->Body    = 'Click On This Link to Reset Password '.$pass.'';
+            $mail->Body    = 'Click on this link to reset password '.$pass.'';
             if($mail->Send()) {
                 $error_status = "<div class='error'>Check your email for password reset code.</div>";
             }
