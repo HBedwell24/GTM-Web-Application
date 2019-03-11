@@ -7,38 +7,38 @@ include("includes/functions.php");
 session_start();
 
 // instantiate error strings
-$error_status='';
+$error_status = '';
 
 // instantiate variables
-$email='';
-$password='';
+$email = '';
+$password = '';
 
 // get strings from input fields
 if(isset($_POST['submit'])) {
-    $email=$_POST['mail'];
-    $password=$_POST['pass'];
-    $checkbox=isset($_POST['check']);
+    $email = $_POST['mail'];
+    $password = $_POST['pass'];
+    $checkbox = isset($_POST['check']);
 
     // if email or password field is empty, throws error
     if(empty($email) || empty($password)) {
-        $error_status='<div class="error">Please fill in all fields.</div>';
+        $error_status = '<div class="error">Please fill in all fields.</div>';
     }
     // if email provided exists
     else if(email_exists($email, $con)) {
-        $pass=mysqli_query($con,"SELECT password FROM users WHERE email='$email'");
-        $pass_w=mysqli_fetch_array($pass);
-        $dpass=$pass_w['password'];
-        $password=md5($password);
+        $pass = mysqli_query($con,"SELECT password FROM users WHERE email='$email'");
+        $pass_w = mysqli_fetch_array($pass);
+        $dpass = $pass_w['password'];
+        $password = md5($password);
 
         // if password provided does not correspond to email, throws error
         if($password !== $dpass) {
-            $error_status='<div class="error">Incorrect password provided.</div>';
-            $password='';
+            $error_status = '<div class="error">Incorrect password provided.</div>';
+            $password = '';
         }
         // if password provided corresponds to email, redirects to profile
         else {
             $_SESSION['mail']=$email;
-            if($checkbox=='on') {
+            if($checkbox == 'on') {
                 setcookie('name',$email,time()+30);
             }
             header("location:profile.php");
@@ -46,14 +46,14 @@ if(isset($_POST['submit'])) {
     }
     // if email provided does not exist, throws error
     else {
-        $error_status='<div class="error">Email does not exist.</div>';
-        $email='';
+        $error_status = '<div class="error">Email does not exist.</div>';
+        $email = '';
     }
 }
  ?>
 
 <!-- style sheet for login page -->
-<style type="text/css">
+<style type = "text/css">
 .error {
     color: red;
 }
@@ -133,53 +133,53 @@ body, html {
 <html>
     <head>
         <title>Account Login</title>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel = "stylesheet" id = "bootstrap-css">
+        <script src = "//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src = "//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity = "sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <link rel = "stylesheet" href = "https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity = "sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     </head>
     <body>
         <div class="container h-100">
             <div class="d-flex justify-content-center h-100">
                 <div class="user_card">
                     <div class="d-flex justify-content-center">
-                        <div class="brand_logo_container">
-                            <img src="img/icon.png" class="brand_logo" alt="Logo">
+                        <div class = "brand_logo_container">
+                            <img src = "img/icon.png" class = "brand_logo" alt="Logo">
                         </div>
                     </div>
                     <div class="d-flex justify-content-center form_container">
-                        <form method='post'>
-                            <center><h2 style="color:#555555;">Login</h2></center>
+                        <form method = 'post'>
+                            <center><h2 style = "color:#555555;">Login</h2></center>
                             <center><?php echo $error_status; ?></center></br>                            
-                            <div class="input-group mb-3">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            <div class = "input-group mb-3">
+                                <div class = "input-group-append">
+                                    <span class="input-group-text"><i class = "fas fa-envelope"></i></span>
                                 </div>
-                                <input type="email" name="mail" placeholder="Email Address" class="form-control input_email" value='<?php echo $email; ?>'/>
+                                <input type = "email" name = "mail" placeholder = "Email Address" class = "form-control input_email" value = '<?php echo $email; ?>'/>
                             </div>
                             <div class="input-group mb-2">
                                 <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    <span class = "input-group-text"><i class = "fas fa-lock"></i></span>
                                 </div>
-                                <input type="password" name="pass" placeholder="Password" class="form-control input_pass" value='<?php echo $password; ?>'/>
+                                <input type = "password" name = "pass" placeholder = "Password" class = "form-control input_pass" value = '<?php echo $password; ?>'/>
                             </div>
-                            <div class="form-row">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name='check' class="custom-control-input" id="customControlInline">
-                                    <label class="custom-control-label" for="customControlInline"><font size="2">Remember me</font></label>
+                            <div class = "form-row">
+                                <div class = "custom-control custom-checkbox">
+                                    <input type = "checkbox" name = 'check' class = "custom-control-input" id = "customControlInline">
+                                    <label class = "custom-control-label" for = "customControlInline"><font size = "2">Remember me</font></label>
                                 </div>
-                                <div class="d-flex justify-content-center links">
-                                    <a href="sendResetPasswordLink.php"><font size="2">Forgot your password?</font></a>
+                                <div class = "d-flex justify-content-center links">
+                                    <a href = "sendResetPasswordLink.php"><font size = "2">Forgot your password?</font></a>
                                 </div> 
                             </div>
-                            <div class="d-flex justify-content-center mt-3 login_container">
-                                <button type='submit' name='submit' class='btn login_btn'>Login</button>
+                            <div class = "d-flex justify-content-center mt-3 login_container">
+                                <button type = 'submit' name = 'submit' class = 'btn login_btn'>Login</button>
                             </div>
-                            <div class="mt-2">
-                                <div class="d-flex justify-content-center links">
-                                    <font size="2">Don't have an account?</font><a href="signup.php" class="ml-1"><font size="2">Register here</font></a>
+                            <div class = "mt-2">
+                                <div class = "d-flex justify-content-center links">
+                                    <font size = "2">Don't have an account?</font><a href = "signup.php" class = "ml-1"><font size = "2">Register here</font></a>
                                 </div>                       
                             </div>
                         </form>

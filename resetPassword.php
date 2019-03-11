@@ -9,7 +9,7 @@ if($_GET['key'] && $_GET['reset'])
   if(mysql_num_rows($select)==1)
   {
     ?>
-    <form method="post" action="submit_new.php">
+    <form method="post" action="submitNewPassword.php">
     <input type="hidden" name="email" value="<?php echo $email;?>">
     <p>Enter New password</p>
     <input type="password" name='password'>

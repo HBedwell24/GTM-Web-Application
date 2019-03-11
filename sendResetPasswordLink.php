@@ -30,7 +30,8 @@ if(isset($_POST['submit'])) {
                 $email = md5($row['email']);
                 $pass = md5($row['password']);
             }
-            $link="<a href='www.samplewebsite.com/reset.php?key=".$email."&reset=".$pass."'>Click this link to reset password.</a>";
+            $dir = 'localhost/GTM-Web-Application-V2/';
+            $link = '<a href="'.$dir.'reset.php?key='.$email.'&reset='.$pass."'>Click this link to reset password.</a>";
             require_once('PHPMailer/PHPMailerAutoload.php');
             $mail = new PHPMailer();
             $mail->CharSet =  "utf-8";
@@ -53,7 +54,7 @@ if(isset($_POST['submit'])) {
             $mail->IsHTML(true);
             $mail->Body    = 'Click on this link to reset password '.$pass.'';
             if($mail->Send()) {
-                $error_status = "<div class='error'>Check your email for password reset code.</div>";
+                $error_status = "<div class='success'>Check your email for password reset code.</div>";
             }
             else {
                 $error_status = "<div class='error'>Mail error - > .$mail->ErrorInfo</div>";

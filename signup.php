@@ -73,17 +73,17 @@ if(isset($_POST['submit'])) {
         mysqli_query($con, "INSERT INTO verify
             (first_name, last_name, email, phone, address, city, state, zip_code, password, code) 
             VALUES ('$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', '$password', '$code')");
-        $db_id=mysqli_insert_id($con);
+        $db_id  = mysqli_insert_id($con);
 
-        $error_status = "Please check your email for an account activation code.";
+        $error_status = "<div class='success'>Please check your email for an account activation code.</div>";
         $to=$email;
         $subject = "Activation code for gtmwebservices.com";
         $from = 'Christian.8edwell@gmail.com';
         $dir = 'localhost/GTM-Web-Application-V2/';
-        $link = '<a href="'.$dir. 'signup.php?id=' .$db_id. '&code=' .$code.'"</a>';
-        $body = 'Your activation code is '.$code.'. Please click on this link to activate your account: '.$link.'.';
+        $link = ''.$dir. 'signup.php?id=' .$db_id. '&code=' .$code.'';
+        $body = 'Your activation code is '.$code.'. Please click on this link to activate your account: <a href="'.$link.'>link</a>"';
         $headers = "From:".$from;
-        mail($to,$subject,$body,$headers);
+        mail($to, $subject, $body, $headers);
     }
 }
 
@@ -123,6 +123,9 @@ if(isset($_GET['id']) && isset($_GET['code']))
 <style type='text/css'>
 .error {
     color:red;
+}
+.success {
+    color:green;
 }
 select option {
 	color:black;
@@ -209,156 +212,156 @@ body, html {
 <html>
     <head>
         <title>Account Registration</title>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-        <script src="js/bootstrap-formhelpers-phone.format.js"></script>
-        <script src="js/bootstrap-formhelpers-phone.js"></script>
+        <link href = "//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel = "stylesheet" id = "bootstrap-css">
+        <script src = "//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+        <script src = "//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel = "stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity = "sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	    <link rel = "stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity = "sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+        <script src = "js/bootstrap-formhelpers-phone.format.js"></script>
+        <script src = "js/bootstrap-formhelpers-phone.js"></script>
     </head>
     <body>
-        <div class="container h-100">
-            <div class="d-flex justify-content-center h-100">
-                <div class="user_card">
-                    <div class="d-flex justify-content-center">
-                        <div class="brand_logo_container">
-                            <img src="img/icon.png" class="brand_logo" alt="Logo">
+        <div class = "container h-100">
+            <div class = "d-flex justify-content-center h-100">
+                <div class = "user_card">
+                    <div class = "d-flex justify-content-center">
+                        <div class = "brand_logo_container">
+                            <img src = "img/icon.png" class = "brand_logo" alt = "Logo">
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center form_container">
-                        <form method='post'>
-                            <center><h2 style="color:#555555;">Register</h2></center>
+                    <div class = "d-flex justify-content-center form_container">
+                        <form method = 'post'>
+                            <center><h2 style = "color:#555555;">Register</h2></center>
                             <center><?php echo $error_status; ?></center></br>
-                            <div class="row">
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <div class = "row">
+                                <div class = "col-xs-6 col-sm-6 col-md-6">
+                                    <div class = "input-group mb-2">
+                                        <div class = "input-group-append">
+                                            <span class = "input-group-text"><i class = "fas fa-user"></i></span>
                                         </div>
-                                        <input type="text" name="fname" placeholder="First Name" class="form-control input_first_name" value='<?php echo $first_name; ?>'/>
+                                        <input type = "text" name = "fname" placeholder = "First Name" class = "form-control input_first_name" value = '<?php echo $first_name; ?>'/>
                                     </div>
                                 </div>
-                                <div class="col-xs-6 col-sm-6 col-md-6">
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="lname" placeholder="Last Name" class="form-control input_last_name" value='<?php echo $last_name; ?>'/>
+                                <div class = "col-xs-6 col-sm-6 col-md-6">
+                                    <div class = "input-group mb-3">
+                                        <input type = "text" name = "lname" placeholder = "Last Name" class = "form-control input_last_name" value = '<?php echo $last_name; ?>'/>
                                     </div>
                                 </div>
                             </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            <div class = "input-group mb-3">
+                                <div class = "input-group-append">
+                                    <span class = "input-group-text"><i class = "fas fa-envelope"></i></span>
                                 </div>
-                                <input type="email" name="mail" placeholder="Email Address" class="form-control input_email" value='<?php echo $email; ?>'/>
+                                <input type = "email" name = "mail" placeholder = "Email Address" class = "form-control input_email" value = '<?php echo $email; ?>'/>
                             </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            <div class = "input-group mb-3">
+                                <div class = "input-group-append">
+                                    <span class = "input-group-text"><i class = "fas fa-phone"></i></span>
                                 </div>
-                                <input type="tel" name="phone" placeholder="Phone Number" class="form-control bfh-phone" data-format="(ddd) ddd-dddd" value='<?php echo $phone_number; ?>'/>
+                                <input type = "tel" name = "phone" placeholder = "Phone Number" class = "form-control bfh-phone" data-format = "(ddd) ddd-dddd" value = '<?php echo $phone_number; ?>'/>
                             </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-append">
-                                    <span class="input-group-text"><i class="fas fa-home"></i></span>
+                            <div class = "input-group mb-3">
+                                <div class = "input-group-append">
+                                    <span class = "input-group-text"><i class = "fas fa-home"></i></span>
                                 </div>
-                                <input type="text" name="address" placeholder="Home Address" class="form-control input_address" value='<?php echo $address; ?>'/>
+                                <input type = "text" name = "address" placeholder = "Home Address" class = "form-control input_address" value = '<?php echo $address; ?>'/>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="input-group mb-3">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text"><i class="fas fa-building"></i></span>
+                            <div class = "row">
+                                <div class = "col-xs-4 col-sm-4 col-md-4">
+                                    <div class = "input-group mb-3">
+                                        <div class = "input-group-append">
+                                            <span class = "input-group-text"><i class = "fas fa-building"></i></span>
                                         </div>
-                                        <input type="text" name="city" placeholder="City" class="form-control input_city" value='<?php echo $city; ?>'/>
+                                        <input type = "text" name = "city" placeholder = "City" class = "form-control input_city" value = '<?php echo $city; ?>'/>
                                     </div>
                                 </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="form-group input-group mb-2">
-                                        <select class="form-control input_state" name="state" id="state">
-                                            <option value=""selected>State</option>
-                                            <option value="AK">Alaska</option>
-                                            <option value="AL">Alabama</option>
-                                            <option value="AR">Arkansas</option>
-                                            <option value="AZ">Arizona</option>
-                                            <option value="CA">California</option>
-                                            <option value="CO">Colorado</option>
-                                            <option value="CT">Connecticut</option>
-                                            <option value="DC">District of Columbia</option>
-                                            <option value="DE">Delaware</option>
-                                            <option value="FL">Florida</option>
-                                            <option value="GA">Georgia</option>
-                                            <option value="HI">Hawaii</option>
-                                            <option value="IA">Iowa</option>
-                                            <option value="ID">Idaho</option>
-                                            <option value="IL">Illinois</option>
-                                            <option value="IN">Indiana</option>
-                                            <option value="KS">Kansas</option>
-                                            <option value="KY">Kentucky</option>
-                                            <option value="LA">Louisiana</option>
-                                            <option value="MA">Massachusetts</option>
-                                            <option value="MD">Maryland</option>
-                                            <option value="ME">Maine</option>
-                                            <option value="MI">Michigan</option>
-                                            <option value="MN">Minnesota</option>
-                                            <option value="MO">Missouri</option>
-                                            <option value="MS">Mississippi</option>
-                                            <option value="MT">Montana</option>
-                                            <option value="NC">North Carolina</option>
-                                            <option value="ND">North Dakota</option>
-                                            <option value="NE">Nebraska</option>
-                                            <option value="NH">New Hampshire</option>
-                                            <option value="NJ">New Jersey</option>
-                                            <option value="NM">New Mexico</option>
-                                            <option value="NV">Nevada</option>
-                                            <option value="NY">New York</option>
-                                            <option value="OH">Ohio</option>
-                                            <option value="OK">Oklahoma</option>
-                                            <option value="OR">Oregon</option>
-                                            <option value="PA">Pennsylvania</option>
-                                            <option value="PR">Puerto Rico</option>
-                                            <option value="RI">Rhode Island</option>
-                                            <option value="SC">South Carolina</option>
-                                            <option value="SD">South Dakota</option>
-                                            <option value="TN">Tennessee</option>
-                                            <option value="TX">Texas</option>
-                                            <option value="UT">Utah</option>
-                                            <option value="VA">Virginia</option>
-                                            <option value="VT">Vermont</option>
-                                            <option value="WA">Washington</option>
-                                            <option value="WI">Wisconsin</option>
-                                            <option value="WV">West Virginia</option>
-                                            <option value="WY">Wyoming</option>
+                                <div class = "col-xs-4 col-sm-4 col-md-4">
+                                    <div class = "form-group input-group mb-2">
+                                        <select class = "form-control input_state" name = "state" id = "state">
+                                            <option value = ""selected>State</option>
+                                            <option value = "AK">Alaska</option>
+                                            <option value = "AL">Alabama</option>
+                                            <option value = "AR">Arkansas</option>
+                                            <option value = "AZ">Arizona</option>
+                                            <option value = "CA">California</option>
+                                            <option value = "CO">Colorado</option>
+                                            <option value = "CT">Connecticut</option>
+                                            <option value = "DC">District of Columbia</option>
+                                            <option value = "DE">Delaware</option>
+                                            <option value = "FL">Florida</option>
+                                            <option value = "GA">Georgia</option>
+                                            <option value = "HI">Hawaii</option>
+                                            <option value = "IA">Iowa</option>
+                                            <option value = "ID">Idaho</option>
+                                            <option value = "IL">Illinois</option>
+                                            <option value = "IN">Indiana</option>
+                                            <option value = "KS">Kansas</option>
+                                            <option value = "KY">Kentucky</option>
+                                            <option value = "LA">Louisiana</option>
+                                            <option value = "MA">Massachusetts</option>
+                                            <option value = "MD">Maryland</option>
+                                            <option value = "ME">Maine</option>
+                                            <option value = "MI">Michigan</option>
+                                            <option value = "MN">Minnesota</option>
+                                            <option value = "MO">Missouri</option>
+                                            <option value = "MS">Mississippi</option>
+                                            <option value = "MT">Montana</option>
+                                            <option value = "NC">North Carolina</option>
+                                            <option value = "ND">North Dakota</option>
+                                            <option value = "NE">Nebraska</option>
+                                            <option value = "NH">New Hampshire</option>
+                                            <option value = "NJ">New Jersey</option>
+                                            <option value = "NM">New Mexico</option>
+                                            <option value = "NV">Nevada</option>
+                                            <option value = "NY">New York</option>
+                                            <option value = "OH">Ohio</option>
+                                            <option value = "OK">Oklahoma</option>
+                                            <option value = "OR">Oregon</option>
+                                            <option value = "PA">Pennsylvania</option>
+                                            <option value = "PR">Puerto Rico</option>
+                                            <option value = "RI">Rhode Island</option>
+                                            <option value = "SC">South Carolina</option>
+                                            <option value = "SD">South Dakota</option>
+                                            <option value = "TN">Tennessee</option>
+                                            <option value = "TX">Texas</option>
+                                            <option value = "UT">Utah</option>
+                                            <option value = "VA">Virginia</option>
+                                            <option value = "VT">Vermont</option>
+                                            <option value = "WA">Washington</option>
+                                            <option value = "WI">Wisconsin</option>
+                                            <option value = "WV">West Virginia</option>
+                                            <option value = "WY">Wyoming</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-xs-4 col-sm-4 col-md-4">
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="zcode" placeholder="Zip Code" class="form-control input_zip_code" value='<?php echo $zip_code; ?>'/>
+                                <div class = "col-xs-4 col-sm-4 col-md-4">
+                                    <div class = "input-group mb-3">
+                                        <input type = "text" name = "zcode" placeholder = "Zip Code" class = "form-control input_zip_code" value = '<?php echo $zip_code; ?>'/>
                                     </div>
                                 </div>
                             </div>  
-                            <div class="row">
-                                <div class="col xs-6 col-sm-6 col-md-6">                        
-                                    <div class="input-group mb-2">
-                                        <div class="input-group-append">
-                                            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                            <div class = "row">
+                                <div class = "col xs-6 col-sm-6 col-md-6">                        
+                                    <div class = "input-group mb-2">
+                                        <div class = "input-group-append">
+                                            <span class = "input-group-text"><i class = "fas fa-lock"></i></span>
                                         </div>
-                                        <input type="password" name="pass" placeholder="Password" class="form-control input_pass" value='<?php echo $password; ?>'/>
+                                        <input type = "password" name = "pass" placeholder = "Password" class = "form-control input_pass" value = '<?php echo $password; ?>'/>
                                     </div>
                                 </div>
-                                <div class="col xs-6 col sm-6 col-md-6">
-                                    <div class="input-group mb-3">
-                                        <input type="password" name="cpass" placeholder="Confirm Password" class="form-control input_cpass" value='<?php echo $c_password; ?>'/>
+                                <div class = "col xs-6 col sm-6 col-md-6">
+                                    <div class = "input-group mb-3">
+                                        <input type = "password" name = "cpass" placeholder = "Confirm Password" class = "form-control input_cpass" value = '<?php echo $c_password; ?>'/>
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-center mt-1 register_container">
-                                <button type='submit' name='submit' class='btn register_btn'>Register</button>
+                            <div class = "d-flex justify-content-center mt-1 register_container">
+                                <button type = 'submit' name = 'submit' class = 'btn register_btn'>Register</button>
                             </div>
-                            <div class="mt-2">
-                                <div class="d-flex justify-content-center links">
-                                    <font size="2">Already have an account?</font><a href="login.php" class="ml-1"><font size="2">Login here</font></a>
+                            <div class = "mt-2">
+                                <div class = "d-flex justify-content-center links">
+                                    <font size = "2">Already have an account?</font><a href = "login.php" class="ml-1"><font size = "2">Login here</font></a>
                                 </div>                       
                             </div>
                         </form>
