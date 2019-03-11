@@ -712,10 +712,10 @@ header {
                 </div>
                 <div class="navi">
                     <ul>
-                        <li class="active"><a href="profile.php"><i class="fa fa-tachometer" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
-                        <li><a href="calendar.php"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calendar</span></a></li>
-                        <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Jobs</span></a></li>
-                        <li><a href="#"><i class="fa fa-comments" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
+                        <li class="active"><a href="#home" rel="dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
+                        <li><a href="#calendar" rel="calendar"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calendar</span></a></li>
+                        <li><a href="#jobs" rel="jobs"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Jobs</span></a></li>
+                        <li><a href="#messages"><i class="fa fa-comments" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -748,67 +748,101 @@ header {
                     </header>
                 </div>
                 <div class="user-dashboard">
-                    
-                    <div class="container-fluid">
-                    <h1>Hello, <?php echo ucfirst($firstname)." ".ucfirst($lastname) ?>!</h1>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-5 gutter">
-                                <div class="sales">
-                                    <h2>First Block</h2>
-                                    <br>
-                                    <br>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                    <div id="dashboard">
+                        <div class="container-fluid">
+                        <h1>Hello, <?php echo ucfirst($firstname)." ".ucfirst($lastname) ?>!</h1>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-5 gutter">
+                                    <div class="sales">
+                                        <h2>First Block</h2>
+                                        <br>
+                                        <br>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-5 gutter">
+                                    <div class="sales">
+                                        <h2>Second Block</h2>
+                                        <br>
+                                        <br>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-5 gutter">
-                                <div class="sales">
-                                    <h2>Second Block</h2>
-                                    <br>
-                                    <br>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-12 gutter">
+                                    <div class="sales">
+                                        <h2>Third block</h2>
+                                        <br>
+                                        <br>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+                                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12 gutter">
-                                <div class="sales">
-                                    <h2>Third block</h2>
-                                    <br>
-                                    <br>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                    in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    </div>
+                    <div id="calendar" style="display: none">
+                        <div class="container-fluid">
+                            <h1>Calendar</h1>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 gutter">
+                                        <div class="sales">
+                                            <h2>Third block</h2>
+                                            <br>
+                                            <br>
+                                            <p>Testing Calendar</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
+                    </div>
+                    <div id="jobs" style="display: none">
+                        <div class="container-fluid">
+                            <h1>Jobs</h1>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 gutter">
+                                        <div class="sales">
+                                            <h2>Third block</h2>
+                                            <br>
+                                            <br>
+                                            <p>Testing Jobs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div id="messages" style="display: none">
+
                     </div>
                 </div>
             </div>
@@ -835,6 +869,13 @@ header {
             </div>
         </div>
     </div>
+    <script>
+        $('.navi a').on('click', function() {
+            var target = $(this).attr('rel');
+            $("#"+target).show().siblings("div").hide();
+        });
+    </script>
+
 </body>
 <?php
 }
