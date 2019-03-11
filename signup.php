@@ -5,103 +5,105 @@ include("includes/config.php");
 include("includes/functions.php");
 
 // instantiate error strings
-$error_status='';
+$error_status = '';
 
 // instantiate variables
-$first_name='';
-$last_name='';
-$email='';
-$phone_number='';
-$address='';
-$city='';
-$state='';
-$zip_code='';
-$password='';
-$c_password='';
+$first_name = '';
+$last_name = '';
+$email = '';
+$phone_number = '';
+$address = '';
+$city = '';
+$state = '';
+$zip_code = '';
+$password = '';
+$c_password = '';
 
 // get strings from input fields
 if(isset($_POST['submit'])) {
-    $first_name=mysqli_real_escape_string($con, $_POST['fname']);
-    $last_name=mysqli_real_escape_string($con, $_POST['lname']);
-    $email=mysqli_real_escape_string($con, $_POST['mail']);
-    $phone_number=mysqli_real_escape_string($con, $_POST['phone']);
-    $address=mysqli_real_escape_string($con, $_POST['address']);
-    $city=mysqli_real_escape_string($con, $_POST['city']);
-    $state=mysqli_real_escape_string($con, $_POST['state']);
-    $zip_code=mysqli_real_escape_string($con, $_POST['zcode']);
-    $password=$_POST['pass'];
-    $c_password=$_POST['cpass'];
+    $first_name = mysqli_real_escape_string($con, $_POST['fname']);
+    $last_name = mysqli_real_escape_string($con, $_POST['lname']);
+    $email = mysqli_real_escape_string($con, $_POST['mail']);
+    $phone_number = mysqli_real_escape_string($con, $_POST['phone']);
+    $address = mysqli_real_escape_string($con, $_POST['address']);
+    $city = mysqli_real_escape_string($con, $_POST['city']);
+    $state = mysqli_real_escape_string($con, $_POST['state']);
+    $zip_code = mysqli_real_escape_string($con, $_POST['zcode']);
+    $password = $_POST['pass'];
+    $c_password = $_POST['cpass'];
 
     // if any of the login fields are empty, throws error
     if(empty($first_name) || empty($last_name) || empty($email) || empty($phone_number) || empty($address) 
     || empty($city) || empty($state) || empty($zip_code) || empty($password) || empty($c_password)) {
-        $error_status="<div class='error'>Please fill in all fields.</div>";
+        $error_status = "<div class='error'>Please fill in all fields.</div>";
     }
     // if first name does not contain at least 3 characters, throws error
     else if(strlen($first_name) < 3) {
-        $error_status="<div class='error'>First name must contain at least 3 characters.</div>";
+        $error_status = "<div class='error'>First name must contain at least 3 characters.</div>";
     }
     // if last name does not contain at least 3 characters, throws error
     else if(strlen($last_name) < 3) {
-        $error_status="<div class='error'>Last name must contain at least 3 characters.</div>";
+        $error_status = "<div class='error'>Last name must contain at least 3 characters.</div>";
     }
     // if email provided is not valid, throws error
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error_status="<div class='error'>Email provided is invalid.</div>";
+        $error_status = "<div class='error'>Email provided is invalid.</div>";
     }
     // if account with email provided already exists, throws error
     else if(email_exists($email, $con)) {
-        $error_status="<div class='error'>An account already exists with the email provided.</div>";
+        $error_status = "<div class='error'>An account already exists with the email provided.</div>";
     }
     // if password does not contain at least 8 characters, throws error
     else if(strlen($password) < 8) {
-        $error_status="<div class='error'>Password must contain at least 8 characters.</div>";
+        $error_status = "<div class='error'>Password must contain at least 8 characters.</div>";
     }
     // if confirmed password does not match password, throws error
     else if($password !== $c_password) {
-        $error_status="<div class='error'>Password provided does not match.</div>";
+        $error_status = "<div class='error'>Password provided does not match.</div>";
     }
     // if all fields are filled appropriately, insert data into database
     else {
         // encrypt the verification code using md5 encryption
-        $code=substr(md5(mt_rand()), 0, 15);
+        $code = substr(md5(mt_rand()), 0, 15);
 
         // encrypt the password using md5 encryption
-        $password=md5($password);
+        $password = md5($password);
 
-        // insert values into verify database
+        // insert fields into verify database
         mysqli_query($con, "INSERT INTO verify
             (first_name, last_name, email, phone, address, city, state, zip_code, password, code) 
             VALUES ('$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', '$password', '$code')");
         $db_id=mysqli_insert_id($con);
 
-        $error_status = "Your account activation code is ".$code."";
+        $error_status = "Please check your email for an account activation code.";
         $to=$email;
-        $subject="Activation Code For gtmwebservices.com";
+        $subject = "Activation code for gtmwebservices.com";
         $from = 'Christian.8edwell@gmail.com';
-        $body='Your activation code is '.$code.'. Please click on this link to verify your account: <a href="signup.php">signup.php?id='.$db_id.'&code='.$code.'</a>to activate your account.';
+        $dir = 'localhost/GTM-Web-Application-V2/';
+        $body = 'Your activation code is '.$code.'. Please click on this link to activate your account: <a href="' .$dir. 'signup.php?id='.$db_id.'&code='.$code.'">link</a> to activate your account.';
         $headers = "From:".$from;
         mail($to,$subject,$body,$headers);
-
-        echo "An activation code has been sent to you, please check your email.";
     }
 }
 
 // verify the user using id and activation code
 if(isset($_GET['id']) && isset($_GET['code']))
 {
-	$id=$_GET['id'];
-	$code=$_GET['id'];
-	$select=mysqli_query($con, "SELECT email,password FROM verify WHERE id='$id' and code='$code'");
+	$id = $_GET['id'];
+	$code = $_GET['id'];
+	$select = mysqli_query($con, "SELECT email,password FROM verify WHERE id = '$id' and code = '$code'");
 	if(mysqli_num_rows($select) == 1)
 	{
-		while($row=mysqli_fetch_array($select))
+		while($row = mysqli_fetch_array($select))
 		{
-			$email=$row['email'];
-			$password=$row['password'];
-		}
-		$insert_user=mysqli_query($con, "INSERT INTO user VALUES ('', '$first_name', '$last_name', '$email', '$phone', '$address', '$city', '$state', '$zip_code', '$password')");
-        $delete=mysqli_query($con, "DELETE FROM verify WHERE id='$id' AND code='$code'");
+			$email = $row['email'];
+			$password = $row['password'];
+        }
+        // insert fields into users database
+		$insert_user = mysqli_query($con, "INSERT INTO users VALUES ('', '$first_name', '$last_name', '$email', '$phone', '$address', '$city', '$state', '$zip_code', '$password')");
+        
+        // delete fields from verify database, since user is now verified
+        $delete = mysqli_query($con, "DELETE FROM verify WHERE id = '$id' AND code = '$code'");
         
         // redirect to login page
         header("location:login.php");
