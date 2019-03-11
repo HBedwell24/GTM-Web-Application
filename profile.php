@@ -873,6 +873,7 @@ header {
         $('.navi a').on('click', function() {
             var target = $(this).attr('rel');
             $("#"+target).show().siblings("div").hide();
+            $(this).parent().addClass('active').siblings().removeClass('active');
         });
     </script>
 
