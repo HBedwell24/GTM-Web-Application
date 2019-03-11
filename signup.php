@@ -38,11 +38,11 @@ if(isset($_POST['submit'])) {
         $error_status="<div class='error'>Please fill in all fields.</div>";
     }
     // if first name does not contain at least 3 characters, throws error
-    else if(strlen($first_name)<3) {
+    else if(strlen($first_name) < 3) {
         $error_status="<div class='error'>First name must contain at least 3 characters.</div>";
     }
     // if last name does not contain at least 3 characters, throws error
-    else if(strlen($last_name)<3) {
+    else if(strlen($last_name) < 3) {
         $error_status="<div class='error'>Last name must contain at least 3 characters.</div>";
     }
     // if email provided is not valid, throws error
@@ -54,26 +54,60 @@ if(isset($_POST['submit'])) {
         $error_status="<div class='error'>An account already exists with the email provided.</div>";
     }
     // if password does not contain at least 8 characters, throws error
-    else if(strlen($password)<8) {
+    else if(strlen($password) < 8) {
         $error_status="<div class='error'>Password must contain at least 8 characters.</div>";
     }
     // if confirmed password does not match password, throws error
-    else if($password!==$c_password) {
+    else if($password !== $c_password) {
         $error_status="<div class='error'>Password provided does not match.</div>";
     }
     // if all fields are filled appropriately, insert data into database
     else {
+        // encrypt the verification code using md5 encryption
+        $code=substr(md5(mt_rand()), 0, 15);
+
         // encrypt the password using md5 encryption
         $password=md5($password);
-        mysqli_query($con, "INSERT INTO users
-            (first_name, last_name, email, phone, address, city, state, zip_code, password) 
-            VALUES ('$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', '$password')");
 
-        // redirect to login page
-        header("location:login.php");
+        // insert values into verify database
+        mysqli_query($con, "INSERT INTO verify
+            (first_name, last_name, email, phone, address, city, state, zip_code, password, code) 
+            VALUES ('$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', '$password', '$code')");
+        $db_id=mysqli_insert_id($con);
+
+        $error_status = "Your account activation code is ".$code."";
+        $to=$email;
+        $subject="Activation Code For gtmwebservices.com";
+        $from = 'Christian.8edwell@gmail.com';
+        $body='Your activation code is '.$code.'. Please click on this link to verify your account: <a href="signup.php">signup.php?id='.$db_id.'&code='.$code.'</a>to activate your account.';
+        $headers = "From:".$from;
+        mail($to,$subject,$body,$headers);
+
+        echo "An activation code has been sent to you, please check your email.";
     }
 }
- ?>
+
+// verify the user using id and activation code
+if(isset($_GET['id']) && isset($_GET['code']))
+{
+	$id=$_GET['id'];
+	$code=$_GET['id'];
+	$select=mysqli_query($con, "SELECT email,password FROM verify WHERE id='$id' and code='$code'");
+	if(mysqli_num_rows($select) == 1)
+	{
+		while($row=mysqli_fetch_array($select))
+		{
+			$email=$row['email'];
+			$password=$row['password'];
+		}
+		$insert_user=mysqli_query($con, "INSERT INTO user VALUES ('', '$first_name', '$last_name', '$email', '$phone', '$address', '$city', '$state', '$zip_code', '$password')");
+        $delete=mysqli_query($con, "DELETE FROM verify WHERE id='$id' AND code='$code'");
+        
+        // redirect to login page
+        header("location:login.php");
+	}
+}
+?>
 
 <!-- style sheet for signup page -->
 <style type='text/css'>
@@ -322,3 +356,5 @@ body, html {
                 </div>
             </div>
         </div>
+    </body>
+</html>
