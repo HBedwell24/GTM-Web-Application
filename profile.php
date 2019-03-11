@@ -176,9 +176,15 @@ else {
     ?>
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    
     <style type="text/css">
 
 li,ul {
@@ -186,37 +192,30 @@ li,ul {
     padding: 0;
     margin: 0;
 }
-
 .home {
     background: #f6f7fa;
 }
-
 #navigation {
     background: #0e1a35;
 }
-
 #navigation {
     padding: 0;
 }
-
 .display-table {
     display: table;
     padding: 0;
     height: 100%;
     width: 100%;
 }
-
 .display-table-row {
     display: table-row;
     height: 100%;
 }
-
 .display-table-cell {
     display: table-cell;
     float: none;
     height: 100%;
 }
-
 .v-align {
     vertical-align: top;
 }
@@ -225,18 +224,15 @@ li,ul {
     padding: 16px 0 17px;
     width: 100%;
 }
-
 .header-top {
     margin: 0;
     padding-top: 2px;
 }
-
 .header-top img {
     border-radius: 50%;
     max-width: 48px !important;
     width: 100%;
 }
-
 .add-project {
     background: #5584ff none repeat scroll 0 0;
     border-radius: 100px;
@@ -246,13 +242,10 @@ li,ul {
     padding: 10px 27px 10px 45px;
     position: relative;
 }
-
-.header-rightside .nav > li > a:focus,
-.header-rightside .nav > li > a:hover {
+.header-rightside .nav > li > a:focus, .header-rightside .nav > li > a:hover {
     background: none;
     text-decoration: none;
 }
-
 .add-project::before {
     background: rgba(0, 0, 0, 0) url("../images/plus.png") no-repeat scroll 0 0;
     content: "";
@@ -263,15 +256,12 @@ li,ul {
     top: 12px;
     width: 12px;
 }
-
 .add-project:hover {
     color: #ffffff;
 }
-
 .header-top i {
     color: #0e1a35;
 }
-
 .icon-info {
     position: relative;
 }
@@ -285,23 +275,19 @@ li,ul {
     position: absolute;
     top: -9px;
 }
-
 .icon-info .label {
     border: 2px solid #ffffff;
     font-weight: 500;
     padding: 3px 5px;
     text-align: center;
 }
-
 .header-top li {
     display: inline-block;
     text-align: center;
 }
-
 .header-top .dropdown-toggle {
     color: #0e1a35;
 }
-
 .header-top .dropdown-menu {
     border: medium none;
     left: -85px;
@@ -317,12 +303,10 @@ li,ul {
     margin-top: 10px;
     padding: 10px 15px;
 }
-
 .navbar-content > span {
     font-size: 13px;
     font-weight: 700;
 }
-
 .img-responsive {
     width: 100%;
 }
@@ -340,7 +324,6 @@ li,ul {
     background: rgba(0, 0, 0, 0) url("../images/search.png") no-repeat scroll 99% 12px;
     color: #8492af;
 }
-
 header {
     background: #ffffff none repeat scroll 0 0;
     box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
@@ -354,11 +337,9 @@ header {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
-
 .logo {
     text-align: center;
 }
-
 .navi a {
     border-bottom: 1px solid #0d172e;
     border-top: 1px solid #0d172e;
@@ -369,43 +350,34 @@ header {
     padding: 28px 20px;
     text-decoration: none;
 }
-
 .navi i {
     margin-right: 15px;
     color: #4b7aba;
 }
-
 .navi .active a {
     background: #122143;
     border-left: 5px solid #4b7aba;
     padding-left: 15px;
 }
-
 .navi a:hover {
     background: #122143 none repeat scroll 0 0;
     border-left: 5px solid #4b7aba;
     display: block;
     padding-left: 15px;
 }
-
 .navbar-default {
     background-color: #ffffff;
     border-color: #ffffff;
 }
-
 .navbar-toggle {
     border: none;
 }
-
-.navbar-default .navbar-toggle:focus,
-.navbar-default .navbar-toggle:hover {
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
     background-color: rgba(0, 0, 0, 0);
 }
-
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #0e1a35;
 }
-
 .circle-logo {
     margin: 0 auto;
     max-width: 30px !important;
@@ -417,11 +389,9 @@ header {
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
-
 .user-dashboard {
     padding: 0 20px;
 }
-
 .user-dashboard h1 {
     color: #0e1a35;
     font-size: 30px;
@@ -436,26 +406,6 @@ header {
     padding: 15px;
     width: 100%;
 }
-.sales button {
-    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-    border: 1px solid #dadee7;
-    border-radius: 100px;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    padding-right: 32px;
-    color: #0e1a35;
-}
-
-.sales button::before {
-    content: "";
-    font-family: FontAwesome;
-    position: absolute;
-    right: 12px;
-    top: 11px;
-}
-.sales  .btn-group {
-    float: right;
-}
 .sales h2 {
     color: #8492af;
     float: left;
@@ -469,7 +419,7 @@ header {
     font-weight: 600;
     letter-spacing: 0.5px;
 }
-.sales .dropdown-menu{
+.sales .dropdown-menu {
     margin: 0px;
     padding: 0px;
     border: 0px;
@@ -477,7 +427,7 @@ header {
     width: 100%;
     color: #0e1a35;
 }
-.sales .btn-group.open .dropdown-toggle, .btn.active, .btn:active{
+.sales .btn-group.open .dropdown-toggle, .btn.active, .btn:active {
     box-shadow: none;
 }
 .sales .dropdown-menu > a {
@@ -534,7 +484,9 @@ header {
     padding: 10px 30px;
     position: relative;
 }
-.modal-footer .add-project::before{display: none;}
+.modal-footer .add-project::before {
+    display: none;
+}
 .modal-footer {
     border: 0 none;
     padding: 10px 15px 26px;
@@ -699,6 +651,7 @@ header {
         width: 100%;
     }
 }
+
 </style>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -817,10 +770,7 @@ header {
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 gutter">
                                         <div class="sales">
-                                            <h2>Third block</h2>
-                                            <br>
-                                            <br>
-                                            <p>Testing Calendar</p>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -832,10 +782,7 @@ header {
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 gutter">
                                         <div class="sales">
-                                            <h2>Third block</h2>
-                                            <br>
-                                            <br>
-                                            <p>Testing Jobs</p>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -874,6 +821,94 @@ header {
             var target = $(this).attr('rel');
             $("#"+target).show().siblings("div").hide();
             $(this).parent().addClass('active').siblings().removeClass('active');
+        });
+
+        $(document).ready(function() {
+        var calendar = $('#calendar .sales').fullCalendar({
+            width: 700,
+            editable:true,
+            header:{
+            left:'prev,next today',
+            center:'title',
+            right:'month,agendaWeek,agendaDay'
+            },
+            events: 'load.php',
+            selectable:true,
+            selectHelper:true,
+            select: function(start, end, allDay)
+            {
+            var title = prompt("Enter Event Title");
+            if(title)
+            {
+            var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+            var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+            $.ajax({
+            url:"insert.php",
+            type:"POST",
+            data:{title:title, start:start, end:end},
+            success:function()
+            {
+                calendar.fullCalendar('refetchEvents');
+                alert("Added Successfully");
+            }
+            })
+            }
+            },
+            editable:true,
+            eventResize:function(event)
+            {
+            var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+            var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+            var title = event.title;
+            var id = event.id;
+            $.ajax({
+            url:"update.php",
+            type:"POST",
+            data:{title:title, start:start, end:end, id:id},
+            success:function(){
+            calendar.fullCalendar('refetchEvents');
+            alert('Event Update');
+            }
+            })
+            },
+
+            eventDrop:function(event)
+            {
+            var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+            var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+            var title = event.title;
+            var id = event.id;
+            $.ajax({
+            url:"update.php",
+            type:"POST",
+            data:{title:title, start:start, end:end, id:id},
+            success:function()
+            {
+            calendar.fullCalendar('refetchEvents');
+            alert("Event Updated");
+            }
+            });
+            },
+
+            eventClick:function(event)
+            {
+            if(confirm("Are you sure you want to remove it?"))
+            {
+            var id = event.id;
+            $.ajax({
+            url:"delete.php",
+            type:"POST",
+            data:{id:id},
+            success:function()
+            {
+                calendar.fullCalendar('refetchEvents');
+                alert("Event Removed");
+            }
+            })
+            }
+            },
+
+        });
         });
     </script>
 
