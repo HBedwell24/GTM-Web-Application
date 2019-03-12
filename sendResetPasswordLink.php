@@ -47,12 +47,12 @@ if(isset($_POST['submit'])) {
             $mail->Host = "smtp.gmail.com";
             // set the SMTP port for the GMAIL server
             $mail->Port = "465";
-            $mail->From='your_gmail_id@gmail.com';
-            $mail->FromName='your_name';
+            $mail->From = 'your_gmail_id@gmail.com';
+            $mail->FromName = 'your_name';
             $mail->AddAddress('reciever_email_id', 'reciever_name');
-            $mail->Subject  =  'Reset Password';
+            $mail->Subject = 'Reset Password';
             $mail->IsHTML(true);
-            $mail->Body    = 'Click on this link to reset password '.$pass.'';
+            $mail->Body = 'Click on this link to reset password '.$pass.'';
             if($mail->Send()) {
                 $error_status = "<div class='success'>Check your email for password reset code.</div>";
             }
