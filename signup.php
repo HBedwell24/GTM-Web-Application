@@ -89,15 +89,14 @@ if(isset($_POST['submit'])) {
 }
 
 // verify the user using id and activation code
-if(isset($_GET['id']) && isset($_GET['code']))
-{
+if(isset($_GET['id']) && isset($_GET['code'])) {
 	$id = $_GET['id'];
 	$code = $_GET['code'];
-	$select = mysqli_query($con, "SELECT first_name, last_name, email, phone, address, city, state, zip_code, password FROM verify WHERE id = '$id' and code = '$code'");
-	if(mysqli_num_rows($select) == 1)
-	{
-		while($row = mysqli_fetch_array($select))
-		{
+    $select = mysqli_query($con, "SELECT first_name, last_name, email, phone, address, city, state, zip_code, password FROM verify WHERE id = '$id' and code = '$code'");
+    
+	if(mysqli_num_rows($select) == 1) {
+
+		while($row = mysqli_fetch_array($select)) {
             $first_name = $row['first_name'];
             $last_name = $row['last_name'];
             $email = $row['email'];

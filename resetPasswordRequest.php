@@ -24,18 +24,21 @@ if(isset($_POST['submit'])) {
     }
     // if all fields are filled appropriately, send reset password link to email
     else {
-        $select=mysqli_query($con, "SELECT email,password FROM user WHERE email='$email'");
+        $select = mysqli_query($con, "SELECT email, password FROM users WHERE email='$email'");
+
         if(mysqli_num_rows($select) == 1) {
+
             while($row = mysqli_fetch_array($select)) {
+                // encrypt both email and password
                 $email = md5($row['email']);
                 $pass = md5($row['password']);
             }
             $dir = 'localhost/GTM-Web-Application-V2/';
-            $link = '<a href="'.$dir.'reset.php?key='.$email.'&reset='.$pass."'>Click this link to reset password.</a>";
+            $link = '' .$dir. 'resetPassword.php?key=' .$email. '&reset=' .$pass. '';
             require_once('PHPMailer/PHPMailerAutoload.php');
             $mail = new PHPMailer();
-            $mail->CharSet =  "utf-8";
-            $mail->IsSMTP();
+            $mail->CharSet = "utf-8";
+            $mail->isSMTP();
             // enable SMTP authentication
             $mail->SMTPAuth = true;                  
             // GMAIL username
@@ -47,17 +50,17 @@ if(isset($_POST['submit'])) {
             $mail->Host = "smtp.gmail.com";
             // set the SMTP port for the GMAIL server
             $mail->Port = "465";
-            $mail->From = 'your_gmail_id@gmail.com';
+            $mail->From = 'your_email_id@gmail.com';
             $mail->FromName = 'your_name';
             $mail->AddAddress('reciever_email_id', 'reciever_name');
             $mail->Subject = 'Reset Password';
             $mail->IsHTML(true);
-            $mail->Body = 'Click on this link to reset password '.$pass.'';
+            $mail->Body = 'Click on this link to reset password <a href="'.$link.'">' .$link.'</a>';
             if($mail->Send()) {
                 $error_status = "<div class='success'>Check your email for password reset code.</div>";
             }
             else {
-                $error_status = "<div class='error'>Mail error - > .$mail->ErrorInfo</div>";
+                $error_status = "<div class='error'>Mail error -> .$mail->ErrorInfo</div>";
             }
         }	
     }
@@ -71,7 +74,6 @@ if(isset($_POST['submit'])) {
 }
 .success {
     color:green;
-    font-weight:bold;
 }
 .form-row {
     padding-bottom:15px;
@@ -187,7 +189,7 @@ body, html {
                                 <input type="email" name="mail" placeholder="Email Address" class="form-control input_email" value='<?php echo $email; ?>'/>
                             </div>
                             <div class="d-flex justify-content-center mt-1 reset_password_container">
-                                <button type='submit' name='submit' class='btn reset_password_btn'>Reset Password</button>
+                                <button type='submit' name='submit' class='btn reset_password_btn'>Send Request</button>
                             </div>
                         </form>
                     </div>             
