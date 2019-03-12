@@ -81,7 +81,7 @@ if(isset($_POST['submit'])) {
         $from = 'Christian.8edwell@gmail.com';
         $dir = 'localhost/GTM-Web-Application-V2/';
         $link = ''.$dir. 'signup.php?id=' .$db_id. '&code=' .$code.'';
-        $body = 'Your activation code is '.$code.'. Please click on this link to activate your account: <a href="'.$link.'>link</a>"';
+        $body = 'Your activation code is '.$code.'. Please click on this link to activate your account: <a href="'.$link.'">'.$link.'</a>';
         $headers = "From:.$from\r\n";
         $headers .= "Content-type: text/html\r\n";
         mail($to, $subject, $body, $headers);

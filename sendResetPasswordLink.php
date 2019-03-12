@@ -18,9 +18,9 @@ if(isset($_POST['submit'])) {
     if(empty($email)) {
         $error_status = "<div class='error'>Please fill in all fields.</div>";
     }
-    // if email provided is not valid, throws error
-    else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error_status = "<div class='error'>Email provided is invalid.</div>";
+    // if email provided does not exist, throws error
+    else if(!email_exists($email, $con)) {
+        $error_status = "<div class='error'>Email provided is not associated with any account.</div>";
     }
     // if all fields are filled appropriately, send reset password link to email
     else {
