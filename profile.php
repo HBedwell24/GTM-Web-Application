@@ -193,7 +193,7 @@ li,ul {
     margin: 0;
 }
 .home {
-    background: #f6f7fa;
+    background: #ececec;
 }
 #navigation {
     background: #0e1a35;
@@ -245,16 +245,6 @@ li,ul {
 .header-rightside .nav > li > a:focus, .header-rightside .nav > li > a:hover {
     background: none;
     text-decoration: none;
-}
-.add-project::before {
-    background: rgba(0, 0, 0, 0) url("../images/plus.png") no-repeat scroll 0 0;
-    content: "";
-    ;
-    height: 12px;
-    left: 17px;
-    position: absolute;
-    top: 12px;
-    width: 12px;
 }
 .add-project:hover {
     color: #ffffff;
@@ -401,7 +391,7 @@ header {
 }
 .sales {
     background: #ffffff none repeat scroll 0 0;
-    border: 1px solid #d4d9e3;
+    border: 1px solid #d0d0d0;
     display: inline-block;
     padding: 15px;
     width: 100%;
@@ -652,6 +642,12 @@ header {
     }
 }
 
+#calendar button {
+    background-color: #0e1a35;
+    background-image: none;
+    color: #ffffff;
+}
+
 </style>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
@@ -666,7 +662,7 @@ header {
                 <div class="navi">
                     <ul>
                         <li class="active"><a href="#home" rel="dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
-                        <li><a href="#calendar" rel="calendar"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Calendar</span></a></li>
+                        <li><a href="#calendar" rel="calendar"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Create/Edit Schedule</span></a></li>
                         <li><a href="#jobs" rel="jobs"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Jobs</span></a></li>
                         <li><a href="#messages"><i class="fa fa-comments" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
                     </ul>
@@ -825,6 +821,9 @@ header {
 
         $(document).ready(function() {
         var calendar = $('#calendar .sales').fullCalendar({
+            height: 750,
+            eventColor: '#0e1a35',
+            eventTextColor: '#ffffff',
             width: 700,
             editable:true,
             header:{
