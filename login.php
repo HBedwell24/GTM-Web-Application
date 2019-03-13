@@ -66,7 +66,7 @@ body, html {
     background-size: cover;
 }
 .user_card {
-	height: 440px;
+	height: 490px;
 	width: 350px;
 	margin-top: auto;
 	margin-bottom: auto;
@@ -100,7 +100,9 @@ body, html {
 	border-radius: 50%;
 }
 .form_container {
-	margin-top: 100px;
+    margin-top: 100px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 .login_btn {
 	width: 100%;
@@ -114,12 +116,6 @@ body, html {
 .login_container {
     padding: 0 2rem;
 }
-.input-group-text {
-	background: #4B71BA !important;
-	color: white !important;
-	border: 0 !important;
-	border-radius: 0.25rem 0 0 0.25rem !important;
-}
 .input_email, .input_pass, .input_pass:focus {
 	box-shadow: none !important;
 	outline: 0px !important;
@@ -129,6 +125,10 @@ body, html {
 }
 .custom-control {
     padding-right: 20px;
+}
+.field-label {
+    color: #4B71BA;
+    font-weight: bold;
 }
 </style>
 
@@ -154,17 +154,13 @@ body, html {
                     <div class="d-flex justify-content-center form_container">
                         <form method = 'post'>
                             <center><h2 style = "color:#555555;">Login</h2></center>
-                            <center><?php echo $error_status; ?></center></br>                            
-                            <div class = "input-group mb-3">
-                                <div class = "input-group-append">
-                                    <span class="input-group-text"><i class = "fas fa-envelope"></i></span>
-                                </div>
+                            <center><?php echo $error_status; ?></center></br>     
+                            <label class = "field-label">Email Address</label>                
+                            <div class = "input-group mb-3">                                
                                 <input type = "email" name = "mail" placeholder = "Email Address" class = "form-control input_email" value = '<?php echo $email; ?>'/>
                             </div>
+                            <label class = "field-label">Password</label>
                             <div class="input-group mb-2">
-                                <div class="input-group-append">
-                                    <span class = "input-group-text"><i class = "fas fa-lock"></i></span>
-                                </div>
                                 <input type = "password" name = "pass" placeholder = "Password" class = "form-control input_pass" value = '<?php echo $password; ?>'/>
                             </div>
                             <div class = "form-row">

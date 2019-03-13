@@ -145,7 +145,7 @@ body, html {
     background-size: cover;
 }
 .user_card {
-	height: 620px;
+	height: 800px;
 	width: 725px;
 	margin-top: auto;
 	margin-bottom: auto;
@@ -184,7 +184,7 @@ body, html {
     margin-right: 40px;
 }
 .register_btn {
-	width: 50%;
+	width: 40%;
 	background: #4B71BA !important;
 	color: white !important;
 }
@@ -195,18 +195,16 @@ body, html {
 .register_container {
     padding: 0 2rem;
 }
-.input-group-text {
-	background: #4B71BA !important;
-	color: white !important;
-	border: 0 !important;
-	border-radius: 0.25rem 0 0 0.25rem !important;
-}
 .input_first_name, .input_last_name, 
 .input_email, .input_phone_number, .input_address, 
 .input_city, .input_state, .input_zip_code, 
 .input_pass, .input_cpass:focus {
 	box-shadow: none !important;
 	outline: 0px !important;
+}
+label {
+    color: #4B71BA;
+    font-weight: bold;
 }
 </style>
 
@@ -238,47 +236,39 @@ body, html {
                             <center><?php echo $error_status; ?></center></br>
                             <div class = "row">
                                 <div class = "col-xs-6 col-sm-6 col-md-6">
-                                    <div class = "input-group mb-2">
-                                        <div class = "input-group-append">
-                                            <span class = "input-group-text"><i class = "fas fa-user"></i></span>
-                                        </div>
-                                        <input type = "text" name = "fname" placeholder = "First Name" class = "form-control input_first_name" value = '<?php echo $first_name; ?>'/>
+                                    <label>First Name*</label>    
+                                    <div class = "input-group mb-2">                                   
+                                        <input type = "text" name = "fname" placeholder = "At least 3 characters" class = "form-control input_first_name" value = '<?php echo $first_name; ?>'/>
                                     </div>
                                 </div>
                                 <div class = "col-xs-6 col-sm-6 col-md-6">
+                                    <label>Last Name*</label>   
                                     <div class = "input-group mb-3">
-                                        <input type = "text" name = "lname" placeholder = "Last Name" class = "form-control input_last_name" value = '<?php echo $last_name; ?>'/>
+                                        <input type = "text" name = "lname" placeholder = "At least 3 characters" class = "form-control input_last_name" value = '<?php echo $last_name; ?>'/>
                                     </div>
                                 </div>
                             </div>
-                            <div class = "input-group mb-3">
-                                <div class = "input-group-append">
-                                    <span class = "input-group-text"><i class = "fas fa-envelope"></i></span>
-                                </div>
+                            <label>Email Address*</label>   
+                            <div class = "input-group mb-3">                                
                                 <input type = "email" name = "mail" placeholder = "Email Address" class = "form-control input_email" value = '<?php echo $email; ?>'/>
                             </div>
+                            <label>Phone Number*</label> 
                             <div class = "input-group mb-3">
-                                <div class = "input-group-append">
-                                    <span class = "input-group-text"><i class = "fas fa-phone"></i></span>
-                                </div>
                                 <input type = "tel" name = "phone" placeholder = "Phone Number" class = "form-control bfh-phone" data-format = "(ddd) ddd-dddd" value = '<?php echo $phone_number; ?>'/>
                             </div>
+                            <label>Home Address*</label> 
                             <div class = "input-group mb-3">
-                                <div class = "input-group-append">
-                                    <span class = "input-group-text"><i class = "fas fa-home"></i></span>
-                                </div>
                                 <input type = "text" name = "address" placeholder = "Home Address" class = "form-control input_address" value = '<?php echo $address; ?>'/>
                             </div>
                             <div class = "row">
                                 <div class = "col-xs-4 col-sm-4 col-md-4">
+                                    <label>City*</label>   
                                     <div class = "input-group mb-3">
-                                        <div class = "input-group-append">
-                                            <span class = "input-group-text"><i class = "fas fa-building"></i></span>
-                                        </div>
                                         <input type = "text" name = "city" placeholder = "City" class = "form-control input_city" value = '<?php echo $city; ?>'/>
                                     </div>
                                 </div>
                                 <div class = "col-xs-4 col-sm-4 col-md-4">
+                                    <label>State*</label>   
                                     <div class = "form-group input-group mb-2">
                                         <select class = "form-control input_state" name = "state" id = "state">
                                             <option value = ""selected>State</option>
@@ -338,21 +328,21 @@ body, html {
                                     </div>
                                 </div>
                                 <div class = "col-xs-4 col-sm-4 col-md-4">
+                                    <label>Zip Code*</label>   
                                     <div class = "input-group mb-3">
-                                        <input type = "text" name = "zcode" placeholder = "Zip Code" class = "form-control input_zip_code" value = '<?php echo $zip_code; ?>'/>
+                                        <input type = "text" name = "zcode" placeholder = "Zip Code" class = "form-control input_zip_code" pattern = "[0-9]{5}" value = '<?php echo $zip_code; ?>'/>
                                     </div>
                                 </div>
                             </div>  
                             <div class = "row">
-                                <div class = "col xs-6 col-sm-6 col-md-6">                        
+                                <div class = "col xs-6 col-sm-6 col-md-6">  
+                                    <label>Password*</label>                       
                                     <div class = "input-group mb-2">
-                                        <div class = "input-group-append">
-                                            <span class = "input-group-text"><i class = "fas fa-lock"></i></span>
-                                        </div>
-                                        <input type = "password" name = "pass" placeholder = "Password" class = "form-control input_pass" value = '<?php echo $password; ?>'/>
+                                        <input type = "password" name = "pass" placeholder = "At least 8 characters" class = "form-control input_pass" value = '<?php echo $password; ?>'/>
                                     </div>
                                 </div>
                                 <div class = "col xs-6 col sm-6 col-md-6">
+                                    <label>Confirm Password*</label>   
                                     <div class = "input-group mb-3">
                                         <input type = "password" name = "cpass" placeholder = "Confirm Password" class = "form-control input_cpass" value = '<?php echo $c_password; ?>'/>
                                     </div>
