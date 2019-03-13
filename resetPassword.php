@@ -54,6 +54,8 @@ body, html {
 	padding: 0;
 	height: 100%;
 	background-image: url("img/login_background.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .user_card {
 	height: 330px;
@@ -95,7 +97,7 @@ body, html {
     margin-right: 40px;
 }
 .submit_password_btn {
-	width: 100%;
+	width: 75%;
 	background: #4B71BA !important;
 	color: white !important;
 }

@@ -141,10 +141,12 @@ body, html {
 	padding: 0;
 	height: 100%;
 	background-image: url("img/login_background.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .user_card {
 	height: 620px;
-	width: 500px;
+	width: 725px;
 	margin-top: auto;
 	margin-bottom: auto;
 	background: #E9EAEE;
