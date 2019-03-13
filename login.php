@@ -171,7 +171,7 @@ body, html {
                                     <label class = "custom-control-label" for = "customControlInline"><font size = "2">Remember me</font></label>
                                 </div>
                                 <div class = "d-flex justify-content-center links">
-                                    <a href = "sendResetPasswordLink.php"><font size = "2">Forgot your password?</font></a>
+                                    <a href = "resetPasswordRequest.php"><font size = "2">Forgot your password?</font></a>
                                 </div> 
                             </div>
                             <div class = "d-flex justify-content-center mt-3 login_container">
