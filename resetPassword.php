@@ -11,6 +11,12 @@ $error_status = '';
 $email = '';
 $password = '';
 
+// if the hashed email address and password haven't been sent, redirect to resetPasswordRequest.php
+if(!(isset($_GET['key']) && isset($_GET['reset']))) {
+    header("location: resetPasswordRequest.php");
+}
+
+// if the hashed email address and password have been recieved, query database
 if(isset($_GET['key']) && isset($_GET['reset'])) {
 
   $email = $_GET['key'];
