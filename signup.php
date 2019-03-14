@@ -237,23 +237,23 @@ label {
                             <div class = "row">
                                 <div class = "col-xs-6 col-sm-6 col-md-6">
                                     <label>First Name*</label>    
-                                    <div class = "input-group mb-2">                                   
+                                    <div class = "input-group mb-2">                        
                                         <input type = "text" name = "fname" placeholder = "At least 3 characters" class = "form-control input_first_name" value = '<?php echo $first_name; ?>'/>
                                     </div>
                                 </div>
                                 <div class = "col-xs-6 col-sm-6 col-md-6">
                                     <label>Last Name*</label>   
-                                    <div class = "input-group mb-3">
+                                    <div class = "input-group mb-3"> 
                                         <input type = "text" name = "lname" placeholder = "At least 3 characters" class = "form-control input_last_name" value = '<?php echo $last_name; ?>'/>
                                     </div>
                                 </div>
                             </div>
                             <label>Email Address*</label>   
-                            <div class = "input-group mb-3">                                
+                            <div class = "input-group mb-3">                         
                                 <input type = "email" name = "mail" placeholder = "Email Address" class = "form-control input_email" value = '<?php echo $email; ?>'/>
                             </div>
                             <label>Phone Number*</label> 
-                            <div class = "input-group mb-3">
+                            <div class = "input-group mb-3"> 
                                 <input type = "tel" name = "phone" placeholder = "Phone Number" class = "form-control bfh-phone" data-format = "(ddd) ddd-dddd" value = '<?php echo $phone_number; ?>'/>
                             </div>
                             <label>Home Address*</label> 
