@@ -60,7 +60,7 @@ if(isset($_POST['submit'])) {
                 $error_status = "<div class='success'>Check your email for password reset code.</div>";
             }
             else {
-                $error_status = "<div class='error'>Mail error -> .$mail->ErrorInfo</div>";
+                $error_status = "<div class='error'>Mail error -> $mail->ErrorInfo</div>";
             }
         }	
     }

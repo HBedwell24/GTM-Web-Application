@@ -12,6 +12,7 @@ function email_exists($email,  $con) {
     }
 }
 
+// checks if user is currently logged into account
 function logged_in() {
     if(isset($_SESSION['mail']) || isset($_COOKIE['name'])) {
         return false;
@@ -21,6 +22,7 @@ function logged_in() {
     }
 }
 
+// checks if password request has been sent to account
 function passwordRequestSent() {
     if(isset($_GET['key']) && isset($_GET['reset'])) {
         return true;
