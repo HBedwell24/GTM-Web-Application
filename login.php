@@ -25,8 +25,8 @@ if(isset($_POST['submit'])) {
     }
     // if email provided exists
     else if(email_exists($email, $con)) {
-        $pass = mysqli_query($con,"SELECT password FROM users WHERE email='$email'");
-        $pass_w = mysqli_fetch_array($pass);
+        $row = mysqli_query($con,"SELECT * FROM users WHERE email='$email'");
+        $pass_w = mysqli_fetch_array($row);
         $dpass = $pass_w['password'];
         $password = md5($password);
 
@@ -41,7 +41,13 @@ if(isset($_POST['submit'])) {
             if($checkbox == 'on') {
                 setcookie('name',$email,time()+30);
             }
-            header("location:profile.php");
+
+            if($pass_w['user_type'] == 'admin') {
+                header("location:adminPanel.php");
+            }
+            else {
+                header("location:clientPanel.php");
+            }           
         }
     }
     // if email provided does not exist, throws error
@@ -49,6 +55,7 @@ if(isset($_POST['submit'])) {
         $error_status = '<div class="error">Email does not exist.</div>';
         $email = '';
     }
+
 }
  ?>
 

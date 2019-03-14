@@ -68,23 +68,45 @@ if(isset($_POST['submit'])) {
 
         // encrypt the password using md5 encryption
         $password = md5($password);
+        
+        if (isset($_POST['user_type'])) {
+            $user_type = e($_POST['user_type']);
 
-        // insert fields into verify database
-        mysqli_query($con, "INSERT INTO verify
-            (first_name, last_name, email, phone, address, city, state, zip_code, password, code) 
-            VALUES ('$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', '$password', '$code')");
-        $db_id  = mysqli_insert_id($con);
+            // insert fields into verify database
+            mysqli_query($con, "INSERT INTO verify
+                (first_name, last_name, email, phone, address, city, state, zip_code, user_type, password, code) 
+                VALUES ('$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', '$user_type', '$password', '$code')");
+            $db_id  = mysqli_insert_id($con);
 
-        $error_status = "<div class='success'>Please check your email for an account activation code.</div>";
-        $to=$email;
-        $subject = "Activation code for gtmwebservices.com";
-        $from = 'Christian.8edwell@gmail.com';
-        $dir = 'localhost/GTM-Web-Application-V2/';
-        $link = ''.$dir. 'signup.php?id=' .$db_id. '&code=' .$code.'';
-        $body = 'Your activation code is '.$code.'. Please click on this link to activate your account: <a href="'.$link.'">'.$link.'</a>';
-        $headers = "From:.$from\r\n";
-        $headers .= "Content-type: text/html\r\n";
-        mail($to, $subject, $body, $headers);
+            $error_status = "<div class='success'>Please check your email for an account activation code.</div>";
+            $to=$email;
+            $subject = "Activation code for gtmwebservices.com";
+            $from = 'Christian.8edwell@gmail.com';
+            $dir = 'localhost/GTM-Web-Application-V2/';
+            $link = ''.$dir. 'signup.php?id=' .$db_id. '&code=' .$code.'';
+            $body = 'Your activation code is '.$code.'. Please click on this link to activate your account: <a href="'.$link.'">'.$link.'</a>';
+            $headers = "From:.$from\r\n";
+            $headers .= "Content-type: text/html\r\n";
+            mail($to, $subject, $body, $headers);
+        }
+        else {
+            // insert fields into verify database
+            mysqli_query($con, "INSERT INTO verify
+                (first_name, last_name, email, phone, address, city, state, zip_code, user_type, password, code) 
+                VALUES ('$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', 'user', '$password', '$code')");
+            $db_id  = mysqli_insert_id($con);
+
+            $error_status = "<div class='success'>Please check your email for an account activation code.</div>";
+            $to=$email;
+            $subject = "Activation code for gtmwebservices.com";
+            $from = 'Christian.8edwell@gmail.com';
+            $dir = 'localhost/GTM-Web-Application-V2/';
+            $link = ''.$dir. 'signup.php?id=' .$db_id. '&code=' .$code.'';
+            $body = 'Your activation code is '.$code.'. Please click on this link to activate your account: <a href="'.$link.'">'.$link.'</a>';
+            $headers = "From:.$from\r\n";
+            $headers .= "Content-type: text/html\r\n";
+            mail($to, $subject, $body, $headers);
+        }
     }
 }
 
@@ -92,7 +114,7 @@ if(isset($_POST['submit'])) {
 if(isset($_GET['id']) && isset($_GET['code'])) {
 	$id = $_GET['id'];
 	$code = $_GET['code'];
-    $select = mysqli_query($con, "SELECT first_name, last_name, email, phone, address, city, state, zip_code, password FROM verify WHERE id = '$id' and code = '$code'");
+    $select = mysqli_query($con, "SELECT first_name, last_name, email, phone, address, city, state, zip_code, user_type, password FROM verify WHERE id = '$id' and code = '$code'");
     
 	if(mysqli_num_rows($select) == 1) {
 
@@ -105,10 +127,11 @@ if(isset($_GET['id']) && isset($_GET['code'])) {
             $city = $row['city'];
             $state = $row['state'];
             $zip_code = $row['zip_code'];
+            $user_type = $row['user_type'];
 			$password = $row['password'];
         }
         // insert fields into users database
-		$insert_user = mysqli_query($con, "INSERT INTO users VALUES ('$id', '$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', '$password')");
+		$insert_user = mysqli_query($con, "INSERT INTO users VALUES ('$id', '$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', '$user_type', '$password')");
         
         // delete fields from verify database, since user is now verified
         $delete = mysqli_query($con, "DELETE FROM verify WHERE id = '$id' AND code = '$code'");
@@ -117,6 +140,12 @@ if(isset($_GET['id']) && isset($_GET['code'])) {
         header("location:login.php");
 	}
 }
+
+function e($val){
+	global $db;
+	return mysqli_real_escape_string($db, trim($val));
+}
+
 ?>
 
 <!-- style sheet for signup page -->
