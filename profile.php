@@ -175,742 +175,685 @@ else {
     $lastname=$retrieve['last_name'];
     ?>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
-    
-    <style type="text/css">
+<!DOCTYPE html>
+<html>
+<head>
 
-li,ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!----Calendar dependencies go here----->
+
+<style class="cp-pen-styles">
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
+html, body {
+  height: 100%;
+  width: 100%;
 }
-.home {
-    background: #ececec;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans";
+  font-size: 14px;
+  font-weight: 400;
+  overflow: hidden;
+  background-color: #ececec;
+  color: #102c58;
 }
-#navigation {
-    background: #0e1a35;
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-#navigation {
-    padding: 0;
+
+::-webkit-input-placeholder {
+  color: #c3c3c3;
 }
-.display-table {
-    display: table;
-    padding: 0;
-    height: 100%;
-    width: 100%;
+
+h1 {
+  font-size: 24px;
 }
-.display-table-row {
-    display: table-row;
-    height: 100%;
+
+h2 {
+  font-size: 20px;
 }
-.display-table-cell {
-    display: table-cell;
-    float: none;
-    height: 100%;
+
+h3 {
+  font-size: 18px;
 }
-.v-align {
-    vertical-align: top;
+
+.u-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.u-input {
+  outline: 0;
+  border: 1px solid #d0d0d0;
+  padding: 5px 10px;
+  height: 35px;
+  font-size: 12px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-clip: padding-box;
+}
+
+.c-badge {
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 17px;
+  padding: 5px 4px;
+  border-radius: 100px;
+  display: block;
+  line-height: 0.7;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  background-color: #f91605;
+}
+.c-badge--header-icon {
+  position: absolute;
+  bottom: -9px;
+}
+
+.tooltip {
+  width: 120px;
+}
+.tooltip-inner {
+  padding: 8px 10px;
+  color: #fff;
+  text-align: center;
+  background-color: #051835;
+  font-size: 12px;
+  border-radius: 3px;
+}
+.tooltip-arrow {
+  border-right-color: #051835 !important;
+}
+
+.hamburger-toggle {
+  position: relative;
+  padding: 0;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  order: 1;
+}
+.hamburger-toggle [class*='bar-'] {
+  display: block;
+  background: #102c58;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .2s ease all;
+  transition: .2s ease all;
+  border-radius: 2px;
+  height: 2px;
+  width: 24px;
+  margin-bottom: 4px;
+}
+.hamburger-toggle [class*='bar-']:nth-child(2) {
+  width: 18px;
+}
+.hamburger-toggle [class*='bar-']:last-child {
+  margin-bottom: 0;
+  width: 12px;
+}
+.hamburger-toggle.is-opened {
+  left: 3px;
+}
+.hamburger-toggle.is-opened [class*='bar-'] {
+  background: #102c58;
+}
+.hamburger-toggle.is-opened .bar-top {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 15% 15%;
+  transform-origin: 15% 15%;
+}
+.hamburger-toggle.is-opened .bar-mid {
+  opacity: 0;
+}
+.hamburger-toggle.is-opened .bar-bot {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(-45deg);
+  -webkit-transform-origin: 15% 95%;
+  transform-origin: 15% 95%;
+  width: 24px;
+}
+.hamburger-toggle:focus {
+  outline-width: 0;
+}
+.hamburger-toggle:hover [class*='bar-'] {
+  background: #4EA8E7;
+}
+.header-icons-group {
+  display: flex;
+  order: 3;
+  margin-left: auto;
+  height: 100%;
+  border-left: 1px solid #cccccc;
+}
+.header-icons-group .c-header-icon:last-child {
+  border-right: 0;
+}
+.c-header-icon {
+  position: relative;
+  display: flex;
+  float: left;
+  width: 70px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  cursor: pointer;
+  border-right: 1px solid #cccccc;
+}
+.c-header-icon i {
+  font-size: 18px;
+  line-height: 40px;
+  color: #000;
+}
+.c-header-icon--in-circle {
+  border: 1px solid #d0d0d0;
+  border-radius: 100%;
+}
+.c-header-icon:hover i {
+  color: #4EA8E7;
+}
+.l-header {
+  padding-left: 70px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: 100%;
+  background: #ffffff;
+  -webkit-transition: padding 0.5s ease-in-out;
+  -moz-transition: padding 0.5s ease-in-out;
+  -ms-transition: padding 0.5s ease-in-out;
+  -o-transition: padding 0.5s ease-in-out;
+  transition: padding 0.5s ease-in-out;
+}
+.l-header__inner {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  height: 70px;
+  align-items: center;
+  justify-content: stretch;
+  border-bottom: 1px solid;
+  border-color: #cccccc;
+}
+.sidebar-is-expanded .l-header {
+  padding-left: 220px;
+}
+.c-search {
+  display: flex;
+  height: 100%;
+  width: 350px;
+}
+.c-search__input {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-right: 0;
+  flex-basis: 100%;
+  height: 100%;
+  border: 0;
+  font-size: 14px;
+  padding: 0 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.c-dropdown {
+  opacity: 0;
+  text-align: left;
+  position: absolute;
+  flex-direction: column;
+  display: none;
+  width: 300px;
+  top: 30px;
+  right: -40px;
+  background-color: #fff;
+  overflow: hidden;
+  min-height: 300px;
+  border: 1px solid #d0d0d0;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-clip: padding-box;
+  -webkit-box-shadow: 0px 5px 14px -1px #cecece;
+  -moz-box-shadow: 0px 5px 14px -1px #cecece;
+  box-shadow: 0px 5px 14px -1px #cecece;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.l-sidebar {
+  width: 70px;
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: #102c58;
+  -webkit-transition: width 0.5s ease-in-out;
+  -moz-transition: width 0.5s ease-in-out;
+  -ms-transition: width 0.5s ease-in-out;
+  -o-transition: width 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
+}
+.l-sidebar .logo {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #051835;
+}
+.l-sidebar__content {
+  height: 100%;
+  position: relative;
+}
+.sidebar-is-expanded .l-sidebar {
+  width: 220px;
+}
+.c-menu > ul {
+  display: flex;
+  flex-direction: column;
+}
+.c-menu > ul .c-menu__item {
+  color: #fff;
+  max-width: 100%;
+  overflow: hidden;
+}
+.c-menu > ul .c-menu__item__inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 60px;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.c-menu > ul .c-menu__item__inner:before {
+  position: absolute;
+  content: " ";
+  min-height: 60px;
+  width: 3px;
+  left: 0;
+  background-color: #5f9cfd;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.c-menu > ul .c-menu__item.is-active .c-menu__item__inner {
+  border-left-color: #4b7aba;
+  background-color: #1e3e6f;
+}
+.c-menu > ul .c-menu__item.is-active .c-menu__item__inner i {
+  color: #5f9cfd;
+}
+.c-menu > ul .c-menu__item.is-active .c-menu__item__inner .c-menu-item__title span {
+  color: #5f9cfd;
+}
+.c-menu > ul .c-menu__item.is-active .c-menu__item__inner:before {
+  height: 36px;
+  opacity: 1;
+}
+.c-menu > ul .c-menu__item:not(.is-active):hover .c-menu__item__inner i {
+  color: #5f9cfd;
+}
+.c-menu > ul .c-menu__item:not(.is-active):hover .c-menu__item__inner .c-menu-item__title span {
+  color: #5f9cfd;
+}
+.c-menu > ul .c-menu__item i {
+  flex: 0 0 70px;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.c-menu > ul .c-menu__item .c-menu-item__expand {
+  position: relative;
+  left: 100px;
+  padding-right: 20px;
+  margin-left: auto;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.sidebar-is-expanded .c-menu > ul .c-menu__item .c-menu-item__expand {
+  left: 0px;
+}
+.c-menu > ul .c-menu__item .c-menu-item__title {
+  flex-basis: 100%;
+  padding-right: 10px;
+  position: relative;
+  left: 220px;
+  opacity: 0;
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  -ms-transition: all 0.7s ease-in-out;
+  -o-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+}
+.c-menu > ul .c-menu__item .c-menu-item__title span {
+  font-weight: 400;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.sidebar-is-expanded .c-menu > ul .c-menu__item .c-menu-item__title {
+  left: 0px;
+  opacity: 1;
+}
+.c-menu > ul .c-menu__item .c-menu__submenu {
+  background-color: #051835;
+  padding: 15px;
+  font-size: 12px;
+  display: none;
+}
+.c-menu > ul .c-menu__item .c-menu__submenu li {
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid;
+  border-color: #072048;
+  color: #5f9cfd;
+}
+.c-menu > ul .c-menu__item .c-menu__submenu li:last-child {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+main.l-main {
+  width: 100%;
+  height: 100%;
+  padding: 70px 0 0 70px;
+  -webkit-transition: padding 0.5s ease-in-out;
+  -moz-transition: padding 0.5s ease-in-out;
+  -ms-transition: padding 0.5s ease-in-out;
+  -o-transition: padding 0.5s ease-in-out;
+  transition: padding 0.5s ease-in-out;
+}
+main.l-main .content-wrapper {
+  padding: 25px;
+  height: 100%;
+}
+main.l-main .content-wrapper .page-content {
+  border-top: 1px solid #d0d0d0;
+  padding-top: 25px;
+}
+main.l-main .content-wrapper--with-bg .page-content {
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #d0d0d0;
+  padding: 25px;
+}
+main.l-main .page-title {
+  font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+.sidebar-is-expanded main.l-main {
+  padding-left: 220px;
 }
 .logo img {
-    max-width: 50px;
-    padding: 16px 0 17px;
-    width: 100%;
+    height: 32px;
+    width: 30px;
 }
-.header-top {
-    margin: 0;
-    padding-top: 2px;
-}
-.header-top img {
-    border-radius: 50%;
-    max-width: 48px !important;
-    width: 100%;
-}
-.add-project {
-    background: #5584ff none repeat scroll 0 0;
-    border-radius: 100px;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 27px 10px 45px;
-    position: relative;
-}
-.header-rightside .nav > li > a:focus, .header-rightside .nav > li > a:hover {
-    background: none;
-    text-decoration: none;
-}
-.add-project:hover {
-    color: #ffffff;
-}
-.header-top i {
-    color: #0e1a35;
-}
-.icon-info {
-    position: relative;
-}
-.navi i {
-    font-size: 20px;
-}
-.label.label-primary {
-    border-radius: 50%;
-    font-size: 9px;
-    left: 8px;
-    position: absolute;
-    top: -9px;
-}
-.icon-info .label {
-    border: 2px solid #ffffff;
-    font-weight: 500;
-    padding: 3px 5px;
-    text-align: center;
-}
-.header-top li {
-    display: inline-block;
-    text-align: center;
-}
-.header-top .dropdown-toggle {
-    color: #0e1a35;
-}
-.header-top .dropdown-menu {
-    border: medium none;
-    left: -85px;
-    padding: 17px;
-}
-.view {
-    background: #5584ff none repeat scroll 0 0;
-    border-radius: 100px;
-    color: #ffffff;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-top: 10px;
-    padding: 10px 15px;
-}
-.navbar-content > span {
-    font-size: 13px;
-    font-weight: 700;
-}
-.img-responsive {
-    width: 100%;
-}
-#navigation{
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-.search input {
-    border: none;
-    font-size: 15px;
-    padding: 15px 9px;
-    width: 100%;
-    background: rgba(0, 0, 0, 0) url("../images/search.png") no-repeat scroll 99% 12px;
-    color: #8492af;
-}
-header {
-    background: #ffffff none repeat scroll 0 0;
-    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.04);
-    display: inline-block !important;
-    line-height: 23px;
-    padding: 15px;
-    transition: all 0.5s ease 0s;
-    width: 100%;
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-.logo {
-    text-align: center;
-}
-.navi a {
-    border-bottom: 1px solid #0d172e;
-    border-top: 1px solid #0d172e;
-    color: #ffffff;
-    display: block;
-    font-size: 17px;
-    font-weight: 500;
-    padding: 28px 20px;
-    text-decoration: none;
-}
-.navi i {
-    margin-right: 15px;
-    color: #4b7aba;
-}
-.navi .active a {
-    background: #122143;
-    border-left: 5px solid #4b7aba;
-    padding-left: 15px;
-}
-.navi a:hover {
-    background: #122143 none repeat scroll 0 0;
-    border-left: 5px solid #4b7aba;
-    display: block;
-    padding-left: 15px;
-}
-.navbar-default {
-    background-color: #ffffff;
-    border-color: #ffffff;
-}
-.navbar-toggle {
-    border: none;
-}
-.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
-    background-color: rgba(0, 0, 0, 0);
-}
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #0e1a35;
-}
-.circle-logo {
-    margin: 0 auto;
-    max-width: 30px !important;
-    text-align: center;
-}
-.hidden-xs{
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-}
-.user-dashboard {
-    padding: 0 20px;
-}
-.user-dashboard h1 {
-    color: #0e1a35;
-    font-size: 30px;
-    font-weight: 500;
-    margin: 0;
-    padding: 21px 0;
-}
-.sales {
-    background: #ffffff none repeat scroll 0 0;
-    border: 1px solid #d0d0d0;
-    display: inline-block;
-    padding: 15px;
-    width: 100%;
-}
-.sales h2 {
-    color: #8492af;
-    float: left;
-    font-size: 21px;
-    font-weight: 600;
-    margin: 0;
-    padding: 9px 0 0;
-}
-.btn.btn-secondary.btn-lg.dropdown-toggle > span {
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-.sales .dropdown-menu {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    border-radius: 8px;
-    width: 100%;
-    color: #0e1a35;
-}
-.sales .btn-group.open .dropdown-toggle, .btn.active, .btn:active {
-    box-shadow: none;
-}
-.sales .dropdown-menu > a {
-    color: #0e1a35;
-    display: inline-block;
-    font-weight: 800;
-    padding: 9px 0;
-    text-align: center;
-    width: 100%;
-}
-#my-cool-chart svg {
-    width: 100%;
-}
-.sales .dropdown-menu > a:hover{
-    color: #5584FF;   
-}
-.shield-buttons {
-    display: none;
-}
-.close, .close:focus, .close:hover {
-    color: #fff;;
-    opacity: 1;
-    text-shadow: none;
-}
-.modal-body input {
-    border: 1px solid #d4d9e3;
-    font-size: 14px;
-    font-weight: 300;
-    margin: 5px 0;
-    padding: 14px 10px;
-    width: 100%;
-    color: #8492af;
-}
-.modal-body textarea {
-    border: 1px solid #d4d9e3;
-    font-size: 14px;
-    font-weight: 300;
-    height: 200px;
-    margin-top: 5px;
-    padding: 9px 10px;
-    width: 100%;
-    color: #8492af;
-}
-.modal-header.login-header h4 {
-    color: #ffffff;
-}
-.modal-footer .add-project {
-    background: #5584ff none repeat scroll 0 0;
-    border: medium none;
-    border-radius: 100px;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 30px;
-    position: relative;
-}
-.modal-footer .add-project::before {
-    display: none;
-}
-.modal-footer {
-    border: 0 none;
-    padding: 10px 15px 26px;
-    text-align: right;
-}
-.cancel {
-    background: #0E1A35     ;
-    border: medium none;
-    border-radius: 100px;
-    color: #ffffff;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 10px 30px;
-    position: relative;
-    
-}
-.modal{
-    top: 20%; 
-}
-.modal-header .close {
-    margin-top: 2px;
-}
-.search input:focus{
-    border-bottom: 1px solid #BDC4D4;
-    line-height:22px;
-    transition: 0.1s all;
-}
-.modal-header.login-header {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-@media only screen and (max-device-width: 767px) {
-    .login-logo img {
-        margin: 0 auto;
-    }
-    .login-details .nav-tabs > li {
-        text-align: center;
-        width: 50%;
-    }
-    .login-signup .login-inner h1 {
-        font-size: 26px;
-        margin-bottom: 0;
-        margin-top: 10px;
-    }
-    .login-inner .login-form input {
-        font-size: 15px;
-        max-width: 100%;
-        padding: 15px 45px;
-    }
-    .login-inner .form-details {
-        padding: 25px;
-    }
-    .login-inner .login-form label {
-        margin-bottom: 20px;
-        width: 100%;
-    }
-    .login-inner .form-btn {
-        margin: 0;
-        max-width: 180px;
-    }
-    .tab-content .tab-pane {
-        padding: 20px 0;
-    }
-    #navigation .navi a {
-        font-size: 14px;
-        padding: 20px;
-        text-align: center;
-    }
-    #navigation .navi i {
-        margin-right: 0px;
-    }
-    #navigation .navi a:hover,
-    #navigation .navi .active a {
-        background: #122143 none repeat scroll 0 0;
-        border-left: none;
-        display: block;
-        padding-left: 20px;
-    }
-    header .header-top img {
-        max-width: 38px !important;
-    }
-    .v-align header {
-        padding: 12px 15px;
-    }
-    header .header-top li {
-        padding-left: 13px;
-        padding-right: 6px;
-    }
-    .navbar-default .navbar-toggle {
-        border-color: rgba(0, 0, 0, 0);
-    }
-    .navbar-header .navbar-toggle {
-        float: left;
-        margin: 0;
-        padding: 0;
-        top: 12px;
-    }
-    button,html [type="button"],[type="reset"],[type="submit"] {
-        outline: medium none;
-    }
-    .user-dashboard .sales h2 {
-        color: #8492af;
-        float: left;
-        font-size: 14px;
-        font-weight: 600;
-        margin: 0;
-        padding: 13px 0 0;
-    }
-    .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle > span {
-        font-size: 11px;
-    }
-    .user-dashboard .sales button {
-        font-size: 11px;
-        padding-right: 23px;
-    }  
-    .user-dashboard .sales h2 {
-        font-size: 12px;
-    }
-    .gutter{
-        padding: 0;
-    }
-}
-
-@media only screen and (max-device-width: 992px) {
-    header .header-top li {
-        padding-left: 20px !important;
-        padding-right: 0;
-    }
-    header .logo img {
-        max-width: 125px !important;
-    }
-}
-
-@media only screen and (min-device-width: 767px) and (max-device-width: 998px){
-    .user-dashboard .header-top {
-        padding-top: 5px;
-    }
-    .user-dashboard .header-rightside {
-        display: inline-block;
-        float: left;
-        width: 100%;
-    }
-    .user-dashboard .header-rightside .header-top img {
-        max-width: 41px !important;
-    } 
-    .user-dashboard .sales button {
-    font-size: 10px;
-    }
-    .user-dashboard .btn.btn-secondary.btn-lg.dropdown-toggle > span {
-    font-size: 12px;
-    }
-    .user-dashboard .sales h2 {
-    font-size: 15px;
-    }
-}
-
-@media only screen and (min-device-width:998px) and (max-device-width: 1350px){
-    #navigation .logo img {
-        max-width: 130px;
-        padding: 16px 0 17px;
-        width: 100%;
-    }
-}
-
-#calendar button {
-    background-color: #0e1a35;
-    background-image: none;
-    color: #ffffff;
-}
-
 </style>
+</head>
+<body>
 
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
-<body class="home">
-    <div class="container-fluid display-table">
-        <div class="row display-table-row">
-            <div class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box" id="navigation">
-                <div class="logo">
-                    <a href="index.php"><img src="img/icon.png" alt="merkery_logo" class="hidden-xs hidden-sm">
-                    </a>
-                </div>
-                <div class="navi">
-                    <ul>
-                        <li class="active"><a href="#home" rel="dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Dashboard</span></a></li>
-                        <li><a href="#calendar" rel="calendar"><i class="fa fa-calendar" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Create/Edit Schedule</span></a></li>
-                        <li><a href="#jobs" rel="jobs"><i class="fa fa-tasks" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Jobs</span></a></li>
-                        <li><a href="#messages"><i class="fa fa-comments" aria-hidden="true"></i><span class="hidden-xs hidden-sm">Messages</span></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-10 col-sm-11 display-table-cell v-align">
-                <!--<button type="button" class="slide-toggle">Slide Toggle</button> -->
-                <div class="row">
-                    <header>
-                        <div class="col-md-7">
-                            <nav class="navbar-default pull-left">
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="offcanvas" data-target="#side-menu" aria-expanded="false">
-                                        <span class="sr-only">Toggle navigation</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-                                </div>
-                            </nav>
-                            <div class="search hidden-xs hidden-sm">
-                                <input type="text" placeholder="Search" id="search">
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="header-rightside">
-                                <ul class="list-inline header-top pull-right">
-                                    <a href='logout.php'><button class='btn btn-outline-success' style='float: right; background: #4B71BA !important; color: white !important;'>Logout</button></a>
-                                </ul>
-                            </div>
-                        </div>
-                    </header>
-                </div>
-                <div class="user-dashboard">
-                    <div id="dashboard">
-                        <div class="container-fluid">
-                        <h1>Hello, <?php echo ucfirst($firstname)." ".ucfirst($lastname) ?>!</h1>
-                            <div class="row">
-                                <div class="col-md-6 col-sm-5 gutter">
-                                    <div class="sales">
-                                        <h2>First Block</h2>
-                                        <br>
-                                        <br>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                        sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-5 gutter">
-                                    <div class="sales">
-                                        <h2>Second Block</h2>
-                                        <br>
-                                        <br>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                        sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-12 gutter">
-                                    <div class="sales">
-                                        <h2>Third block</h2>
-                                        <br>
-                                        <br>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                        sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. 
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                        sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                        sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                        sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                        sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
-                                        sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="calendar" style="display: none">
-                        <div class="container-fluid">
-                            <h1>Calendar</h1>
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-12 gutter">
-                                        <div class="sales">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                    <div id="jobs" style="display: none">
-                        <div class="container-fluid">
-                            <h1>Jobs</h1>
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-12 gutter">
-                                        <div class="sales">
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                    <div id="messages" style="display: none">
-
-                    </div>
-                </div>
-            </div>
-        </div>
+<body class="sidebar-is-reduced">
+  <header class="l-header">
+    <div class="l-header__inner clearfix">
+      <div class="c-header-icon js-hamburger">
+        <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
+      </div>
+      <div class="c-search">
+        <input class="c-search__input u-input" placeholder="Search..." type="text"/>
+      </div>
+      <div class="header-icons-group">
+        <div class="c-header-icon basket"><i class="fa fa-cog"></i></div>
+        <a href='logout.php'><div class="c-header-icon logout"><i class="fa fa-sign-out"></i></div></a>
+      </div>
     </div>
-
-    <div id="add_project" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header login-header">
-                    <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h4 class="modal-title">Add Project</h4>
-                </div>
-                <div class="modal-body">
-                    <input type="text" placeholder="Project Title" name="name">
-                    <input type="text" placeholder="Post of Post" name="mail">
-                    <input type="text" placeholder="Author" name="passsword">
-                    <textarea placeholder="Desicrption"></textarea>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="cancel" data-dismiss="modal">Close</button>
-                    <button type="button" class="add-project" data-dismiss="modal">Save</button>
-                </div>
-            </div>
-        </div>
+  </header>
+  <div class="l-sidebar">
+    <div class="logo">
+      <a href="index.php"><img src="img/icon.png"></a>
     </div>
-    <script>
-        $('.navi a').on('click', function() {
-            var target = $(this).attr('rel');
-            $("#"+target).show().siblings("div").hide();
-            $(this).parent().addClass('active').siblings().removeClass('active');
-        });
-
-        $(document).ready(function() {
-        var calendar = $('#calendar .sales').fullCalendar({
-            height: 750,
-            eventColor: '#0e1a35',
-            eventTextColor: '#ffffff',
-            width: 700,
-            editable:true,
-            header:{
-            left:'prev,next today',
-            center:'title',
-            right:'month,agendaWeek,agendaDay'
-            },
-            events: 'load.php',
-            selectable:true,
-            selectHelper:true,
-            select: function(start, end, allDay)
-            {
-            var title = prompt("Enter Event Title");
-            if(title)
-            {
-            var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
-            var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
-            $.ajax({
-            url:"insert.php",
-            type:"POST",
-            data:{title:title, start:start, end:end},
-            success:function()
-            {
-                calendar.fullCalendar('refetchEvents');
-                alert("Added Successfully");
-            }
-            })
-            }
-            },
-            editable:true,
-            eventResize:function(event)
-            {
-            var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-            var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-            var title = event.title;
-            var id = event.id;
-            $.ajax({
-            url:"update.php",
-            type:"POST",
-            data:{title:title, start:start, end:end, id:id},
-            success:function(){
-            calendar.fullCalendar('refetchEvents');
-            alert('Event Update');
-            }
-            })
-            },
-
-            eventDrop:function(event)
-            {
-            var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-            var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-            var title = event.title;
-            var id = event.id;
-            $.ajax({
-            url:"update.php",
-            type:"POST",
-            data:{title:title, start:start, end:end, id:id},
-            success:function()
-            {
-            calendar.fullCalendar('refetchEvents');
-            alert("Event Updated");
-            }
-            });
-            },
-
-            eventClick:function(event)
-            {
-            if(confirm("Are you sure you want to remove it?"))
-            {
-            var id = event.id;
-            $.ajax({
-            url:"delete.php",
-            type:"POST",
-            data:{id:id},
-            success:function()
-            {
-                calendar.fullCalendar('refetchEvents');
-                alert("Event Removed");
-            }
-            })
-            }
-            },
-        });
-        });
-    </script>
-
+    <div class="l-sidebar__content">
+      <nav class="c-menu js-menu">
+        <ul class="u-list">
+          <li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard" rel="dashboard">
+            <div class="c-menu__item__inner"><i class="fa fa-tachometer"></i>
+              <div class="c-menu-item__title"><span>Dashboard</span></div>
+            </div>
+          </li>
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Jobs" rel="jobs">
+            <div class="c-menu__item__inner"><i class="fa fa-tasks"></i>
+              <div class="c-menu-item__title"><span>Jobs</span></div>
+            </div>
+          </li>
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Calendar" rel="calendar">
+            <div class="c-menu__item__inner"><i class="fa fa-calendar"></i>
+              <div class="c-menu-item__title"><span>Calendar</span></div>
+            </div>
+          </li>
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Messages" rel="messages">
+            <div class="c-menu__item__inner"><i class="fa fa-comments"></i>
+              <div class="c-menu-item__title"><span>Messages</span></div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </body>
+<main class="l-main">
+  <div class="content-wrapper content-wrapper--with-bg">
+    <div id="dashboard">
+      <h1 class="page-title">Dashboard</h1>
+      <div class="page-content">
+        Hello, <?php echo ucfirst($firstname)." ".ucfirst($lastname) ?>!
+      </div>
+    </div>
+    <div id="jobs" style="display: none;">
+      <h1 class="page-title">Jobs</h1>
+      <div class="page-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+    <div id="calendar" style="display: none;">
+      <h1 class="page-title">Calendar</h1>
+      <div class="page-content"></div>
+    </div>
+    <div id="messages" style="display: none;">
+      <h1 class="page-title">Messages</h1>
+      <div class="page-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, 
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </div>
+    </div>
+  </div>
+</main>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://use.fontawesome.com/2188c74ac9.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script>"use strict";
+
+  $(document).ready(function() {
+  var calendar = $("#calendar .page-content").fullCalendar({
+    height: 750,
+    eventColor: '#0e1a35',
+    eventTextColor: '#ffffff',
+    width: 700,
+    editable:true,
+    header: {
+      left:'prev,next today',
+      center:'title',
+      right:'month,agendaWeek,agendaDay'
+    },
+    events: 'load.php',
+    selectable:true,
+    selectHelper:true,
+    select: function(start, end, allDay) {
+      var title = prompt("Enter Event Title");
+      if(title) {
+        var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
+        var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+        $.ajax({
+          url:"insert.php",
+          type:"POST",
+          data:{title:title, start:start, end:end},
+          success:function() {
+            calendar.fullCalendar('refetchEvents');
+            alert("Added Successfully");
+          }
+        })
+      }
+    },
+    editable:true,
+    eventResize:function(event) {
+      var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+      var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+      var title = event.title;
+      var id = event.id;
+      $.ajax({
+        url:"update.php",
+        type:"POST",
+        data:{title:title, start:start, end:end, id:id},
+        success:function()  {
+          calendar.fullCalendar('refetchEvents');
+          alert('Event Update');
+        }
+      })
+    },
+    eventDrop:function(event) {
+      var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+      var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+      var title = event.title;
+      var id = event.id;
+      $.ajax({
+        url:"update.php",
+        type:"POST",
+        data:{title:title, start:start, end:end, id:id},
+        success:function() {
+          calendar.fullCalendar('refetchEvents');
+          alert("Event Updated");
+        }
+      });
+    },
+    eventClick:function(event) {
+      if(confirm("Are you sure you want to remove it?")) {
+        var id = event.id;
+        $.ajax({
+          url:"delete.php",
+          type:"POST",
+          data:{id:id},
+          success:function() {
+            calendar.fullCalendar('refetchEvents');
+            alert("Event Removed");
+          }
+        })
+      }
+    },
+  });
+});
+
+$('.u-list li').on('click', function() {
+  var target = $(this).attr('rel');
+  $("#"+target).show().siblings("div").hide();
+});
+
+var Dashboard = function () {
+	var global = {
+		tooltipOptions: {
+			placement: "right"
+		},
+		menuClass: ".c-menu"
+  };
+
+  var menuChangeActive = function menuChangeActive(el) {
+    var hasSubmenu = $(el).hasClass("has-submenu");
+    $(global.menuClass + " .is-active").removeClass("is-active");
+    $(el).addClass("is-active");
+
+    if (hasSubmenu) {
+      $(el).find("ul").slideDown();
+    }
+  };
+
+  var sidebarChangeWidth = function sidebarChangeWidth() {
+    var $menuItemsTitle = $("li .menu-item__title");
+
+    $("body").toggleClass("sidebar-is-reduced sidebar-is-expanded");
+    $(".hamburger-toggle").toggleClass("is-opened");
+
+    if ($("body").hasClass("sidebar-is-expanded")) {
+      $('[data-toggle="tooltip"]').tooltip("destroy");
+    } 
+    else {
+      $('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+    }
+  };
+
+  return {
+    init: function init() {
+      $(".js-hamburger").on("click", sidebarChangeWidth);
+
+      $(".js-menu li").on("click", function (e) {
+        menuChangeActive(e.currentTarget);
+      });
+
+      $('[data-toggle="tooltip"]').tooltip(global.tooltipOptions);
+    }
+  };
+}();
+
+Dashboard.init();
+
+</script>
+</body>
+</html>
 <?php
 }
 ?>
