@@ -24,7 +24,7 @@ if(isset($_POST['submit'])) {
     }
     // if all fields are filled appropriately, send reset password link to email
     else {
-        $select = mysqli_query($con, "SELECT email, password FROM users WHERE email='$email'");
+        $select = mysqli_query($con, "SELECT first_name, last_name, email, password FROM users WHERE email='$email'");
 
         if(mysqli_num_rows($select) == 1) {
 
@@ -32,6 +32,8 @@ if(isset($_POST['submit'])) {
                 // encrypt both email and password
                 $email = md5($row['email']);
                 $pass = md5($row['password']);
+                $recipient_email = $row['email'];
+                $recipient_name = '' .$row['first_name']. ' ' .$row['last_name']. '';
             }
             $dir = 'localhost/GTM-Web-Application-V2/';
             $link = '' .$dir. 'resetPassword.php?key=' .$email. '&reset=' .$pass. '';
@@ -42,22 +44,22 @@ if(isset($_POST['submit'])) {
             // enable SMTP authentication
             $mail->SMTPAuth = true;                  
             // GMAIL username
-            $mail->Username = "your_email_id@gmail.com";
+            $mail->Username = "";
             // GMAIL password
-            $mail->Password = "your_gmail_password";
+            $mail->Password = "";
             $mail->SMTPSecure = "ssl";  
             // sets GMAIL as the SMTP server
             $mail->Host = "smtp.gmail.com";
             // set the SMTP port for the GMAIL server
             $mail->Port = "465";
-            $mail->From = 'your_email_id@gmail.com';
-            $mail->FromName = 'your_name';
-            $mail->AddAddress('reciever_email_id', 'reciever_name');
+            $mail->From = '';
+            $mail->FromName = '';
+            $mail->AddAddress($recipient_email, $recipient_name);
             $mail->Subject = 'Reset Password';
             $mail->IsHTML(true);
-            $mail->Body = 'Click on this link to reset password <a href="'.$link.'">' .$link.'</a>';
+            $mail->Body = 'Hello ' .$recipient_name. ', Click on this link to reset password: <a href="'.$link.'">' .$link.'</a>';
             if($mail->Send()) {
-                $error_status = "<div class='success'>Check your email for password reset code.</div>";
+                $error_status = "<div class='success'>Check your email for link to reset password.</div>";
             }
             else {
                 $error_status = "<div class='error'>Mail error -> $mail->ErrorInfo</div>";
