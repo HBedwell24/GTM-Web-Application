@@ -63,14 +63,14 @@
 					<div class="carousel-item">
 						<img src="img/banner2.jpeg" class="d-block img-fluid">
 						<div class="carousel-caption">
-							<h2 class="animated slideInDown" style="animation-delay: 1s">Secure Your Home While You Are Away! Enlist our Services Today!</h5>
+							<h2 class="animated slideInDown" style="animation-delay: 1s">Secure Your Home While You Are Away! Enlist our Services Today!</h2>
 							<p class="animated fadeInUp" style="animation-delay: 2s"><a href="#contact">Contact us</a></p>
 						</div>
 					</div>
 					<div class="carousel-item">
 						<img src="img/banner3.jpg" class="d-block img-fluid">
 						<div class="carousel-caption">
-							<h2 class="animated zoomIn" style="animation-delay: 1s">Need Your Pool to be Serviced? We Got You Covered!</h5>
+							<h2 class="animated zoomIn" style="animation-delay: 1s">Need Your Pool to be Serviced? We Got You Covered!</h2>
 							<p class="animated fadeInLeft" style="animation-delay: 2s"><a href="#contact">Contact us</a></p>
 						</div>
 					</div>
