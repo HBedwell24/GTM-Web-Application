@@ -650,7 +650,7 @@ main.l-main .page-title {
   </header>
   <div class="l-sidebar">
     <div class="logo">
-      <a href="index.php"><img src="img/icon.png"></a>
+      <img src="img/icon.png">
     </div>
     <div class="l-sidebar__content">
       <nav class="c-menu js-menu">
@@ -722,10 +722,9 @@ main.l-main .page-title {
   $(document).ready(function() {
   var calendar = $('#calendar .page-content').fullCalendar({
     height: 750,
-    eventColor: '#0e1a35',
+    eventColor: '#102c58',
     eventTextColor: '#ffffff',
     width: 700,
-    editable:true,
     header: {
       left:'prev,next today',
       center:'title',

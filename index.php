@@ -1,3 +1,97 @@
+<?php
+
+	include("includes/config.php");
+
+	$fname = '';
+	$lname = '';
+	$mailFrom = '';
+	$subject = '';
+	$message = '';
+
+	$error_status1 = '';
+	$error_status2 = '';
+	$error_status3 = '';
+	$error_status4 = '';
+	$error_status5 = '';
+	$error_status6 = '';
+
+	$success_message = '';
+
+	if(isset($_POST['submit'])) {
+		$fname = mysqli_real_escape_string($con, $_POST['fname']);
+		$lname = mysqli_real_escape_string($con, $_POST['lname']);
+		$mailFrom = mysqli_real_escape_string($con, $_POST['mail']);
+		$subject = mysqli_real_escape_string($con, $_POST['subject']);
+		$message = mysqli_real_escape_string($con, $_POST['message']);
+
+		$secretKey = "6LeZc5oUAAAAANztEF-i1pLQblo-kuVYaYCcJImg";
+		$responseKey = $_POST['g-recaptcha-response'];
+		$url = "https://www.google.com/recaptcha/api/siteverify?secret=" .$secretKey. "&response=" .$responseKey;
+
+		$response = file_get_contents($url);
+		$data = json_decode($response);
+
+		if(empty($fname) && empty($lname) && empty($mailFrom) && empty($subject) && empty($message)) {
+			$error_status6 = "Please fill in all fields.";
+		}
+
+		else if(empty($fname)) {
+			$error_status1 = "First name is empty.";
+		}
+
+		else if(empty($lname)) {
+			$error_status2 = "Last name is empty.";
+		}
+
+		else if(empty($mailFrom)) {
+			$error_status3 = "Email is empty.";
+		}
+
+		else if(!empty($mailFrom) && filter_var($mailFrom, FILTER_VALIDATE_EMAIL) === false) {
+			$error_status3 = "Email provided is invalid.";
+		}
+
+		else if(empty($subject)) {
+			$error_status4 = "Subject is empty.";
+		}
+
+		else if(empty($message)) {
+			$error_status5 = "Message box is empty.";
+		}
+
+		else {
+			if ($data -> success) {
+				$mailTo = 'bedwellhb@gmail.com';
+				$headers = "From: ".$mailFrom;
+				$txt = $message;
+				mail($mailTo, $subject, $txt, $headers);
+				// header("Location: index.php?mailsend");
+				$success_message = "<div class='success'>Message sent successfully!</div>";
+			}
+			else {
+				$error_status6 = "<div class='error'>Verification failed! Please check the Captcha box above!</div>";
+			}  
+		}	
+	}
+?>
+
+<style type="text/css">
+
+.g-recaptcha {
+    text-align: center;
+}
+
+.error {
+    padding-top: 5px;
+    color:red;
+}
+
+.success {
+    color:green;
+}
+
+</style>
+
 <html>
 	<head>
 		<title>GTM Home Services</title>
@@ -10,6 +104,8 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</head>
 	<body>
 		<section id="nav-bar">
@@ -228,38 +324,60 @@
 			<div class="container">
 				<h1>Contact Us</h1>
 					<div class="form-group">
-						<form class="contact-form" action="contactForm.php" method="POST">
+						<form class="contact-form" method="POST">
 							<div class="form-row">
 								<div class="col">
-									<label>First Name</label>
-									<input type="text" name="fname" class="form-control" placeholder="First Name" required>
+									<label>First Name*</label>
+									<input type="text" name="fname" class="form-control" placeholder="First Name" value = '<?php echo $fname; ?>'/>
+									<div class="error">
+										<?php echo $error_status1; ?>
+									</div>
 								</div>
 								<div class="col">
-									<label>Last Name</label>
-									<input type="text" name="lname" class="form-control" placeholder="Last Name" required>
+									<label>Last Name*</label>
+									<input type="text" name="lname" class="form-control" placeholder="Last Name" value = '<?php echo $lname; ?>'/>
+									<div class="error">
+										<?php echo $error_status2; ?>
+									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label>Email</label>
-								<input type="email" name="mail" class="form-control" placeholder="Email" required>
+								<label>Email*</label>
+								<input type="email" name="mail" class="form-control" placeholder="Email" value = '<?php echo $mailFrom; ?>'/>
+								<div class="error">
+									<?php echo $error_status3; ?>
+								</div>
 							</div>
 							<div class="form-group">
-								<label>Subject</label>
-								<input type="text" name="subject" class="form-control" placeholder="Subject" required>
+								<label>Subject*</label>
+								<input type="text" name="subject" class="form-control" placeholder="Subject" value = '<?php echo $subject; ?>'/>
+								<div class="error">
+									<?php echo $error_status4; ?>
+								</div>
 							</div>		
 							<div class="form-group">
-								<label>Message</label>
-								<textarea class="form-control" name="message" rows="4" placeholder="Message"></textarea>
+								<label>Message*</label>
+								<textarea class="form-control" name="message" rows="4" placeholder="Message"><?php echo $message; ?></textarea>
+								<div class="error">
+									<?php echo $error_status5; ?>
+								</div>
+							</div>
+							<div class="g-recaptcha" data-sitekey="6LeZc5oUAAAAAESiFR8zJB8HoZ45ouJWjKg5ehBo"></div>
+							<div class="error">
+								<?php echo $error_status6; ?>
 							</div>
 							<div class="submit-button">
 								<button type="submit" name="submit" class="btn btn-primary">Submit</button>
 							</div>
+							<div class="success">
+								<?php echo $success_message; ?>
+							</div>
 						</form>
-					</div>
+					</div>					
 				<h4>OR</h4>
 				<h1>Schedule An Appointment</h1>
 				<div class="appointment-button">
-					<button id="makeappointment" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM-Web-Application-V2/makeAppointment.php';">Schedule An Appointment</button>
+					<button id="makeappointment" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM-Web-Application-V2/login.php';">Schedule An Appointment</button>
 				</div>
 			</div>
 		</section>
