@@ -86,6 +86,13 @@
     color:green;
 }
 
+.captcha-wrapper {
+	text-align: center;
+}
+.g-recaptcha {
+	display: inline-block;
+}
+
 </style>
 
 <html>
@@ -357,12 +364,14 @@
 									<?php echo $error_status5; ?>
 								</div>
 							</div>
-							<div class="g-recaptcha" data-sitekey="6LeZc5oUAAAAAESiFR8zJB8HoZ45ouJWjKg5ehBo"></div>
+							<div class="form-group text-center">
+								<div class="g-recaptcha" data-sitekey="6LeZc5oUAAAAAESiFR8zJB8HoZ45ouJWjKg5ehBo"></div>
+							</div>
 							<div class="error">
 								<?php echo $error_status6; ?>
 							</div>
 							<div class="submit-button">
-								<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" name="submit" id="paddingButton" class="btn btn-primary">Submit</button>
 							</div>
 							<div class="success">
 								<?php echo $success_message; ?>
@@ -372,7 +381,7 @@
 				<h4>OR</h4>
 				<h1>Schedule An Appointment</h1>
 				<div class="appointment-button">
-					<button id="makeappointment" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM-Web-Application-V2-1/login.php';">Schedule An Appointment</button>
+					<button id="paddingButton" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM-Web-Application-V2-1/login.php';">Schedule An Appointment</button>
 				</div>
 			</div>
 		</section>

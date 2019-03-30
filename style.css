@@ -299,10 +299,6 @@ h1::after {
     padding-bottom: 15px;
 }
 
-#makeappointment {
-    display: inline-block;
-}
-
 .appointment-button {
     text-align: center;
 } 
@@ -323,6 +319,11 @@ h1::after {
 
 .btn-primary:hover {
     background-color: #3a5a98 !important;
+}
+
+#paddingButton {
+    padding: 12px 24px !important;
+    font-size: 16px !important;
 }
 
 
