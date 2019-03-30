@@ -77,10 +77,6 @@
 
 <style type="text/css">
 
-.g-recaptcha {
-    text-align: center;
-}
-
 .error {
     padding-top: 5px;
     color:red;
@@ -94,7 +90,9 @@
 
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>GTM Home Services</title>
+
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="animate.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -195,22 +193,22 @@
 		<div class="col-md-6 skills-bar">
 			<p>Storm Cleanup</p>
 			<div class="progress">
-				<div class="progress-bar" style="width: 80%;">80%</div>
+				<div class="progress-bar" style="width: 80%; background-color: #4B71BA;">80%</div>
 			</div>
 
 			<p>Pool Services</p>
 			<div class="progress">
-				<div class="progress-bar" style="width: 85%;">85%</div>
+				<div class="progress-bar" style="width: 85%; background-color: #4B71BA;">85%</div>
 			</div>
 
 			<p>Referral Services</p>
 			<div class="progress">
-				<div class="progress-bar" style="width: 75%;">75%</div>
+				<div class="progress-bar" style="width: 75%; background-color: #4B71BA;">75%</div>
 			</div>
 
 			<p>Hurricane Prep</p>
 			<div class="progress">
-				<div class="progress-bar" style="width: 50%;">50%</div>
+				<div class="progress-bar" style="width: 50%; background-color: #4B71BA;">50%</div>
 			</div>
 		</div>
 		</div>
@@ -281,7 +279,6 @@
 							<img src="img/team.png" class="img-responsive">
 							<ul>
 								<a href="#"><li><i class="fa fa-facebook"></i></li></a>
-								<a href="#"><li><i class="fa fa-google-plus"></i></li></a>
 								<a href="#"><li><i class="fa fa-linkedin"></i></li></a>
 							</ul>
 						</div>
@@ -295,7 +292,6 @@
 							<img src="img/team.png" class="img-responsive">
 							<ul>
 								<a href="#"><li><i class="fa fa-facebook"></i></li></a>
-								<a href="#"><li><i class="fa fa-google-plus"></i></li></a>
 								<a href="#"><li><i class="fa fa-linkedin"></i></li></a>
 							</ul>
 						</div>
@@ -309,7 +305,6 @@
 							<img src="img/team.png" class="img-responsive">
 							<ul>
 								<a href="#"><li><i class="fa fa-facebook"></i></li></a>
-								<a href="#"><li><i class="fa fa-google-plus"></i></li></a>
 								<a href="#"><li><i class="fa fa-linkedin"></i></li></a>
 							</ul>
 						</div>
@@ -377,7 +372,7 @@
 				<h4>OR</h4>
 				<h1>Schedule An Appointment</h1>
 				<div class="appointment-button">
-					<button id="makeappointment" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM-Web-Application-V2/login.php';">Schedule An Appointment</button>
+					<button id="makeappointment" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM-Web-Application-V2-1/login.php';">Schedule An Appointment</button>
 				</div>
 			</div>
 		</section>

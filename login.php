@@ -168,13 +168,13 @@ body, html {
                                 <div class = "input-group-append">
                                      <span class = "input-group-text"><i class = "fas fa-envelope"></i></span>
                                 </div>                                
-                                <input type = "email" name = "mail" placeholder = "Email Address" class = "form-control input_email" value = '<?php echo $email; ?>'/>
+                                <input type = "email" name = "mail" placeholder = "Email Address" class = "form-control input_email" />
                             </div>
                             <div class="input-group mb-2">
                                 <div class = "input-group-append">
                                     <span class = "input-group-text"><i class = "fas fa-lock"></i></span>
                                 </div>     
-                                <input type = "password" name = "pass" placeholder = "Password" class = "form-control input_pass" value = '<?php echo $password; ?>'/>
+                                <input type = "password" name = "pass" placeholder = "Password" class = "form-control input_pass" />
                             </div>
                             <div class = "form-row">
                                 <div class = "custom-control custom-checkbox">

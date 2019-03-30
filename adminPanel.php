@@ -1,9 +1,9 @@
 <?php
+
 include("includes/header.php");
 include("includes/config.php");
 session_start();
 include("includes/functions.php");
-
 
 if(logged_in()) {
     header("location:login.php");

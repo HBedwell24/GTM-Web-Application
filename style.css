@@ -25,10 +25,6 @@
     text-align: left;
 }
 
-#nav-bar ul li a:hover {
-    color: #007bff!important;
-}
-
 .navbar {
     background: #fff;
 }
@@ -41,6 +37,10 @@
     color: #555!important;
     font-weight: 600;
     font-size: 16px;
+}
+
+.nav-link:hover {
+    color: #007bff !important;
 }
 
 #slider {
@@ -161,7 +161,7 @@
 }
 
 .services .col-md-4:hover {
-    background: #007bff;
+    background: rgba(89, 89, 89, 0.5);
     cursor: pointer;
     transition: 0.7s;
 }
@@ -180,7 +180,7 @@ h1 {
 
 h1::after {
     content: '';
-    background: #007bff;
+    background: #4B71BA;
     display: block;
     height: 3px;
     width: 170px;
@@ -211,7 +211,7 @@ h1::after {
     font-size: 22px;
     font-weight: bold;
     margin-top: 15px;
-    color: #007bff !important;
+    color: #4B71BA !important;
 }
 
 .profile-pic h3 {
@@ -223,7 +223,7 @@ h1::after {
 #team .fa {
     height: 25px;
     width: 25px;
-    color: #007bff !important;
+    color: #4B71BA !important;
     background: #fff;
     padding: 4px;
     border-radius: 50%;
@@ -313,5 +313,42 @@ h1::after {
 
 #contact h4 {
     text-align: center;
+}
+
+.btn-primary {
+    border: none !important;
+    background-color: #4B71BA !important;
+    border-radius: 0px !important;
+}
+
+.btn-primary:hover {
+    background-color: #3a5a98 !important;
+}
+
+
+
+/* Adjust elements for mobile screen size */
+@media only screen and (max-width: 768px) {
+    
+    .carousel-caption h2 {
+        font-size: 35px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    #slider {
+        width: 100%;
+    }
+    
+    .carousel-item {
+        height: 50vh;
+        position: relative;
+    }
+    
+    .carousel-caption {
+        position: absolute;
+        top: 50%;
+        transform: translate(0%,-50%);
+    }
 }
 
