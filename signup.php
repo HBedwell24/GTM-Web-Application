@@ -35,31 +35,31 @@ if(isset($_POST['submit'])) {
     // if any of the login fields are empty, throws error
     if(empty($first_name) || empty($last_name) || empty($email) || empty($phone_number) || empty($address) 
     || empty($city) || empty($state) || empty($zip_code) || empty($password) || empty($c_password)) {
-        $error_status = "<div class='error'>Please fill in all fields.</div>";
+        $error_status = "<div class='error' id='status'>Please fill in all fields.</div>";
     }
     // if first name does not contain at least 3 characters, throws error
     else if(strlen($first_name) < 3) {
-        $error_status = "<div class='error'>First name must contain at least 3 characters.</div>";
+        $error_status = "<div class='error' id='status'>First name must contain at least 3 characters.</div>";
     }
     // if last name does not contain at least 3 characters, throws error
     else if(strlen($last_name) < 3) {
-        $error_status = "<div class='error'>Last name must contain at least 3 characters.</div>";
+        $error_status = "<div class='error' id='status'>Last name must contain at least 3 characters.</div>";
     }
     // if email provided is not valid, throws error
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error_status = "<div class='error'>Email provided is invalid.</div>";
+        $error_status = "<div class='error' id='status'>Email provided is invalid.</div>";
     }
     // if account with email provided already exists, throws error
     else if(email_exists($email, $con)) {
-        $error_status = "<div class='error'>An account already exists with the email provided.</div>";
+        $error_status = "<div class='error' id='status'>An account already exists with the email provided.</div>";
     }
     // if password does not contain at least 8 characters, throws error
     else if(strlen($password) < 8) {
-        $error_status = "<div class='error'>Password must contain at least 8 characters.</div>";
+        $error_status = "<div class='error' id='status'>Password must contain at least 8 characters.</div>";
     }
     // if confirmed password does not match password, throws error
     else if($password !== $c_password) {
-        $error_status = "<div class='error'>Password provided does not match.</div>";
+        $error_status = "<div class='error' id='status'>Password provided does not match.</div>";
     }
     // if all fields are filled appropriately, insert data into database
     else {
@@ -75,7 +75,7 @@ if(isset($_POST['submit'])) {
             VALUES ('$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', 'user', '$hashed_password', '$code')");
         $db_id  = mysqli_insert_id($con);
 
-        $error_status = "<div class='success'>Please check your email for an account activation code.</div>";
+        $error_status = "<div class='success' id='status'>Please check your email for an account activation code.</div>";
         $to=$email;
         $subject = "Activation code for gtmwebservices.com";
         $from = 'Christian.8edwell@gmail.com';
