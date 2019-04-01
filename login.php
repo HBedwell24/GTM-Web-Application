@@ -37,7 +37,7 @@ if(isset($_POST['submit'])) {
         }
         // if password provided corresponds to email, redirects to profile
         else {
-            $_SESSION['mail']=$email;
+            $_SESSION['mail'] = $email;
             if($checkbox == 'on') {
                 setcookie('name',$email,time()+30);
             }
@@ -55,9 +55,8 @@ if(isset($_POST['submit'])) {
         $error_status = '<div class="error">Email does not exist.</div>';
         $email = '';
     }
-
 }
- ?>
+?>
 
 <!-- style sheet for login page -->
 <style type = "text/css">
