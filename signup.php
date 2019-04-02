@@ -257,7 +257,7 @@ label {
                             </div>
                             <label>Email Address*</label>   
                             <div class = "input-group mb-3">                         
-                                <input type = "email" name = "mail" placeholder = "Email Address" class = "form-control input_email" value = '<?php echo $email; ?>'/>
+                                <input type = "text" name = "mail" placeholder = "Email Address" class = "form-control input_email" value = '<?php echo $email; ?>'/>
                             </div>
                             <label>Phone Number*</label> 
                             <div class = "input-group mb-3"> 
