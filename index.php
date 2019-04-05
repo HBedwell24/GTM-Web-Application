@@ -31,11 +31,7 @@
 		$response = file_get_contents($url);
 		$data = json_decode($response);
 
-		if(empty($fname) && empty($lname) && empty($mailFrom) && empty($subject) && empty($message)) {
-			$error_status6 = "Please fill in all fields.";
-		}
-
-		else if(empty($fname)) {
+		if(empty($fname)) {
 			$error_status1 = "First name is empty.";
 		}
 
@@ -366,16 +362,16 @@
 							</div>
 							<div class="form-group text-center">
 								<div class="g-recaptcha" data-sitekey="6LeZc5oUAAAAAESiFR8zJB8HoZ45ouJWjKg5ehBo"></div>
-							</div>
-							<div class="error">
-								<?php echo $error_status6; ?>
+								<center><div class="error">
+									<?php echo $error_status6; ?>
+								</div></center>
 							</div>
 							<div class="submit-button">
 								<button type="submit" name="submit" id="paddingButton" class="btn btn-primary">Submit</button>
 							</div>
-							<div class="success">
+							<center><div class="success">
 								<?php echo $success_message; ?>
-							</div>
+							</div></center>
 						</form>
 					</div>					
 				<h4>OR</h4>
