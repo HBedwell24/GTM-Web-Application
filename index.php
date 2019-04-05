@@ -24,7 +24,7 @@
 		$subject = mysqli_real_escape_string($con, $_POST['subject']);
 		$message = mysqli_real_escape_string($con, $_POST['message']);
 
-		$secretKey = "6LeZc5oUAAAAANztEF-i1pLQblo-kuVYaYCcJImg";
+		$secretKey = "";
 		$responseKey = $_POST['g-recaptcha-response'];
 		$url = "https://www.google.com/recaptcha/api/siteverify?secret=" .$secretKey. "&response=" .$responseKey;
 
@@ -321,59 +321,59 @@
 		<section id="contact">
 			<div class="container">
 				<h1>Contact Us</h1>
-					<div class="form-group">
-						<form class="contact-form" method="POST">
-							<div class="form-row">
-								<div class="col">
-									<label>First Name*</label>
-									<input type="text" name="fname" class="form-control" placeholder="First Name" value = '<?php echo $fname; ?>'/>
-									<div class="error">
-										<?php echo $error_status1; ?>
-									</div>
-								</div>
-								<div class="col">
-									<label>Last Name*</label>
-									<input type="text" name="lname" class="form-control" placeholder="Last Name" value = '<?php echo $lname; ?>'/>
-									<div class="error">
-										<?php echo $error_status2; ?>
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<label>Email*</label>
-								<input type="email" name="mail" class="form-control" placeholder="Email" value = '<?php echo $mailFrom; ?>'/>
+				<div class="form-group">
+					<form class="contact-form" method="POST">
+						<div class="form-row">
+							<div class="col">
+								<label>First Name*</label>
+								<input type="text" name="fname" class="form-control" placeholder="First Name" value = '<?php echo $fname; ?>'/>
 								<div class="error">
-									<?php echo $error_status3; ?>
+									<?php echo $error_status1; ?>
 								</div>
 							</div>
-							<div class="form-group">
-								<label>Subject*</label>
-								<input type="text" name="subject" class="form-control" placeholder="Subject" value = '<?php echo $subject; ?>'/>
+							<div class="col">
+								<label>Last Name*</label>
+								<input type="text" name="lname" class="form-control" placeholder="Last Name" value = '<?php echo $lname; ?>'/>
 								<div class="error">
-									<?php echo $error_status4; ?>
-								</div>
-							</div>		
-							<div class="form-group">
-								<label>Message*</label>
-								<textarea class="form-control" name="message" rows="4" placeholder="Message"><?php echo $message; ?></textarea>
-								<div class="error">
-									<?php echo $error_status5; ?>
+									<?php echo $error_status2; ?>
 								</div>
 							</div>
-							<div class="form-group text-center">
-								<div class="g-recaptcha" data-sitekey="6LeZc5oUAAAAAESiFR8zJB8HoZ45ouJWjKg5ehBo"></div>
-								<center><div class="error">
-									<?php echo $error_status6; ?>
-								</div></center>
+						</div>
+						<div class="form-group">
+							<label>Email*</label>
+							<input type="email" name="mail" class="form-control" placeholder="Email" value = '<?php echo $mailFrom; ?>'/>
+							<div class="error">
+								<?php echo $error_status3; ?>
 							</div>
-							<div class="submit-button">
-								<button type="submit" name="submit" id="paddingButton" class="btn btn-primary">Submit</button>
+						</div>
+						<div class="form-group">
+							<label>Subject*</label>
+							<input type="text" name="subject" class="form-control" placeholder="Subject" value = '<?php echo $subject; ?>'/>
+							<div class="error">
+								<?php echo $error_status4; ?>
 							</div>
-							<center><div class="success">
-								<?php echo $success_message; ?>
+						</div>		
+						<div class="form-group">
+							<label>Message*</label>
+							<textarea class="form-control" name="message" rows="4" placeholder="Message"><?php echo $message; ?></textarea>
+							<div class="error">
+								<?php echo $error_status5; ?>
+							</div>
+						</div>
+						<div class="form-group text-center">
+							<div class="g-recaptcha" data-sitekey=""></div>
+							<center><div class="error">
+								<?php echo $error_status6; ?>
 							</div></center>
-						</form>
-					</div>					
+						</div>
+						<div class="submit-button">
+							<button type="submit" name="submit" id="paddingButton" class="btn btn-primary">Submit</button>
+						</div>
+						<center><div class="success">
+							<?php echo $success_message; ?>
+						</div></center>
+					</form>
+				</div>					
 				<h4>OR</h4>
 				<h1>Schedule An Appointment</h1>
 				<div class="appointment-button">
