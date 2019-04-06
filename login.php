@@ -25,8 +25,12 @@ if(isset($_POST['submit'])) {
     }
     // if email provided exists
     else if(email_exists($email, $con)) {
-        $row = mysqli_query($con,"SELECT * FROM users WHERE email='$email'");
-        $pass_w = mysqli_fetch_array($row);
+        $stmt = $con->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $select = $stmt->get_result();
+
+        $pass_w = mysqli_fetch_array($select);
         $dpass = $pass_w['password'];
         $password = md5($password);
 

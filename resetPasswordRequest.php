@@ -12,7 +12,7 @@ $email = '';
 
 // get strings from input fields
 if(isset($_POST['submit'])) {
-    $email = mysqli_real_escape_string($con, $_POST['mail']);
+    $email = $_POST['mail'];
 
     // if any of the reset password fields are empty, throws error
     if(empty($email)) {
@@ -24,19 +24,22 @@ if(isset($_POST['submit'])) {
     }
     // if all fields are filled appropriately, send reset password link to email
     else {
-        $select = mysqli_query($con, "SELECT first_name, last_name, email, password FROM users WHERE email='$email'");
+        $stmt = $con->prepare("SELECT first_name, last_name, email, password FROM users WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $select = $stmt->get_result();
 
         if(mysqli_num_rows($select) == 1) {
 
             while($row = mysqli_fetch_array($select)) {
                 // encrypt both email and password
-                $email = md5($row['email']);
-                $pass = md5($row['password']);
+                $hashed_email = md5($row['email']);
+                $hashed_pass = md5($row['password']);
                 $recipient_email = $row['email'];
                 $recipient_name = '' .$row['first_name']. ' ' .$row['last_name']. '';
             }
             $dir = 'localhost/GTM-Web-Application-V2/';
-            $link = '' .$dir. 'resetPassword.php?key=' .$email. '&reset=' .$pass. '';
+            $link = '' .$dir. 'resetPassword.php?key=' .$hashed_email. '&reset=' .$hashed_pass. '';
             require_once('PHPMailer/PHPMailerAutoload.php');
             $mail = new PHPMailer();
             $mail->CharSet = "utf-8";
@@ -64,7 +67,8 @@ if(isset($_POST['submit'])) {
             else {
                 $error_status = "<div class='error'>Mail error -> $mail->ErrorInfo</div>";
             }
-        }	
+        }
+        $stmt->close();	
     }
 }
 ?>

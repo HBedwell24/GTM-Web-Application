@@ -21,15 +21,21 @@ if(passwordRequestSent()) {
 
   $email = $_GET['key'];
   $pass = $_GET['reset'];
-  $select = mysqli_query($con, "SELECT email, password FROM users WHERE md5(email) = '$email' AND password = '$pass'");
+  $stmt = $con->prepare("SELECT email, password FROM users WHERE md5(email) = ? AND password = ?");
+  $stmt->bind_param("ss", $email, $pass);
+  $stmt->execute();
+  $stmt->close();
 }
 
 // update the password with new password
 if(isset($_POST['submit_password'])) {
   
-  $email = mysqli_real_escape_string($con, $_POST['email']);
+  $email = $_POST['email'];
   $pass = md5($_POST['password']);
-  $select = mysqli_query($con, "UPDATE users SET password = '$pass' WHERE md5(email) = '$email'");
+  $stmt = $con->prepare("UPDATE users SET password = ? WHERE md5(email) = ?");
+  $stmt->bind_param("ss", $pass, $email);
+  $stmt->execute();
+  $stmt->close();
 
   header("location:login.php");
 }
