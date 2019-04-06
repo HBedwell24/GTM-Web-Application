@@ -7,6 +7,9 @@ include("includes/functions.php");
 // instantiate error strings
 $error_status = '';
 
+// instantiate defaut user state
+$default_access = 'user';
+
 // instantiate variables
 $first_name = '';
 $last_name = '';
@@ -21,14 +24,19 @@ $c_password = '';
 
 // get strings from input fields
 if(isset($_POST['submit'])) {
-    $first_name = mysqli_real_escape_string($con, $_POST['fname']);
-    $last_name = mysqli_real_escape_string($con, $_POST['lname']);
-    $email = mysqli_real_escape_string($con, $_POST['mail']);
-    $phone_number = mysqli_real_escape_string($con, $_POST['phone']);
-    $address = mysqli_real_escape_string($con, $_POST['address']);
-    $city = mysqli_real_escape_string($con, $_POST['city']);
-    $state = mysqli_real_escape_string($con, $_POST['state']);
-    $zip_code = mysqli_real_escape_string($con, $_POST['zcode']);
+    // prepare input fields for database insertion
+    $stmt = $con->prepare("INSERT INTO verify
+        (first_name, last_name, email, phone, address, city, state, zip_code, user_type, password, code) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+    $first_name = $_POST['fname'];
+    $last_name = $_POST['lname'];
+    $email = $_POST['mail'];
+    $phone_number = $_POST['phone'];
+    $address = $_POST['address'];
+    $city = $_POST['city'];
+    $state = $_POST['state'];
+    $zip_code = $_POST['zcode'];
     $password = $_POST['pass'];
     $c_password = $_POST['cpass'];
 
@@ -68,12 +76,14 @@ if(isset($_POST['submit'])) {
 
         // encrypt the password using md5 encryption
         $hashed_password = md5($password);
+
+        // bind input fields for database insertion
+        $stmt->bind_param("sssssssssss", $first_name, $last_name, $email, $phone_number, $address, $city, $state, $zip_code, $default_access, $hashed_password, $code);
         
         // insert fields into verify database
-        mysqli_query($con, "INSERT INTO verify
-            (first_name, last_name, email, phone, address, city, state, zip_code, user_type, password, code) 
-            VALUES ('$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', 'user', '$hashed_password', '$code')");
-        $db_id  = mysqli_insert_id($con);
+        $stmt->execute();
+        $db_id = mysqli_insert_id($con);
+        $stmt->close();
 
         $error_status = "<div class='success' id='status'>Please check your email for an account activation code.</div>";
         $to=$email;
@@ -91,8 +101,11 @@ if(isset($_POST['submit'])) {
 // verify the user using id and activation code
 if(isset($_GET['id']) && isset($_GET['code'])) {
 	$id = $_GET['id'];
-	$code = $_GET['code'];
-    $select = mysqli_query($con, "SELECT first_name, last_name, email, phone, address, city, state, zip_code, user_type, password FROM verify WHERE id = '$id' and code = '$code'");
+    $code = $_GET['code'];
+    $stmt = $con->prepare("SELECT first_name, last_name, email, phone, address, city, state, zip_code, user_type, password FROM verify WHERE id = ? AND code = ?");
+    $stmt->bind_param("is", $id, $code);
+    $stmt->execute();
+    $select = $stmt->get_result();
     
 	if(mysqli_num_rows($select) == 1) {
 
@@ -106,17 +119,25 @@ if(isset($_GET['id']) && isset($_GET['code'])) {
             $state = $row['state'];
             $zip_code = $row['zip_code'];
             $user_type = $row['user_type'];
-			$password = $row['password'];
+            $password = $row['password'];
         }
+        
         // insert fields into users database
-		$insert_user = mysqli_query($con, "INSERT INTO users VALUES ('$id', '$first_name', '$last_name', '$email', '$phone_number', '$address', '$city', '$state', '$zip_code', '$user_type', '$password')");
+        $stmt = $con->prepare("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("issssssssss", $id, $first_name, $last_name, $email, $phone_number, $address, $city, $state, $zip_code, $user_type, $password);
+        $stmt->execute();
+        $stmt->close();
         
         // delete fields from verify database, since user is now verified
-        $delete = mysqli_query($con, "DELETE FROM verify WHERE id = '$id' AND code = '$code'");
+        $stmt = $con->prepare("DELETE FROM verify WHERE id = ? AND code = ?");
+        $stmt->bind_param("ss", $id, $code);
+        $stmt->execute();
+        $stmt->close();
         
         // redirect to login page
         header("location:login.php");
-	}
+    }    
+    $stmt->close();
 }
 
 function e($val){
