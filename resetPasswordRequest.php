@@ -102,8 +102,8 @@ body, html {
     background-size: cover;
 }
 .user_card {
-	height: 330px;
-	width: 350px;
+	height: auto;
+	width: auto;
 	margin-top: auto;
 	margin-bottom: auto;
 	background: #E9EAEE;
@@ -141,7 +141,7 @@ body, html {
     margin-right: 40px;
 }
 .reset_password_btn {
-	width: 100%;
+	width: 175px;
 	background: #4B71BA !important;
 	color: white !important;
 }

@@ -644,8 +644,8 @@ main.l-main .page-title {
         <input class="c-search__input u-input" placeholder="Search..." type="text"/>
       </div>
       <div class="header-icons-group">
-        <div class="c-header-icon basket"><i class="fa fa-cog"></i></div>
-        <a href='logout.php'><div class="c-header-icon logout"><i class="fa fa-sign-out"></i></div></a>
+        <a title="Settings" href=''><div class="c-header-icon basket"><i class="fa fa-cog"></i></div></a>
+        <a title="Logout" href='logout.php'><div class="c-header-icon logout"><i class="fa fa-sign-out"></i></div></a>
       </div>
     </div>
   </header>

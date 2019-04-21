@@ -173,8 +173,8 @@ body, html {
     background-size: cover;
 }
 .user_card {
-	height: 800px;
-	width: 725px;
+	height: auto;
+	width: auto;
 	margin-top: auto;
 	margin-bottom: auto;
 	background: #E9EAEE;
