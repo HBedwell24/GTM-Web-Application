@@ -372,7 +372,7 @@
 						<img class="footer-image" src="img/icon.png">
 					</div>
 					<div class="col-md-6 contact-info">
-						<div class="follow"><b>Email:</b><i class="fa fa-envelope-o"></i>toddservices@comcast.net</div>
+						<div class="follow"><b>Email:</b><i class="fa fa-envelope-o"></i><a href="mailto:toddservices@comcast.net" style="color:rgb(255,255,255)">toddservices@comcast.net</a></div>
 						<div class="follow"><label><b>Get Social:</b></label>
 							<a href='https://www.facebook.com/GTM-Home-Services-407770363408039/' target="_blank"><i class="fa fa-facebook"></i></a>
 							<a href='https://www.linkedin.com/in/gtm-services-222350185/' target="_blank"><i class="fa fa-linkedin"></i></a>
