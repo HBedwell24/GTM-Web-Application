@@ -24,7 +24,7 @@
 		$subject = mysqli_real_escape_string($con, $_POST['subject']);
 		$message = mysqli_real_escape_string($con, $_POST['message']);
 
-		$secretKey = "";
+		$secretKey = "6Lfed5wUAAAAAPDdjHEoT4GTaTOesZ1_uxjTZblK";
 		$responseKey = $_POST['g-recaptcha-response'];
 		$url = "https://www.google.com/recaptcha/api/siteverify?secret=" .$secretKey. "&response=" .$responseKey;
 
@@ -57,11 +57,11 @@
 
 		else {
 			if ($data -> success) {
-				$mailTo = 'bedwellhb@gmail.com';
+				$mailTo = 'gtmservicesnaples@gmail.com';
 				$headers = "From: ".$mailFrom;
 				$txt = $message;
 				mail($mailTo, $subject, $txt, $headers);
-				// header("Location: index.php?mailsend");
+				header("Location: index.php?mailsend");
 				$success_message = "<div class='success'>Message sent successfully!</div>";
 			}
 			else {
@@ -153,7 +153,7 @@
 					<div class="carousel-item active">
 						<img src="img/banner1.png" class="d-block img-fluid">
 						<div class="carousel-caption">
-							<h2 class="animated bounceInRight" style="animation-delay: 1s">Can't make it to the grocery store? Full Home Concierge ensures goods are delivered in a timely manner!</h2>
+							<h2 class="animated bounceInRight" style="animation-delay: 1s">Can't Make It To The Grocery Store? Full Home Concierge Ensures Goods Are Delivered In A Timely Manner!</h2>
 							<p class="animated bounceInLeft" style="animation-delay: 2s"><a href="#contact">Contact us</a></p>
 						</div>
 					</div>
@@ -188,36 +188,23 @@
 		<div class="col-md-6">
 			<h2>About Us</h2>
 			<div class="about-content">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-				dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				The GTM Home Services team knows that sometimes your to-do list needs a little help. For those of us who can't be in ten places at once, 
+				look to GTM for your home watch and maintenance needs. We're locally owned and operated, serving our neighbors in the Southwest Florida region.
+				Have a one-time job that needs to be taken care of? Need regular service or maintenance? See what GTM can do for you!
 			</div>
 		</div>
-		<div class="col-md-6 skills-bar">
-			<p>Storm Cleanup</p>
-			<div class="progress">
-				<div class="progress-bar" style="width: 80%; background-color: #4B71BA;">80%</div>
-			</div>
-
-			<p>Pool Services</p>
-			<div class="progress">
-				<div class="progress-bar" style="width: 85%; background-color: #4B71BA;">85%</div>
-			</div>
-
-			<p>Referral Services</p>
-			<div class="progress">
-				<div class="progress-bar" style="width: 75%; background-color: #4B71BA;">75%</div>
-			</div>
-
-			<p>Hurricane Prep</p>
-			<div class="progress">
-				<div class="progress-bar" style="width: 50%; background-color: #4B71BA;">50%</div>
+		<div class="col-md-6">
+			<h2>Total Home Care</h2>
+			<div class="about-content">
+				Let GTM Home Services provide you the assurance that your home is safe and maintained. We're experts in home care and all services are 
+				custom-tailored to your needs by our team. Rest easy knowing GTM will alert you of anything needing your attention and will be there 
+				to help take care of the situation.
 			</div>
 		</div>
 		</div>
 		</div>
 		</section>
-		<section id="services">
+				<section id="services">
 			<div class="container">
 				<h1>Our Services</h1>
 				<div class="row services">
@@ -226,7 +213,7 @@
 							<i class="fa fa-home"></i>
 						</div>
 						<h3>Home Watch</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>Discreet and professional home watch and monitoring services. Thorough interior and exterior inspections of your property.</p>
 					</div>
 
 					<div class="col-md-4 text-center">
@@ -234,32 +221,31 @@
 							<i class="fa fa-tint"></i>
 						</div>
 						<h3>Pool Services</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>Complete pool maintenance and upkeep services. Keep your pool in top shape.  </p>
 					</div>
-
 					<div class="col-md-4 text-center">
 						<div class="icon">
 							<i class="fa fa-cutlery"></i>
 						</div>
-						<h3>Full Concierge Services</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<h3>Concierge Services</h3>
+						<p>Customized solutions and services from our expert staff. From small tasks to expert referrals.</p>
 					</div>
-				</div>
-
+				</div>				
 				<div class="row services">
 					<div class="col-md-4 text-center">
 						<div class="icon">
 							<i class="fa fa-plane"></i>
 						</div>
 						<h3>Airport Transportation</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>Door-to-door transportation services for local Southwest Florida airports.</p>
 					</div>
 					<div class="col-md-4 text-center">
 						<div class="icon">
-							<i class="fa fa-file"></i>
+							<i class="fa fa-tree"></i>
 						</div>
-						<h3>Referral Service</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<h3>Landscaping</h3>
+						<p>Complete one-time or regularly scheduled landscaping services. Year-round 
+							maintenance and up-keep.</p>
 					</div>
 
 					<div class="col-md-4 text-center">
@@ -267,7 +253,7 @@
 							<i class="fa fa-bolt"></i>
 						</div>
 						<h3>Hurricane Prep/Cleanup</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p>Home and property hurricane preparation and cleanup/restoration services.</p>
 					</div>
 				</div>
 			</div>
@@ -287,9 +273,7 @@
 						</div>
 						<h2>Mark Hemmings</h2>
 						<h3>Co-Founder</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 					</div>	
-
 					<div class="col-md-4 profile-pic text-center">
 						<div class="img-box">
 							<img src="img/team.png" class="img-responsive">
@@ -300,9 +284,7 @@
 						</div>
 						<h2>Greg Moore</h2>
 						<h3>Co-Founder</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					</div>	
-
+					</div>
 					<div class="col-md-4 profile-pic text-center">
 						<div class="img-box">
 							<img src="img/team.png" class="img-responsive">
@@ -313,11 +295,11 @@
 						</div>
 						<h2>Todd Ovenhouse</h2>
 						<h3>Co-Founder</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 					</div>		
 				</div>
 			</div>
 		</section>
+		
 		<section id="contact">
 			<div class="container">
 				<h1>Contact Us</h1>
@@ -355,13 +337,13 @@
 						</div>		
 						<div class="form-group">
 							<label>Message*</label>
-							<textarea class="form-control" name="message" rows="4" placeholder="Message"><?php echo $message; ?></textarea>
+							<textarea class="form-control" name="message" rows="4" placeholder="Tell Us How We Can Help You"><?php echo $message; ?></textarea>
 							<div class="error">
 								<?php echo $error_status5; ?>
 							</div>
 						</div>
 						<div class="form-group text-center">
-							<div class="g-recaptcha" data-sitekey=""></div>
+							<div class="g-recaptcha" data-sitekey="6Lfed5wUAAAAAE2GNzOVO2V1Q1UaSHc-JjNreqsq"></div>
 							<center><div class="error">
 								<?php echo $error_status6; ?>
 							</div></center>
@@ -377,7 +359,7 @@
 				<h4>OR</h4>
 				<h1>Schedule An Appointment</h1>
 				<div class="appointment-button">
-					<button id="paddingButton" class="btn btn-primary" onClick="Javascript:window.location.href = 'http://localhost/GTM-Web-Application-V2-1/login.php';">Schedule An Appointment</button>
+					<a href="makeAppointment.php" id="paddingButton" class="btn btn-primary">Schedule An Appointment</a>
 				</div>
 			</div>
 		</section>
@@ -390,12 +372,9 @@
 						<img class="footer-image" src="img/icon.png">
 					</div>
 					<div class="col-md-6 contact-info">
-						<div class="follow"><b>Address:</b><i class="fa fa-map-marker"></i>XYZ Road, Bangalore, IN</div>
-						<div class="follow"><b>Phone:</b><i class="fa fa-phone"></i>+1 (000) 000-0000</div>
-						<div class="follow"><b>Email:</b><i class="fa fa-envelope-o"></i>johndoe@gmail.com</div>
+						<div class="follow"><b>Email:</b><i class="fa fa-envelope-o"></i>toddservices@comcast.net</div>
 						<div class="follow"><label><b>Get Social:</b></label>
 							<a href='#'><i class="fa fa-facebook"></i></a>
-							<a href='#'><i class="fa fa-google-plus"></i></a>
 							<a href='#'><i class="fa fa-linkedin"></i></a>
 						</div>	
 					</div>
@@ -408,5 +387,3 @@
 		</script>
 	</body>
 </html>
-
-		
