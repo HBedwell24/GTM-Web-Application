@@ -88,6 +88,11 @@
 .g-recaptcha {
 	display: inline-block;
 }
+.index_btn {
+	border-radius: 25px;
+	background: #4B71BA !important;
+	color: white !important;
+}
 
 </style>
 
@@ -133,10 +138,10 @@
 							  	<a class="nav-link" href="#contact">CONTACT US</a>
 							</li>
 							<li>
-								<a href="login.php" class="btn btn-primary" role="button">Log In</a>
+								<a href="login.php" class="btn index_btn" role="button">Log In</a>
 							</li>	
 							<li>
-								<a href="signup.php" class="btn btn-primary" role="button">Register</a>
+								<a href="signup.php" class="btn index_btn" role="button">Register</a>
 							</li>							
 						</ul>
 					</div>
@@ -349,7 +354,7 @@
 							</div></center>
 						</div>
 						<div class="submit-button">
-							<button type="submit" name="submit" id="paddingButton" class="btn btn-primary">Submit</button>
+							<button type="submit" name="submit" id="paddingButton" class="btn index_btn">Submit</button>
 						</div>
 						<center><div class="success">
 							<?php echo $success_message; ?>
@@ -359,7 +364,7 @@
 				<h4>OR</h4>
 				<h1>Schedule An Appointment</h1>
 				<div class="appointment-button">
-					<a href="makeAppointment.php" id="paddingButton" class="btn btn-primary">Schedule An Appointment</a>
+					<a href="makeAppointment.php" id="paddingButton" class="btn index_btn">Schedule An Appointment</a>
 				</div>
 			</div>
 		</section>
