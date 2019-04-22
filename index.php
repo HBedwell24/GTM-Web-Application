@@ -299,7 +299,7 @@
 				</div>
 			</div>
 		</section>
-		
+
 		<section id="contact">
 			<div class="container">
 				<h1>Contact Us</h1>
@@ -374,8 +374,8 @@
 					<div class="col-md-6 contact-info">
 						<div class="follow"><b>Email:</b><i class="fa fa-envelope-o"></i>toddservices@comcast.net</div>
 						<div class="follow"><label><b>Get Social:</b></label>
-							<a href='#'><i class="fa fa-facebook"></i></a>
-							<a href='#'><i class="fa fa-linkedin"></i></a>
+							<a href='https://www.facebook.com/GTM-Home-Services-407770363408039/'><i class="fa fa-facebook"></i></a>
+							<a href='https://www.linkedin.com/in/gtm-services-222350185/'><i class="fa fa-linkedin"></i></a>
 						</div>	
 					</div>
 				</div>
