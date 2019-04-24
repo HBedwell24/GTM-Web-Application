@@ -135,7 +135,7 @@ if(isset($_POST['submit'])) {
         $mail->isHMTL(true);
 
         // if error occurs in sending mail, throws error
-        if(!mail->send()) {
+        if(!$mail->send()) {
             $error_status = "<div class='error' id='status'>Email not sent. -> $mail->ErrorInfo</div>";
         }
         // if mail is sent successfully, throw success message
