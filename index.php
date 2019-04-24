@@ -8,14 +8,7 @@
 	$subject = '';
 	$message = '';
 
-	$error_status1 = '';
-	$error_status2 = '';
-	$error_status3 = '';
-	$error_status4 = '';
-	$error_status5 = '';
-	$error_status6 = '';
-
-	$success_message = '';
+	$error_status = '';
 
 	if(isset($_POST['submit'])) {
 		$fname = mysqli_real_escape_string($con, $_POST['fname']);
@@ -31,28 +24,20 @@
 		$response = file_get_contents($url);
 		$data = json_decode($response);
 
-		if(empty($fname)) {
-			$error_status1 = "First name is empty.";
+		if(empty($fname) || empty($lname) || empty($mailFrom) || empty($subject) || empty($message)) {
+			$error_status = "<div class='error' id='status'>Please fill in all fields!</div>";
 		}
 
-		else if(empty($lname)) {
-			$error_status2 = "Last name is empty.";
+		else if(!(preg_match('/^\pL+$/u', $fname))) {
+			$error_status = "<div class='error' id='status'>Invalid characters found in field 'First Name'. Please try again!</div>";
 		}
 
-		else if(empty($mailFrom)) {
-			$error_status3 = "Email is empty.";
+		else if(!(preg_match('/^\pL+$/u', $lname))) {
+			$error_status = "<div class='error' id='status'>Invalid characters found in field 'Last Name'. Please try again!</div>";
 		}
 
 		else if(!empty($mailFrom) && filter_var($mailFrom, FILTER_VALIDATE_EMAIL) === false) {
-			$error_status3 = "Email provided is invalid.";
-		}
-
-		else if(empty($subject)) {
-			$error_status4 = "Subject is empty.";
-		}
-
-		else if(empty($message)) {
-			$error_status5 = "Message box is empty.";
+			$error_status = "<div class='error' id='status'>Email provided is invalid.</div>";
 		}
 
 		else {
@@ -60,12 +45,17 @@
 				$mailTo = 'gtmservicesnaples@gmail.com';
 				$headers = "From: ".$mailFrom;
 				$txt = $message;
-				mail($mailTo, $subject, $txt, $headers);
-				header("Location: index.php?mailsend");
-				$success_message = "<div class='success'>Message sent successfully!</div>";
+				if (@mail($mailTo, $subject, $txt, $headers)) {
+					header("Location: index.php?success");
+					$error_status = "<div class='success' id='status'>Message sent successfully!</div>";
+				}
+				else {
+					header("Location: index.php?failure");
+					$error_status = "<div class='error' id='status'>Message failed to send!</div>";
+				}
 			}
 			else {
-				$error_status6 = "<div class='error'>Verification failed! Please check the Captcha box above!</div>";
+				$error_status = "<div class='error' id='status'>Verification failed! Please check the Captcha box below!</div>";
 			}  
 		}	
 	}
@@ -74,24 +64,29 @@
 <style type="text/css">
 
 .error {
-    padding-top: 5px;
-    color:red;
+    color: red;
 }
 
 .success {
-    color:green;
+    color: green;
 }
 
 .captcha-wrapper {
 	text-align: center;
 }
+
 .g-recaptcha {
 	display: inline-block;
 }
+
 .index_btn {
 	border-radius: 25px;
 	background: #4B71BA !important;
 	color: white !important;
+}
+
+.index_btn:hover {
+	background-color: #3a5a98 !important;
 }
 
 </style>
@@ -310,55 +305,35 @@
 				<h1>Contact Us</h1>
 				<div class="form-group">
 					<form class="contact-form" method="POST">
+						<center><?php echo $error_status; ?></center></br>
 						<div class="form-row">
 							<div class="col">
 								<label>First Name*</label>
 								<input type="text" name="fname" class="form-control" placeholder="First Name" value = '<?php echo $fname; ?>'/>
-								<div class="error">
-									<?php echo $error_status1; ?>
-								</div>
 							</div>
 							<div class="col">
 								<label>Last Name*</label>
 								<input type="text" name="lname" class="form-control" placeholder="Last Name" value = '<?php echo $lname; ?>'/>
-								<div class="error">
-									<?php echo $error_status2; ?>
-								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label>Email*</label>
 							<input type="email" name="mail" class="form-control" placeholder="Email" value = '<?php echo $mailFrom; ?>'/>
-							<div class="error">
-								<?php echo $error_status3; ?>
-							</div>
 						</div>
 						<div class="form-group">
 							<label>Subject*</label>
 							<input type="text" name="subject" class="form-control" placeholder="Subject" value = '<?php echo $subject; ?>'/>
-							<div class="error">
-								<?php echo $error_status4; ?>
-							</div>
 						</div>		
 						<div class="form-group">
 							<label>Message*</label>
 							<textarea class="form-control" name="message" rows="4" placeholder="Tell Us How We Can Help You"><?php echo $message; ?></textarea>
-							<div class="error">
-								<?php echo $error_status5; ?>
-							</div>
 						</div>
 						<div class="form-group text-center">
 							<div class="g-recaptcha" data-sitekey="6Lfed5wUAAAAAE2GNzOVO2V1Q1UaSHc-JjNreqsq"></div>
-							<center><div class="error">
-								<?php echo $error_status6; ?>
-							</div></center>
 						</div>
 						<div class="submit-button">
 							<button type="submit" name="submit" id="paddingButton" class="btn index_btn">Submit</button>
 						</div>
-						<center><div class="success">
-							<?php echo $success_message; ?>
-						</div></center>
 					</form>
 				</div>					
 				<h4>OR</h4>
