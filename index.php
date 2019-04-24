@@ -364,7 +364,7 @@
 				<h4>OR</h4>
 				<h1>Schedule An Appointment</h1>
 				<div class="appointment-button">
-					<a href="makeAppointment.php" id="paddingButton" class="btn index_btn">Schedule An Appointment</a>
+					<a href="login.php" id="paddingButton" class="btn index_btn">Schedule An Appointment</a>
 				</div>
 			</div>
 		</section>
