@@ -215,7 +215,7 @@ body, html {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	background-image: url("img/login_background.jpg") !important;
+	background-image: url("img/background.jpg") !important;
     background-repeat: no-repeat;
     background-size: cover;
 }

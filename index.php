@@ -326,7 +326,7 @@
 						</div>		
 						<div class="form-group">
 							<label>Message*</label>
-							<textarea class="form-control" name="message" rows="4" placeholder="Tell Us How We Can Help You"><?php echo $message; ?></textarea>
+							<textarea class="form-control" name="message" rows="4" placeholder="Tell us how we can help you!"><?php echo $message; ?></textarea>
 						</div>
 						<div class="form-group text-center">
 							<div class="g-recaptcha" data-sitekey="6Lfed5wUAAAAAE2GNzOVO2V1Q1UaSHc-JjNreqsq"></div>

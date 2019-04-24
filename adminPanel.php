@@ -186,6 +186,7 @@ else {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>	
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
 
+<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 <style class="cp-pen-styles">
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
@@ -640,12 +641,9 @@ main.l-main .page-title {
       <div class="c-header-icon js-hamburger">
         <div class="hamburger-toggle"><span class="bar-top"></span><span class="bar-mid"></span><span class="bar-bot"></span></div>
       </div>
-      <div class="c-search">
-        <input class="c-search__input u-input" placeholder="Search..." type="text"/>
-      </div>
+      
       <div class="header-icons-group">
-        <a title="Settings" href=''><div class="c-header-icon basket"><i class="fa fa-cog"></i></div></a>
-        <a title="Logout" href='logout.php'><div class="c-header-icon logout"><i class="fa fa-sign-out"></i></div></a>
+        <a href='logout.php'><div class="c-header-icon logout"><i class="fa fa-sign-out"></i></div></a>
       </div>
     </div>
   </header>
