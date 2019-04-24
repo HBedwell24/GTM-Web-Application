@@ -85,6 +85,10 @@
 	color: white !important;
 }
 
+.index_btn:hover {
+	background-color: #3a5a98 !important;
+}
+
 </style>
 
 <html>

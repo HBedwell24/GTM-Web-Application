@@ -135,7 +135,7 @@ if(isset($_POST['submit'])) {
         $mail->isHMTL(true);
 
         // if error occurs in sending mail, throws error
-        if(!mail->send()) {
+        if(!$mail->send()) {
             $error_status = "<div class='error' id='status'>Email not sent. -> $mail->ErrorInfo</div>";
         }
         // if mail is sent successfully, throw success message
@@ -302,7 +302,7 @@ label {
                 <div class = "user_card">
                     <div class = "d-flex justify-content-center">
                         <div class = "brand_logo_container">
-                            <img src = "img/icon.png" class = "brand_logo" alt = "Logo">
+                            <a href = "index.php" style="all: none;"><img src = "img/icon.png" class = "brand_logo" alt = "Logo"></a>
                         </div>
                     </div>
                     <div class = "d-flex justify-content-center form_container">
