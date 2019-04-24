@@ -45,13 +45,13 @@ if(isset($_POST['submit'])) {
     || empty($city) || empty($state) || empty($zip_code) || empty($password) || empty($c_password)) {
         $error_status = "<div class='error' id='status'>Please fill in all fields.</div>";
     }
-    // if first name does not contain at least 3 characters, throws error
-    else if(strlen($first_name) < 3) {
-        $error_status = "<div class='error' id='status'>First name must contain at least 3 characters.</div>";
+    // if first name contains anything other than letters, throws error
+    else if(!(preg_match('/^\pL+$/u', $first_name))) {
+        $error_status = "<div class='error' id='status'>Invalid characters found in field 'First Name'. Please try again!</div>";
     }
-    // if last name does not contain at least 3 characters, throws error
-    else if(strlen($last_name) < 3) {
-        $error_status = "<div class='error' id='status'>Last name must contain at least 3 characters.</div>";
+    // if last name contains anything other than letters, throws error
+    else if(!(preg_match('/^\pL+$/u', $last_name))) {
+        $error_status = "<div class='error' id='status'>Invalid characters found in field 'Last Name'. Please try again!</div>";
     }
     // if email provided is not valid, throws error
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
