@@ -97,7 +97,7 @@ body, html {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	background-image: url("img/login_background.jpg") !important;
+	background-image: url("img/golf.jpg") !important;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -117,7 +117,7 @@ body, html {
 	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 5px;
 }
-.brand_logo_container {
+#image {
 	position: absolute;
 	height: 170px;
 	width: 170px;
@@ -182,9 +182,9 @@ body, html {
             <div class="d-flex justify-content-center h-100">
                 <div class="user_card">
                     <div class="d-flex justify-content-center">
-                        <div class="brand_logo_container">
+                        <a href="index.php" id="image"><div class="brand_logo_container">
                             <img src="img/icon.png" class="brand_logo" alt="Logo">
-                        </div>
+                        </div></a>
                     </div>
                     <div class="d-flex justify-content-center form_container">
                         <form method='post'>
