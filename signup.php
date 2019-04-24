@@ -132,7 +132,7 @@ if(isset($_POST['submit'])) {
         $mail->Port = 587;
 
         // tells PHPMailer to send HTML-formatted email
-        $mail->isHMTL(true);
+        $mail->isHTML(true);
 
         // if error occurs in sending mail, throws error
         if(!$mail->send()) {
