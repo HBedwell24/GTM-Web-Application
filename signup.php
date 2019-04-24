@@ -85,16 +85,63 @@ if(isset($_POST['submit'])) {
         $db_id = mysqli_insert_id($con);
         $stmt->close();
 
-        $error_status = "<div class='success' id='status'>Please check your email for an account activation code.</div>";
-        $to=$email;
-        $subject = "Activation code for gtmwebservices.com";
-        $from = 'Christian.8edwell@gmail.com';
-        $dir = 'localhost/GTM-Web-Application-V2/';
+        // generate email recipient name
+        $recipient_name = '' .$first_name. ' ' .$last_name. '';
+        $recipient_email = $email;
+
+        // generate link to reset password
+        $dir = 'www.gtm-services.com/';
         $link = ''.$dir. 'signup.php?id=' .$db_id. '&code=' .$code.'';
-        $body = 'Your activation code is '.$code.'. Please click on this link to activate your account: <a href="'.$link.'">'.$link.'</a>';
-        $headers = "From:.$from\r\n";
-        $headers .= "Content-type: text/html\r\n";
-        mail($to, $subject, $body, $headers);
+
+        // import PHPMailer library for sending SMTP mail
+        require_once('PHPMailer/PHPMailerAutoload.php');
+
+        // instantiate a new PHPMailer
+        $mail = new PHPMailer;
+        $mail->CharSet = "utf-8";
+
+        // tell PHPMailer to use SMTP mail
+        $mail->isSMTP();
+
+        // set sender email address
+        $mail->setFrom('gtmservicesnaples@gmail.com', 'GTM Home Services');
+
+        // set recipient email address
+        $mail->addAddress($recipient_email, $recipient_name);
+
+        // Amazon SES SMTP user name
+        $mail->Username = 'SMTP_Username';
+
+        // Amazon SES SMTP password
+        $mail->Password = 'SMTP_Password';
+
+        // the region of the email host
+        $mail->Host = 'email-smtp.us-west-2.amazonaws.com';
+
+        // the subject line of the email
+        $mail->Subject = 'Activation code for gtmwebservices.com';
+
+        // the HTML-formatted body of the email
+        $mail->Body = 'Your activation code is '.$code.'. Please click on this link to activate your account: <a href="'.$link.'">'.$link.'</a>';
+
+        // tell PHPMailer to use SMTP authentication
+        $mail->SMTPAuth = true;
+
+        // enable SSL encryption over port 465
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+
+        // tells PHPMailer to send HTML-formatted email
+        $mail->isHMTL(true);
+
+        // if error occurs in sending mail, throws error
+        if(!mail->send()) {
+            $error_status = "<div class='error' id='status'>Email not sent. -> $mail->ErrorInfo</div>";
+        }
+        // if mail is sent successfully, throw success message
+        else {
+            $error_status = "<div class='success' id='status'>Please check your email for an account activation code.</div>";
+        }
     }
 }
 
