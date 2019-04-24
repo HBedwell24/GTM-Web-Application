@@ -235,7 +235,7 @@ body, html {
 	-moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	border-radius: 5px;
 }
-.brand_logo_container {
+#image {
 	position: absolute;
 	height: 170px;
 	width: 170px;
@@ -301,9 +301,9 @@ label {
             <div class = "d-flex justify-content-center h-100">
                 <div class = "user_card">
                     <div class = "d-flex justify-content-center">
-                        <div class = "brand_logo_container">
-                            <a href = "index.php" style="all: none;"><img src = "img/icon.png" class = "brand_logo" alt = "Logo"></a>
-                        </div>
+                        <a href = "index.php" id="image"><div class = "brand_logo_container">
+                            <img src = "img/icon.png" class = "brand_logo" alt = "Logo">
+                        </div></a>
                     </div>
                     <div class = "d-flex justify-content-center form_container">
                         <form method = 'post'>
