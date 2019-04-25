@@ -41,7 +41,69 @@ public class UITests {
 	         
 	    String currentURL = driver.getCurrentUrl();
 	    assertEquals(currentURL, "http://localhost/GTM-Web-Application-V2/index.php#top");
-	}	
+	}
+	
+	// 1.1.3 - Unit Test
+	// The Web application shall check validity of the first name provided 
+	// on the registration page.
+	@Test
+	public void testInvalidFirstName() {
+				
+		driver.get("http://localhost/GTM-Web-Application-V2/signup.php");
+		driver.manage().window().maximize();
+		    	
+		driver.findElement(By.name("fname")).sendKeys("Christian80");
+		driver.findElement(By.name("lname")).sendKeys("Bedwell");
+		driver.findElement(By.name("mail")).sendKeys("Christian.8edwell@gmail.com");
+		driver.findElement(By.name("phone")).sendKeys("(000) 000-0000");
+		driver.findElement(By.name("address")).sendKeys("1234 Bangalore Rd.");
+		driver.findElement(By.name("city")).sendKeys("Fort Myers");
+		    	
+		WebElement state_dropdown = driver.findElement(By.name("state"));
+		Select state_dd = new Select(state_dropdown);
+		state_dd.selectByIndex(10);
+
+		driver.findElement(By.name("zcode")).sendKeys("33967");
+		driver.findElement(By.name("pass")).sendKeys("test1234");
+		driver.findElement(By.name("cpass")).sendKeys("test1234");
+		    	
+		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+		driver.findElement(By.name("submit")).click();
+		    	
+		String errorMsg = driver.findElement(By.className("error")).getText();
+		assertEquals(errorMsg, "Invalid characters found in field 'First Name'. Please try again!");
+	}
+			
+	// 1.1.4 - Unit Test
+	// The Web application shall check validity of the first name provided 
+	// on the registration page.
+	@Test
+	public void testInvalidLastName() {
+				
+		driver.get("http://localhost/GTM-Web-Application-V2/signup.php");
+		driver.manage().window().maximize();
+		    	
+		driver.findElement(By.name("fname")).sendKeys("Christian");
+		driver.findElement(By.name("lname")).sendKeys("Bedwell26");
+		driver.findElement(By.name("mail")).sendKeys("Christian.8edwell@gmail.com");
+		driver.findElement(By.name("phone")).sendKeys("(000) 000-0000");
+		driver.findElement(By.name("address")).sendKeys("1234 Bangalore Rd.");
+		driver.findElement(By.name("city")).sendKeys("Fort Myers");
+		    	
+		WebElement state_dropdown = driver.findElement(By.name("state"));
+		Select state_dd = new Select(state_dropdown);
+		state_dd.selectByIndex(10);
+
+		driver.findElement(By.name("zcode")).sendKeys("33967");
+		driver.findElement(By.name("pass")).sendKeys("test1234");
+		driver.findElement(By.name("cpass")).sendKeys("test1234");
+		    	
+		driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+		driver.findElement(By.name("submit")).click();
+		    	
+		String errorMsg = driver.findElement(By.className("error")).getText();
+		assertEquals(errorMsg, "Invalid characters found in field 'Last Name'. Please try again!");
+	}
 	
 	// 1.1.5
 	// The Web application shall check validity of the email 
@@ -495,68 +557,6 @@ public class UITests {
 	    String statusMsg = driver.findElement(By.id("status")).getText();
 	    assertEquals(statusMsg, "Please check your email for an account activation code.");
 	    	
-	}
-	
-	// 1.1.13 - Unit Test
-	// The Web application shall check validity of the first name provided 
-	// on the registration page.
-	@Test
-	public void testInvalidFirstName() {
-			
-		driver.get("http://localhost/GTM-Web-Application-V2/signup.php");
-	    driver.manage().window().maximize();
-	    	
-	    driver.findElement(By.name("fname")).sendKeys("Christian80");
-	    driver.findElement(By.name("lname")).sendKeys("Bedwell");
-	    driver.findElement(By.name("mail")).sendKeys("Christian.8edwell@gmail.com");
-	    driver.findElement(By.name("phone")).sendKeys("(000) 000-0000");
-	    driver.findElement(By.name("address")).sendKeys("1234 Bangalore Rd.");
-	    driver.findElement(By.name("city")).sendKeys("Fort Myers");
-	    	
-	    WebElement state_dropdown = driver.findElement(By.name("state"));
-	    Select state_dd = new Select(state_dropdown);
-	    state_dd.selectByIndex(10);
-
-	    driver.findElement(By.name("zcode")).sendKeys("33967");
-	    driver.findElement(By.name("pass")).sendKeys("test1234");
-	    driver.findElement(By.name("cpass")).sendKeys("test1234");
-	    	
-	    driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-	    driver.findElement(By.name("submit")).click();
-	    	
-	    String errorMsg = driver.findElement(By.className("error")).getText();
-	    assertEquals(errorMsg, "Invalid characters found in field 'First Name'. Please try again!");
-	}
-		
-	// 1.1.13 - Unit Test
-	// The Web application shall check validity of the first name provided 
-	// on the registration page.
-	@Test
-	public void testInvalidLastName() {
-			
-		driver.get("http://localhost/GTM-Web-Application-V2/signup.php");
-	    driver.manage().window().maximize();
-	    	
-	    driver.findElement(By.name("fname")).sendKeys("Christian");
-	    driver.findElement(By.name("lname")).sendKeys("Bedwell26");
-	    driver.findElement(By.name("mail")).sendKeys("Christian.8edwell@gmail.com");
-	    driver.findElement(By.name("phone")).sendKeys("(000) 000-0000");
-	    driver.findElement(By.name("address")).sendKeys("1234 Bangalore Rd.");
-	    driver.findElement(By.name("city")).sendKeys("Fort Myers");
-	    	
-	    WebElement state_dropdown = driver.findElement(By.name("state"));
-	    Select state_dd = new Select(state_dropdown);
-	    state_dd.selectByIndex(10);
-
-	    driver.findElement(By.name("zcode")).sendKeys("33967");
-	    driver.findElement(By.name("pass")).sendKeys("test1234");
-	    driver.findElement(By.name("cpass")).sendKeys("test1234");
-	    	
-	    driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
-	    driver.findElement(By.name("submit")).click();
-	    	
-	    String errorMsg = driver.findElement(By.className("error")).getText();
-	    assertEquals(errorMsg, "Invalid characters found in field 'Last Name'. Please try again!");
 	}
 		
 	// 1.1.15 - Integration Test
