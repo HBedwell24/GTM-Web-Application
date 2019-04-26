@@ -1183,22 +1183,22 @@ main.l-main .page-title {
     <div class="l-sidebar__content">
       <nav class="c-menu js-menu">
         <ul class="u-list">
-          <li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard" rel="dashboard">
+          <li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard" id="dashclick" rel="dashboard">
             <div class="c-menu__item__inner"><i class="fa fa-tachometer"></i>
               <div class="c-menu-item__title"><span>Dashboard</span></div>
             </div>
           </li>
-          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Jobs" rel="jobs">
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Jobs" id="jobsclick" rel="jobs">
             <div class="c-menu__item__inner"><i class="fa fa-tasks"></i>
               <div class="c-menu-item__title"><span>Jobs</span></div>
             </div>
           </li>
-          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Calendar" rel="calendar">
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Calendar" id="calendarclick" rel="calendar">
             <div class="c-menu__item__inner"><i class="fa fa-calendar"></i>
               <div class="c-menu-item__title"><span>Calendar</span></div>
             </div>
           </li>
-          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Messages" rel="messages">
+          <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Messages" id="messagesclick" rel="messages">
             <div class="c-menu__item__inner"><i class="fa fa-comments"></i>
               <div class="c-menu-item__title"><span>Messages</span></div>
             </div>
@@ -1211,13 +1211,13 @@ main.l-main .page-title {
 <main class="l-main">
   <div class="content-wrapper content-wrapper--with-bg">
     <div id="dashboard">
-      <h1 class="page-title">Dashboard</h1>
+      <h1 class="page-title" name="Dashboardh1">Dashboard</h1>
       <div class="page-content">
         Hello, <?php echo ucfirst($firstname)." ".ucfirst($lastname) ?>!
       </div>
     </div>
     <div id="jobs" style="display: none;">
-      <h1 class="page-title">Jobs</h1>
+      <h1 class="page-title" name="Jobsh1">Jobs</h1>
       <div class="page-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
@@ -1226,11 +1226,11 @@ main.l-main .page-title {
       </div>
     </div>
     <div id="calendar" style="display: none;">
-      <h1 class="page-title">Calendar</h1>
+      <h1 class="page-title" name="Calendarh1">Calendar</h1>
       <div class="page-content"></div>
     </div>
     <div id="messages" style="display: none;">
-      <h1 class="page-title">Messages</h1>
+      <h1 class="page-title" name="Messagesh1">Messages</h1>
       <div class="page-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
