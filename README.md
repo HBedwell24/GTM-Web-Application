@@ -1,6 +1,6 @@
 GTM-Web-Application
 ===============================================================
-Digital presence was established for GTM Home Services, showcasing the many services that the company offers, in addition to how one would go about contacting them. Additional features including admin/client sign on and a service scheduler were also implemented, using PHP, Bootstrap, and JavaScript.
+Digital presence was established for a local, all-purpose company called GTM Home Services, showcasing the many services that it offers, in addition to how one would go about contacting them. Additional features including admin/client sign on and a service scheduler were also implemented, using PHP, Bootstrap, and JavaScript.
 
 ## Technologies Used
 * **Amazon Elastic Compute Cloud (EC2)** - provides secure, scalable computing power in the Amazon Web Services cloud 
