@@ -2,6 +2,8 @@ GTM-Web-Application
 ===============================================================
 Digital presence was established for a local, all-purpose company called GTM Home Services, showcasing the many services that it offers, in addition to how one would go about contacting them. Additional features including admin/client sign on and a service scheduler were also implemented, using PHP, Bootstrap, and JavaScript.
 
+![GTM Web Application](img/gtm-web-app.jpg?raw=true "GTM Web Application")
+
 ## Technologies Used
 * **Amazon Elastic Compute Cloud (EC2)** - provides secure, scalable computing power in the Amazon Web Services cloud 
 * **Amazon Relational Database Management Service (RDS)** - a cloud-based SQL database service, which simplifies many of the administrative tasks typically involved with management of a database and frees developers to focus on development of an application
