@@ -11,7 +11,6 @@ Digital presence was established for GTM Home Services, showcasing the many serv
 * **Elastic Beanstalk (ELB)** - orchestration service offered by Amazon Web Services which was used to deploy and manage the web application
 * **Hyper Text Markup Language (HTML)** - standard markup language for development of web pages and web applications
 * **Hypertext Preprocessor (PHP)** - a server-side scripting language which allows development of dynamic web applications which interact with a database
-* **HTML 5** - the standard markup language for Web pages
 * **JavaScript** - a client-side scripting language, that can be inserted anywhere within the HTML of a webpage
 * **MySQL** - an open source relational database management system that is commonly used in conjunction with PHP
 * **Selenium WebDriver** - a web automation framework that allows you to execute your tests against different browsers
