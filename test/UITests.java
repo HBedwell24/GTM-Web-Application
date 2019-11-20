@@ -26,7 +26,7 @@ public class UITests {
         driver.close();
     }
 
-    // 1.1.3 - Unit Test
+    // 1.1.3 - Functional Test
     // The Web application shall check validity of the first name provided 
     // on the registration page.
     @Test
@@ -57,7 +57,7 @@ public class UITests {
         assertEquals(errorMsg, "Invalid characters found in field 'First Name'. Please try again!");
     }
 
-    // 1.1.4 - Unit Test
+    // 1.1.4 - Functional Test
     // The Web application shall check validity of the last name provided 
     // on the registration page.
     @Test
@@ -88,7 +88,7 @@ public class UITests {
         assertEquals(errorMsg, "Invalid characters found in field 'Last Name'. Please try again!");
     }
 
-    // 1.1.5 - Unit Test
+    // 1.1.5 - Functional Test
     // The Web application shall check validity of the email 
     // address provided on the registration page.
     @Test
@@ -120,7 +120,7 @@ public class UITests {
 
     }
 
-    // 1.1.6 - Unit Test
+    // 1.1.6 - Functional Test
     // The Web application shall verify that the password provided on the 
     // registration page is 8 characters in length.
     @Test
@@ -151,7 +151,7 @@ public class UITests {
         assertEquals(statusMsg, "Password must contain at least 8 characters.");
     }
 
-    // 1.1.7 - Unit Test
+    // 1.1.7 - Functional Test
     // The Web application shall check the password to verify that it matches 
     // the string inside the confirm password text box.
     @Test
@@ -182,7 +182,7 @@ public class UITests {
         assertEquals(statusMsg, "Password provided does not match.");
     }
 
-    // 1.1.8 - Unit Test
+    // 1.1.8 - Functional Test
     // The Web application shall prompt the user when not all of the fields on 
     // the registration page have been filled.
     @Test
@@ -212,7 +212,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.8 - Unit Test
+    // 1.1.8 - Functional Test
     // The Web application shall prompt the user when not all of the fields on 
     // the registration page have been filled.
     @Test
@@ -242,7 +242,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.8 - Unit Test
+    // 1.1.8 - Functional Test
     // The Web application shall prompt the user when not all of the fields on 
     // the registration page have been filled.
     @Test
@@ -272,7 +272,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.8 - Unit Test
+    // 1.1.8 - Functional Test
     // The Web application shall prompt the user when not all of the fields on 
     // the registration page have been filled.
     @Test
@@ -302,7 +302,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.8 - Unit Test
+    // 1.1.8 - Functional Test
     // The Web application shall prompt the user when not all of the fields on 
     // the registration page have been filled.
     @Test
@@ -332,7 +332,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.8 - Unit Test
+    // 1.1.8 - Functional Test
     // The Web application shall prompt the user when not all of the fields on 
     // the registration page have been filled.
     @Test
@@ -362,7 +362,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.8 - Unit Test
+    // 1.1.8 - Functional Test
     // The Web application shall prompt the user when not all of the fields on 
     // the registration page have been filled.
     @Test
@@ -389,7 +389,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.8 - Unit Test
+    // 1.1.8 - Functional Test
     // The Web application shall prompt the user when not all of the fields on 
     // the registration page have been filled.
     @Test
@@ -419,7 +419,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.8 - Unit Test
+    // 1.1.8 - Functional Test
     // The Web application shall prompt the user when not all of the fields on 
     // the registration page have been filled.
     @Test
@@ -449,7 +449,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.8 - Unit Test
+    // 1.1.8 - Functional Test
     // The Web application shall prompt the user when not all of the fields on 
     // the registration page have been filled.
     @Test
@@ -479,7 +479,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.9 - Unit Test
+    // 1.1.9 - Functional Test
     // The Web application shall prompt the user when an account already 
     // exists with the credentials provided.
     @Test
@@ -510,7 +510,7 @@ public class UITests {
         assertEquals(errorMsg, "An account already exists with the email provided.");
     }
 
-    // 1.1.12 - Integration Test
+    // 1.1.12 - Functional Test
     // Following creation of an account, the Web application shall 
     // send a verification email to the corresponding email account 
     // to ensure that the user is dual-authenticated.
@@ -543,7 +543,7 @@ public class UITests {
 
     }
 
-    // 1.1.15 - Integration Test
+    // 1.1.15 - Functional Test
     // The Web application shall require email and password to login to an account.
     @Test
     public void testSuccessfulLogin() {
@@ -562,7 +562,7 @@ public class UITests {
 
     }
 
-    // 1.1.16 - Unit Test
+    // 1.1.16 - Functional Test
     // The Web application shall prompt the user when not all of the 
     // fields on the login page have been filled.
     @Test
@@ -580,7 +580,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.16 - Unit Test
+    // 1.1.16 - Functional Test
     // The Web application shall prompt the user when not all of the 
     // fields on the login page have been filled.
     @Test
@@ -598,7 +598,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.17 - Integration Test
+    // 1.1.17 - Functional Test
     // The Web application shall prompt the user when invalid login 
     // credentials have been provided.
     @Test
@@ -618,7 +618,7 @@ public class UITests {
         assertEquals(errorMsg, "Incorrect password provided.");
     }
 
-    // 1.1.19 - Unit Testing
+    // 1.1.19 - Functional Test
     // The Web application shall prompt the user when the login process
     // was unsuccessful
     @Test
@@ -637,7 +637,7 @@ public class UITests {
 
     }
 
-    // 1.1.23 - Unit Test
+    // 1.1.23 - Functional Test
     // The Web application shall prompt the user when not all of 
     // the fields on the reset password page have been filled.
     @Test
@@ -653,7 +653,7 @@ public class UITests {
         assertEquals(errorMsg, "Please fill in all fields.");
     }
 
-    // 1.1.24 - Unit Test
+    // 1.1.24 - Functional Test
     // The Web application shall prompt the user when the 
     // email provided on the reset password page is nonexistent.
     @Test
@@ -671,7 +671,7 @@ public class UITests {
         assertEquals(errorMsg, "Email provided is not associated with any account.");
     }
 
-    // 1.1.25 - Unit Test
+    // 1.1.25 - Functional Test
     // Upon a user request to reset password, the Web application shall send 
     // a reset password link to the email address provided. 
     @Test
@@ -689,7 +689,7 @@ public class UITests {
         assertEquals(errorMsg, "Check your email for link to reset password.");
     }
 
-    // 1.2.3 - Integration Test
+    // 1.2.3 - Functional Test
     // The Web application shall allow the user to navigate to 
     // the login page from the landing page.
     @Test
@@ -706,7 +706,7 @@ public class UITests {
 
     }
 
-    // 1.2.4 - Integration Test
+    // 1.2.4 - Functional Test
     // The Web application shall allow the user to navigate to 
     // the registration page from the landing page.
     @Test
@@ -723,7 +723,7 @@ public class UITests {
 
     }
 
-    // 1.2.5 - Integration Testing
+    // 1.2.5 - Functional Test
     // The Web application shall allow the user to navigate to the schedule 
     // appointment page from the landing page.
     @Test
@@ -739,7 +739,7 @@ public class UITests {
         assertEquals(currentURL, "http://localhost/GTM-Web-Application-V2/login.php");
     }
 
-    // 1.2.6 - Integration Testing
+    // 1.2.6 - Functional Test
     // The Web application shall allow the user to navigate to the 
     // reset password page from the login page.
     @Test
@@ -755,7 +755,7 @@ public class UITests {
         assertEquals(currentURL, "http://localhost/GTM-Web-Application-V2/resetPasswordRequest.php");
     }
 
-    // 1.2.7 - Integration Test
+    // 1.2.7 - Functional Test
     // The Web application shall allow the user to navigate to the 
     // registration page from the login page.
     @Test
@@ -771,7 +771,7 @@ public class UITests {
         assertEquals(currentURL, "http://localhost/GTM-Web-Application-V2/signup.php");
     }
 
-    // 1.2.8 - Integration Test
+    // 1.2.8 - Functional Test
     // The Web application shall allow the user to navigate to the 
     // login page from the registration page.
     @Test
@@ -787,7 +787,7 @@ public class UITests {
         assertEquals(currentURL, "http://localhost/GTM-Web-Application-V2/login.php");
     }
 
-    // 1.2.9 - Integration Testing
+    // 1.2.9 - Functional Test
     // The Web application shall allow the user to navigate to the top 
     // section of the index page by clicking the company logo.
     @Test
@@ -803,7 +803,7 @@ public class UITests {
         assertEquals(currentURL, "http://localhost/GTM-Web-Application-V2/index.php#top");
     }
 
-    // 1.2.10 - Unit Test
+    // 1.2.10 - Functional Test
     // The Web application shall allow the user to navigate to the 
     // 'Home' section of the index page from the navigation bar.
     @Test
@@ -819,7 +819,7 @@ public class UITests {
         assertEquals(currentURL, "http://localhost/GTM-Web-Application-V2/index.php#top");
     }
 
-    // 1.2.11 - Unit Test
+    // 1.2.11 - Functional Test
     // The Web application shall allow the user to navigate to the 'About Us' 
     // section of the index page from the navigation bar.
     @Test
@@ -835,7 +835,7 @@ public class UITests {
         assertEquals(currentURL, "http://localhost/GTM-Web-Application-V2/index.php#about");
     }
 
-    // 1.2.12 - Unit Test
+    // 1.2.12 - Functional Test
     // The Web application shall allow the user to navigate to the 'Services'
     // section of the index page from the navigation bar.
     @Test
@@ -851,7 +851,7 @@ public class UITests {
         assertEquals(currentURL, "http://localhost/GTM-Web-Application-V2/index.php#services");
     }
 
-    // 1.2.13 - Unit Test
+    // 1.2.13 - Functional Test
     // The Web application shall allow the user to navigate to the 'Meet the Team' 
     // section of the index page from the navigation bar.
     @Test
@@ -867,7 +867,7 @@ public class UITests {
         assertEquals(currentURL, "http://localhost/GTM-Web-Application-V2/index.php#team");
     }
 
-    // 1.2.14 - Unit Test
+    // 1.2.14 - Functional Test
     // The Web application shall allow the user to navigate to the 'Contact Us' 
     // section of the index page from the navigation bar.
     @Test
@@ -883,7 +883,7 @@ public class UITests {
         assertEquals(currentURL, "http://localhost/GTM-Web-Application-V2/index.php#contact");
     }
 
-    // 1.2.15 - Unit Test
+    // 1.2.15 - Functional Test
     // The Web application shall allow the user to navigate to the 'Dashboard' 
     // section of the user panel from the navigation bar.
     @Test
@@ -904,7 +904,7 @@ public class UITests {
         assertEquals("Dashboard", h1);
     }
 
-    // 1.2.16 - Unit Test
+    // 1.2.16 - Functional Test
     // The Web application shall allow the user to navigate to the 
     // 'Jobs' section of the user panel from the navigation bar.
     @Test
@@ -926,7 +926,7 @@ public class UITests {
         assertEquals("Jobs", h1);
     }
 
-    // 1.2.17 - Unit Test
+    // 1.2.17 - Functional Test
     // The Web application shall allow the user to navigate to the 
     // 'Calendar' section of the user panel from the navigation bar.
     @Test
@@ -948,7 +948,7 @@ public class UITests {
         assertEquals("Calendar", h1);
     }
 
-    // 1.2.18 - Unit Test
+    // 1.2.18 - Functional Test
     // The Web application shall allow the user to navigate to the 
     // 'Messages' section of the user panel from the navigation bar.
     @Test
